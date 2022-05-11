@@ -1,0 +1,55 @@
+.container-css{
+  width: 100vw;
+  height: 100vh;
+}
+
+.caixa-branca{
+  width: 55%;
+  height: 100%;
+}
+
+.caixa-azul{
+  width: 45%;
+  height: 100%;
+  background: #DCE6F2;
+}
+
+.acesso-admin{
+  width: 80%;
+  height: 30%;
+}
+
+.titulo-entidade{
+  font-size: 30px;
+  margin: 15px 0px 0px 15px;
+}
+
+.dados{
+  color: black;
+  font-size: 15px;
+  width: 60%;
+  margin-left: 15px;
+
+}
+
+.form-senha{
+  width: 80%;
+  margin-left: 15px;
+  background: rgba(196,196,196,48%)
+}
+
+.botao-acessar{
+  margin-left: 15px;
+  width: 40%;
+  background: #435AD9;
+  color: white;
+  font-size: 18px;
+}
+
+a{
+  font-size: 12px;
+}
+
+.esquecer{
+  margin-left: 2px;
+}

@@ -1,0 +1,54 @@
+
+
+.container-css{
+  width: 100vw;
+  height: 100vh;
+}
+
+.caixa-branca{
+  width: 55%;
+  height: 100%;
+}
+
+.caixa-azul{
+  width: 45%;
+  height: 100%;
+  background: #DCE6F2;
+}
+
+.caixa-cinza{
+  width: 70%;
+  height: 30%;
+  background: rgb(119,135,166,51%);
+  border-radius: 5px;
+}
+
+.titulo-entidade{
+  font-size: 25px;
+  margin: 15px 0px 0px 15px;
+}
+
+.tipo-acesso{
+  color: rgb(255,255,255,75%);
+  font-size: 15px;
+  width: 60%;
+  margin-left: 15px;
+
+}
+
+.botao-acessar{
+  margin-left: 15px;
+  width: 40%;
+  background: #435AD9;
+  color: white;
+  font-size: 18px;
+}
+
+
+.botao-acessar{
+  margin-left: 15px;
+  width: 40%;
+  background: #435AD9;
+  color: white;
+  font-size: 18px;
+}
