@@ -53,8 +53,8 @@ form {
 	border-color: #6ce6ff;
 	border-color: #768cf5;
 	position: absolute;
-	top: 600px;
-	right: 350px;
+	top: 600px; 
+	right: 550px; /* Troquei para 550px pq o botao tava fora da caixa (antes 350px) - Vinícius*/
 }
 
 input[type="file"] {
