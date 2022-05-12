@@ -1,0 +1,55 @@
+body {
+    font-family: Inter, sans-serif;
+}
+
+header {
+    background-color: #DDF4F482;
+    height: 4rem;
+    text-align: center;
+}
+
+header > h1 {
+    margin: auto;
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+nav {
+    margin-bottom: 5em;
+}
+
+.flex-container {
+    /* display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center; */
+    margin: 15rem;
+}
+
+.perfil {
+    margin: 1rem;
+    height: 15rem;
+    width: 10rem;
+    text-align: center;
+}
+
+.perfil p {
+    font-size: 1.5rem;
+}
+
+.circle {
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    width: 8em;
+    height: 8em;
+    margin: 1em;
+    text-align: center;
+}
+
+.container  {
+    margin-top: 0;
+    text-align: center;
+}

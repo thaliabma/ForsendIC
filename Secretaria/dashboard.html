@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="side.css">
+  </head>
+  <body>
+    <!-- modal -->
+    <div class="modal fade" id="modal-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Desitência de Vínculo total de curso</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <p><b>Email: </b> <i class="email-sender">joseoliveira@ic.ufal.br</i></p>
+              <p><b>Aluno: </b> <i class="aluno-sender">José Oliveira dos Santos</i></p>
+              <p><b>Matrícula: </b> <i class="matricula-sender">128906-9</i></p>
+              <span><b>Anexos:</b></span><br>
+              <button class="upload btn btn-primary">arquivo.pdf</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <!-- start navbar -->
+    <div class="sidebar">
+            <h3>ForcendIC</h3>
+        <div class="perfil">
+            <div class="circle"></div>
+            <h4>Bem vindo, usuário!</h4>
+        </div>
+        
+        <button class="btn btn-primary w-50">Sair</button>
+    </div>
+    <!-- end navbar -->
+
+  <div class="content">
+      
+    <header id="dash-header">
+        <h3>Situação de formulários</h3>
+    </header>
+    <div class="d-flex table-container w-100 flex-wrap">
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pendentes</th>
+                <th scope="col">Enviados para assinatura</th>
+                <th scope="col">Concluídos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td><button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="linkBtn">Desistência de vínculo de curso</button></td>
+                <td>Some form</td>
+                <td>Some form</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>   </td>
+                <td>   </td>
+                <td>   </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>    </td>
+                <td>    </td>
+                <td>    </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  </body>
+</html>
