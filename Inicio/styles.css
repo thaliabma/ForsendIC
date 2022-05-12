@@ -21,6 +21,8 @@
   height: 30%;
   background: rgb(119,135,166,51%);
   border-radius: 5px;
+  -webkit-box-shadow: -1px 3px 7px 0px rgba(0,0,0,0.57); 
+  box-shadow: -1px 3px 7px 0px rgba(0,0,0,0.57);
 }
 
 .titulo-entidade{
@@ -29,7 +31,7 @@
 }
 
 .tipo-acesso{
-  color: rgb(255,255,255,75%);
+  color: rgb(255,255,255,60%);
   font-size: 15px;
   width: 60%;
   margin-left: 15px;
@@ -42,6 +44,12 @@
   background: #435AD9;
   color: white;
   font-size: 18px;
+}
+
+a:hover{
+  width: 41%;
+  height: 36px;
+  background: #435ad9b6;
 }
 
 
