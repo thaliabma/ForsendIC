@@ -3,7 +3,8 @@ body {
 }
 
 header {
-    background-color: #DDF4F482;
+    /*background-color: #DDF4F482;*/
+    background-image: linear-gradient(to right, #435AD9, #EE5F5F);
     height: 4rem;
     text-align: center;
 }
@@ -52,4 +53,20 @@ nav {
 .container  {
     margin-top: 0;
     text-align: center;
+}
+
+
+/*pedro mexeu daqui pra baixo*/
+
+#forsend{
+    font-family: 'Inter', sans-serif;
+}
+
+.azul{
+    color: blue;
+}
+
+.branco{
+    color: white;
+    padding: 10px;
 }
