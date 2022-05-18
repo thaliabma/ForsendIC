@@ -58,10 +58,6 @@ nav {
 
 /*pedro mexeu daqui pra baixo*/
 
-#forsend{
-    font-family: 'Inter', sans-serif;
-}
-
 .azul{
     color: blue;
 }
@@ -69,4 +65,15 @@ nav {
 .branco{
     color: white;
     padding: 10px;
+}
+
+#rodape{
+	text-align: center;
+	padding: 37px;
+	background: #CCC;
+    height: 150px;
+}
+
+.ufal{
+    float: left;
 }
