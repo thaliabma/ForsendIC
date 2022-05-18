@@ -22,13 +22,44 @@ nav {
     margin-bottom: 5em;
 }
 
-.flex-container {
-    /* display:flex;
-    flex-direction: row;
-    flex-wrap:wrap;
-    justify-content: center; */
-    margin: 15rem;
+.tabela {
+    margin-top: 3rem;
 }
+
+.outer {
+    text-align: center;
+    display: table; 
+    table-layout: fixed; 
+    width: 100%;
+}
+
+.outer div {
+    display: table-cell; 
+    padding: 5px;
+}
+
+.outer :first-child, .outer :last-child {
+    width: 10rem; 
+    background: #f7f7f7;
+}
+
+.outer :last-child {
+    padding-left: 30px;
+}
+
+.middle {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.middle .linkBtn {
+    display: inline;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    width: 3rem;
+}
+
 
 .perfil {
     margin: 1rem;
@@ -67,13 +98,6 @@ nav {
     padding: 10px;
 }
 
-#rodape{
-	text-align: center;
-	padding: 37px;
-	background: #CCC;
-    height: 150px;
-}
-
-.ufal{
-    float: left;
+footer {
+    margin-top: 10rem;
 }

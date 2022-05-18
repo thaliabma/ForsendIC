@@ -21,14 +21,8 @@ body {
     height: 1000px;
 }
 
-@media screen and (max-width: 400px) {
-    .sidebar div {
-        text-align: center;
-        float: none;
+@media (max-width: 200px) {
+    .sidebar {
+        display:none;
     }
-}
-
-.linkBtn {
-    text-decoration: none;
-    border: none;
 }
