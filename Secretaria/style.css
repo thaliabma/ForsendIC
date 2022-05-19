@@ -5,11 +5,16 @@ body {
 header {
     display: flex;
     /*background-color: #DDF4F482;*/
-    background-image: linear-gradient(to bottom right, #1831b9, rgb(182, 182, 245));
+    background: linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);
+
+    /* background-image: linear-gradient(to bottom right, #1831b9, rgb(182, 182, 245)); */
     height: 4rem;
     align-items: center;
     justify-content: center;
 }
+
+
+
 
 footer {
     margin-top: 3rem;
@@ -121,7 +126,8 @@ footer {
 }
 
 #fundo_profilePage{
-    background-image: linear-gradient(to bottom right, #1831b9, rgb(182, 182, 245));
+    background: linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);
+    /* background-image: linear-gradient(to bottom right, #1831b9, rgb(182, 182, 245)); */
 }
 
 .botao-cores-azul {
