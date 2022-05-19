@@ -1,4 +1,4 @@
-let users = [];
+let users = ["Marcelo", "Ana"];
 
 const container = document.querySelector('#flex-container');
 const addBtn = document.querySelector("#addBtn");

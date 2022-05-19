@@ -125,3 +125,25 @@ footer {
 #fundo_profilePage{
     background-image: linear-gradient(to bottom right, #1831b9, rgb(182, 182, 245));
 }
+
+.botao-cores-azul {
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: #31508B;
+    color: #EEEBEB;
+}
+
+.botao-cores-azul:hover {
+    color:#31508B;
+    background-color: #EEEBEB;
+}
+
+.botao-cores {
+    box-shadow: 0px 4px 4px 0px #00000040;
+    color:#31508B;
+    background-color: #EEEBEB;
+}
+
+.botao-cores:hover {
+    background-color: #31508B;
+    color: #EEEBEB;
+}
