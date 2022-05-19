@@ -95,9 +95,28 @@ nav {
 
 .branco{
     color: white;
-    padding: 10px;
+    padding: 1px;
 }
 
 footer {
     margin-top: 10rem;
+}
+
+.caixa_profilePage1{
+    float: left;
+    padding:35px;
+}
+
+.caixa_profilePage2{
+    clear: both;
+    float: center;
+}
+
+.caixa_profilePage3{
+    float: right;
+    padding: 27px;
+}
+
+#fundo_profilePage{
+    background-image: linear-gradient(to bottom right, #1831b9, rgb(182, 182, 245));
 }

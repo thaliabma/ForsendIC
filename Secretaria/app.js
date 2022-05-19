@@ -13,7 +13,7 @@ function loadUsers() {
         `
         <div class="perfil" id="noUsers">
             <div class="circle"></div>
-        <p>Sem usuários</p>
+        <p class= "branco">Sem usuários</p>
         </div>
         `);
     }
