@@ -3,14 +3,12 @@ body {
 }
 
 header {
+    display: flex;
     /*background-color: #DDF4F482;*/
-    background-image: linear-gradient(to right, #435AD9, #EE5F5F);
+    background-image: linear-gradient(to bottom right, #1831b9, rgb(182, 182, 245));
     height: 4rem;
-    text-align: center;
-}
-
-header > h1 {
-    margin: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 footer {
