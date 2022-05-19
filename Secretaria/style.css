@@ -22,6 +22,11 @@ nav {
     margin-bottom: 5em;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 .tabela {
     margin-top: 3rem;
 }
