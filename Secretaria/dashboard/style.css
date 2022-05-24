@@ -6,6 +6,8 @@ body {
     background: linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);
     background-attachment: fixed;
     min-height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* BOTAO */
@@ -30,6 +32,7 @@ body {
     justify-content: center;
     height: 4rem;
     margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 #dash-header h2{ 
@@ -41,7 +44,7 @@ body {
 
 /* START FOOTER */
 footer {
-    margin-top: 3rem;
+    margin-top: 1rem;
     text-align: center;
     color: white;
 }
@@ -143,14 +146,29 @@ footer {
     text-align: center;
 }
 
-.content  {
+main  {
     margin-left: 200px;
     padding: 1px 16px;
-    height: 1000px;
+    min-height: 1000px;
+}
+.content {
+    background-color: white;
+    padding: 1rem;
 }
 
-/*pedro mexeu daqui pra baixo*/
+.grid-wrapper {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1rem;
+    /* grid-template-rows: auto; */
+    background-color: white;
+    padding: 0.5rem;
+    
+}
 
-.azul{
-    color: blue;
+.grid-cell {
+    border-radius: 5px;
+    background-color: rgb(249, 250, 251);
 }
