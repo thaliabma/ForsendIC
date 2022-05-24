@@ -4,6 +4,8 @@
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);
+    background-attachment: fixed;
+    min-height: 100%;
 }
 
 /* BOTAO */
@@ -141,30 +143,14 @@ footer {
     text-align: center;
 }
 
+.content  {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
 
 /*pedro mexeu daqui pra baixo*/
 
 .azul{
     color: blue;
 }
-
-.caixa_profilePage1{
-    float: left;
-    padding:35px;
-}
-
-.caixa_profilePage2{
-    clear: both;
-    float: center;
-}
-
-.caixa_profilePage3{
-    float: right;
-    padding: 27px;
-}
-
-#fundo_profilePage{
-    background: linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);
-    /* background-image: linear-gradient(to bottom right, #1831b9, rgb(182, 182, 245)); */
-}
-
