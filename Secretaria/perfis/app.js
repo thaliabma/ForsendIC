@@ -13,14 +13,14 @@ function loadUsers() {
         `
         <div class="perfil" id="noUsers">
             <div class="circle"></div>
-        <p class= "branco">Sem usuários</p>
+        <p>Sem usuários</p>
         </div>
         `);
     }
     else {
         let displayUsers = users.map(function(user) {
             return `<div class="perfil">
-            <a href="dashboard.html"><div class="circle"></div></a>
+            <a href="/Secretaria/dashboard/dashboard.html"><div class="circle"></div></a>
             <p>${user}<p>
             </div>`
         });
