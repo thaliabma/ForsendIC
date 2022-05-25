@@ -44,7 +44,7 @@ body {
 
 /* START FOOTER */
 footer {
-    margin-top: 1rem;
+    margin-top: 2rem;
     text-align: center;
     color: white;
 }
@@ -149,7 +149,7 @@ footer {
 main  {
     margin-left: 200px;
     padding: 1px 16px;
-    min-height: 1000px;
+    /* min-height: 1000px; */
 }
 .content {
     background-color: white;
