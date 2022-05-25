@@ -156,6 +156,27 @@ main  {
     padding: 1rem;
 }
 
+.form-wrapper {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 4fr 1fr;
+    gap: 1rem;
+}
+
+#submit-search {
+    background-color: #dd2518bd;
+    color: white;
+}
+
+.dropdown {
+    text-align: center;
+}
+
+#dropdownMenuButton1 {
+    background-color: #31508B;
+    width: 100%;
+}
+
 .grid-wrapper {
     width: 100%;
     display: grid;
@@ -169,6 +190,8 @@ main  {
 }
 
 .grid-cell {
+    border: solid 2px; 
+    border-color: rgb(243 244 246);
     border-radius: 5px;
     background-color: rgb(249, 250, 251);
 }
@@ -179,17 +202,6 @@ ul {
 
 li {
     margin: 0.5rem;
-}
-
-.status {
-    padding: 0.2rem;
-    border-radius: 10%;
-    color: white;
-    background-color: black;
-}
-
-.status-recebido {
-    background-color: green;
 }
 
 .open-form-button {
@@ -203,3 +215,24 @@ li {
     background-color: darkred;
     color: white;
 }
+
+.status {
+    padding: 0.2rem;
+    border-radius: 10%;
+    color: white;
+    background-color: black;
+}
+
+.status-recebido {
+    background-color: #ffeb3b;
+}
+
+.status-enviado {
+    background-color: #2196F3;
+}
+
+.status-concluido {
+    background-color: #4CAF50;
+}
+
+
