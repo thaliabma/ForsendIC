@@ -101,7 +101,7 @@ input[type="file"] {
 
 #enviar {
 	color: white;
-	margin: 3.5% 0% 0% 80%;
+	margin: 2.5% 0% 0% 80%;
 	padding: 0.35% 2.7%;
 	background: linear-gradient(#31508B, #8398BF);
 	border-radius: 0.7em;
@@ -145,6 +145,10 @@ a:link, a:visited, a:active{
     border-style: outset;
     border-width: 0.03em;
     font-size: 0.8em;
+   }
+
+   #enviar{
+   	margin: 3.5% 0% 0% 80%;
    }
 
     input[type="file"] {
