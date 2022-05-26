@@ -4,22 +4,6 @@ html { font-family: 'Inter', sans-serif; }
   html { font-family: 'Inter var', sans-serif; }
 }
 
-body {
-	background: url(/assets/FundoFolha.png);
-}
-
-#cabecalho{
-	padding: 1% 1%;
-	position: absolute;
-	z-index: -1;
-	opacity: 0.3;
-}
-
-form {
-	text-align: left;
-	margin-left: 10%;
-}
-
 @keyframes go-back {
     0% {
         transform: translateY(0.7em);
@@ -29,74 +13,101 @@ form {
     }
 }
 
+body {
+	background: url(/assets/FundoFolha.png);
+}
+
+/*primeira div -> imagens atrás da caixa*/
+
+#cabecalho{
+	padding: 1% 1%;
+	position: absolute;
+	z-index: -1;
+	opacity: 0.3;
+}
+
+#forsend {
+	margin: 1% 1% 1% 1%;
+	width: 14%;
+	height: 9%;
+}
+
+#ufal {
+	margin: 0% 1% 1% 1%;
+	width: 8%;
+	height: 13%;
+	float: right;
+}
+
+form {
+	text-align: left;
+	margin-left: 10%;
+	flex-basis: 400px;
+}
+
 #caixa2{
 	opacity: none;
 	display: flex;
 	width: 70%;
 	height: 86%;
-	margin: 3.5% 15%;
+	margin: 3.5% 15% 3.5% 15%;
 	background: white;
 	text-align: center;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: space-around;
-	border-width: 2px;
+	border-width: 0.1em;
 	border-style: outset;
-	box-shadow: 1px 1px 0.6em gray;
+	box-shadow: 0.1em 0.1em 0.6em gray;
+	min-height: 600px;
 	position: absolute;
-	z-index: 3;
+	z-index: 2;
 	animation: go-back 0.8s;
-	min-height: 540px;
-}
-
-#titulo{
-	margin: 0px 0px;
-	padding: 0 0 0px 0;
+	border-radius: 0.6em;
 }
 
 #subtitulo {
 	font-size: 1.3em;
 }
 
+input[type="file"] {
+	margin: 1% 1% 1% 1%;
+	color: #355592;
+}
+
 .campoF {
 	width: 60%;
-	height: 8%;
+	height: 7%;
 	text-align: left;
 	margin-bottom: 2%;
 	border-style: inset;
 	border-color: white;
-	box-shadow: 0 0 1em gray;
-	box-shadow: 1px 1px 0.2em gray;
-	font-size: 1em;
+	box-shadow: 0.1em 0.1em 0.2em gray;
+	font-size: 0.8em;
+}
+
+.labelFile {
+	margin: 1% 0% 1% 0%;
+    padding: 0.5% 3% 0.5% 0.5%;
+    background-color: #F5F5F5;
+    cursor: pointer;
+    border-style: outset;
+    border-width: 0.03em;
+}
+
+.labelCampos{
+	font-size: 1.2em;
 }
 
 #enviar {
 	color: white;
-	margin: 1% 0% 0% 80%;
-	padding: 0.5% 2%;
+	margin: 3.5% 0% 0% 80%;
+	padding: 0.35% 2.7%;
 	background: linear-gradient(#31508B, #8398BF);
-	border-radius: 7px;
+	border-radius: 0.7em;
 	border-style: outset;
 	border-color: #31508B;
 	cursor: pointer;
-	font-size: 1.1em;
-}
-
-input[type="file"] {
-	margin: 1% 1% 0.5% 1%;
-	color: #355592;
-}
-
-.labelFile {
-    padding: 0.5% 3% 0.5% 0.5%;
-    /*width: 200px;*/
-    background-color: #F5F5F5;
-    cursor: pointer;
-    border-style: outset;
-    border-width: 1px;
-}
-
-.labelCampos{
 	font-size: 1.2em;
 }
 
@@ -112,68 +123,66 @@ a:link, a:visited, a:active{
 	color: #000000;
 }
 
-#arq1{
-	margin-top: 100%;
-}
-
-#ufal {
-	margin: 1% 0% 0% 0%;
-	width: 8%;
-	height: 13%;
-	float: right;
-}
-
-#forsend {
-	margin: 1% 1% 0% 0%;
-	width: 14%;
-	height: 9%;
-}
-
-@media screen and (max-width: 900px) {
-  img {
-  	display: none;
+@media screen and (max-height: 700px) {
+   #caixa2 {
+  	width: 90%;
+  	height: 100%;
+  	margin: 4%;
   }
 
-  #caixa2 {
-  	width: 95%;
-  	height: 95%;
-  	margin: 0% 0%;
+  .campoF {
+	width: 60%;
+	height: 8%;
+	margin-bottom: 1%;
+	font-size: 0.8em;
   }
+
+   .labelFile {
+	margin: 0% 0% 0% 0%;
+    padding: 0.5% 3% 0.5% 0.5%;
+    background-color: #F5F5F5;
+    cursor: pointer;
+    border-style: outset;
+    border-width: 0.03em;
+    font-size: 0.8em;
+   }
+
+    input[type="file"] {
+		margin: 0.4% 1% 0.4% 1%;
+		color: #355592;
+   }
 }
 
 @media screen and (max-width: 680px) {
-  
 
   #titulo{
   	font-size: 1.5em;
   }
 
   #subtitulo{
-  	font-size: 1em;
+  	font-size: 1.1em;
   }
 
   .labelCampos{
-  	font-size: 1em;
+  	font-size: 1.2em;
   }
 
   .labelFile{
   	font-size: 0.8em;
+  	background: white;
+  	border-width: 0em;
   }
 
   #enviar{
   	font-size: 1em;
   }
+
+  input[type="file"] {
+	margin: 0.5% 1% 1.5% 1%;
+  }
   	
 }
 
-@media screen and (max-width: 560px) {
-	
-	form {
-  		margin-left: 2%;
-    }
 
-    .labelFile {
-    	padding-right: 0%;
-    }
-}
+
 

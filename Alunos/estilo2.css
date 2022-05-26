@@ -8,11 +8,28 @@ body {
 	background: url(/assets/FundoFolha.png);
 }
 
+/*primeira div -> imagens atrás da caixa*/
+
 #cabecalho{
-	padding: 1% 1%;
+	padding: 1% 1% 1% 1%;
 	position: absolute;
 	z-index: -1;
 }
+
+#forsend {
+	margin: 1% 1% 1% 1%;
+	width: 14%;
+	height: 9%;
+}
+
+#ufal {
+	margin: 0% 1% 1% 1%;
+	width: 8%;
+	height: 13%;
+	float: right;
+}
+
+/*seguda div -> caixa principal*/
 
 #caixa{
 	display:flex;
@@ -23,21 +40,17 @@ body {
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: space-around;
-	/*border-style: outset;*/
-	min-height: 350px;
+	min-height: 600px;
 	position: absolute;
 	z-index: 2;
 }
 
 #titulo{
 	font-size: 3rem;
-	/*flex-basis: 100px 100px;*/
-	margin: 0% 0%;
 }
 
 #subtitulo{
 	font-size: 1.5rem;
-	margin: 0% 0%;
 }
 
 .forms {
@@ -48,60 +61,42 @@ body {
 	border-style: outset;
 	border-color: #e2e2e2;
 	border-color: #31508B;
-	border-radius: 8px;
+	border-radius: 0.8em;
 }
 
-a{
+#caixa a{
 	display: block;
 }
 
-a:link, a:visited, a:active{
+#caixa a:link, a:visited, a:active{
 	text-decoration: none;
 	color: white;
 }
 
 a:hover {
-	background: rgba(53, 85, 146, 0.4);
 	background: rgba(0,0,0,0.1);
 	color: #DD2418;
 }
 
-
-
 #sair {
 	margin:0% 40%;
-	border-radius: 5px;
+	border-radius: 0.5em;
 	color: black;
 }
 
-#ufal {
-	margin: 1% 0% 0% 0%;
-	width: 8%;
-	height: 13%;
-	float: right;
-}
-
-#forsend {
-	margin: 1% 1% 0% 0%;
-	width: 14%;
-	height: 9%;
-}
+/*responsividade*/
 
 @media screen and (max-width: 900px) {
-  img {
-  	display: none;
-  }
-
   #caixa {
-  	width: 95%;
-  	height: 95%;
-  	margin: 0% 0%;
+  	width: 90%;
+  	height: 90%;
+  	margin: 2.5% 2.5% 3.5% 4.5%;
   }
 }
 
-@media screen and (max-width: 900px) and (max-height: 400px)  {
+@media screen and (max-width: 600px){
   #subtitulo{
-  	font-size: 1rem;
+  	font-size: 1.2rem;
   }
 
   .forms{
