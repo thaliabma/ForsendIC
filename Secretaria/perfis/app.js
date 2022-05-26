@@ -40,7 +40,7 @@ addBtn.addEventListener('click', function() {
         console.log(users);
         container.insertAdjacentHTML('afterbegin', `
         <div class="perfil">
-        <a href="dashboard.html"><div class="circle"></div></a>
+        <a href="/dashboard/dashboard.html"><div class="circle"></div></a>
         <p>${userName}<p>
         </div>
         `);
