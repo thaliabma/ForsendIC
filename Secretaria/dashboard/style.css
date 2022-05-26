@@ -159,7 +159,7 @@ main  {
 .form-wrapper {
     display: grid;
     width: 100%;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
     gap: 1rem;
 }
 
@@ -235,4 +235,17 @@ li {
     background-color: #4CAF50;
 }
 
+.lista-modal {
+    font-size: larger;
+}
 
+.modal-dialog .dropdown {
+    display: inline;
+}
+
+#botao-drop {
+    float: inline-end;    
+    background-color: #31508B;
+    font-size: 1rem;
+    color: white;
+}

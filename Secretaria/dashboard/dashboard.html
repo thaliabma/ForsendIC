@@ -15,19 +15,35 @@
   <body>
 
     <!-- modal -->
-    <div class="modal fade" id="modal-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="modal-form" tabindex="-1" aria-labelledby="Modal forms" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Desitência de Vínculo total de curso</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Desitência de Vínculo Total de Curso</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              <p><b>Email: </b> <i class="email-sender">joseoliveira@ic.ufal.br</i></p>
-              <p><b>Aluno: </b> <i class="aluno-sender">José Oliveira dos Santos</i></p>
-              <p><b>Matrícula: </b> <i class="matricula-sender">128906-9</i></p>
-              <span><b>Anexos:</b></span><br>
-              <button class="upload btn btn-primary">arquivo.pdf</button>
+            <ul class="list-group lista-modal">
+              <li><strong>Aluno</strong>: Hélder Silva Ferreira Lima</li>
+              <li><strong>Email</strong>: helder@ic.ufal.br</li>
+              <li><strong>Matricula</strong>: 123456789</li>
+              <li><strong>Data de Envio</strong>: 25/05/2022</li>
+              <li><strong>Status</strong>: Recebido</li> 
+              <li>
+                <button class="upload btn botao-acessar"><i class="fa-solid fa-download"></i> Arquivos</button>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle botao-acessar" id="botao-drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Alterar Status
+                  </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Recebido</a></li>
+                      <li><a class="dropdown-item" href="#">Enviado</a></li>
+                      <li><a class="dropdown-item" href="#">Concluído</a></li>
+                    </ul>
+                  </div>
+              </li>
+              
+            </ul>
           </div>
         </div>
       </div>
@@ -68,7 +84,7 @@
       <!-- FILTRO -->
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Filtrar
+          Demandas
         </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="#">Tudo</a></li>
@@ -77,7 +93,20 @@
             <li><a class="dropdown-item" href="#">Rematrícula</a></li>
           </ul>
         </div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Status
+          </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Tudo</a></li>
+              <li><a class="dropdown-item" href="#">Recebidos</a></li>
+              <li><a class="dropdown-item" href="#">Enviados</a></li>
+              <li><a class="dropdown-item" href="#">Concluídos</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
+
     </div>
 
     <!-- END FILTRO -->
@@ -94,7 +123,7 @@
                 <strong>Data de envio: </strong> 24/05/2022
               </li>
               <li>
-                <strong>Demanda</strong>: Desitência de Vínculo total de curso
+                <strong>Demanda</strong>: Desitência de Vínculo Total de Curso
               </li>
               <li>
                 <span class="status status-recebido">Recebido</span>
@@ -114,7 +143,7 @@
                 <strong>Data de envio: </strong> 24/05/2022
               </li>
               <li>
-                <strong>Demanda</strong>: Desitência de Vínculo total de curso
+                <strong>Demanda</strong>: Desitência de Vínculo total de Curso
               </li>
               <li>
                 <span class="status status-enviado">Enviado</span>
@@ -165,14 +194,14 @@
           
         </div>
       </div>
+      <!--rodape-->
+      <footer>
+        <img class="ufal navbar-brand" src="/assets/ufal.png" width="80" height="80">    
+        <strong>Todos os direitos reservados</strong>
+      </footer>
     </main>
     <!-- end table -->
     
-    <!--rodape-->
-    <footer>
-      <img class="ufal navbar-brand" src="/assets/ufal.png" width="80" height="80">    
-      <strong>Todos os direitos reservados</strong>
-    </footer>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
