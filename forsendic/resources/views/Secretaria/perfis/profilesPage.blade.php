@@ -12,17 +12,17 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <link href="{{asset('css/secretaria/style_perfis.css')}}" rel="stylesheet" />
   </head>
   <body>
 
   <!-- START HEADER -->
     <div class="page-header text-center">
       <div class="logo-wrapper">
-        <img src="/assets/Logo_clara.png" width="180" />
+        <img src="{{asset('/images/Logo_clara.png')}}" width="180" />
       </div>
       <div class="ufal-logo">
-        <img src="/assets/Ufal_white.png" width="100" height="100" />
+        <img src="{{asset('/images/Ufal_white.png')}}" width="100" height="100" />
       </div>
       <div class="header-title">
         <h2><strong>Quem está acessando?</strong></h2>
@@ -52,7 +52,7 @@
 
     <footer><strong>Todos os direitos reservados</strong></footer>
 
-    <script src="app.js"></script>
+    <script src="{{asset('css/app.js')}}"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

@@ -2,22 +2,22 @@
 	<head>
 		<meta charset="utf-8">
 
-		<link rel="stylesheet" type="text/css" href="estiloForms.css">
+		<link rel="stylesheet" type="text/css" href="{{asset('/css/alunos/estiloForms.css')}}">
 
 	</head>
 
 	<body>
 		<div id="cabecalho">
 
-			<img id="forsend" src="/assets/Logo_ForsendIC.png">	
+			<img id="forsend" src="{{asset('/images/Logo_ForsendIC.png')}}">	
 
-			<img id="ufal" src="/assets/ufal.png">
+			<img id="ufal" src="{{asset('/images/ufal.png')}}">
 
 		</div> 
 
 		<div id="caixa2">
 			<div>
-				<a id="x" href="MenuFormularios.html">X</a>
+				<a id="x" href="/alunos">X</a>
 				<h1 id="titulo">Desistência de Vínculo Total de Curso</h1>
 				<label id="subtitulo">Preencha todos os campos do formulário</label>
 			</div>

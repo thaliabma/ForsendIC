@@ -9,15 +9,15 @@
     />
 
     <!-- Bootstrap CSS -->
-    <link href="/bootstrap5.1.3/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{asset('css/style_cadastroAdmin.css')}}" rel="stylesheet" />
     <title>Acesso Administrativo</title>
   </head>
   <body>
     <div class="container-css d-flex flex-row">
       <div class="position-absolute m-lg-3">
         <img
-          src="/assets/ufal.png"
+          src="{{asset('images/ufal.png')}}"
           alt="Logo da Ufal"
           style="width: 114px; height: 113px"
         />
@@ -26,7 +26,7 @@
         class="caixa-branca justify-content-center d-flex align-items-center flex-column"
       >
         <img
-          src="/assets/Logo_ForsendIC.png"
+          src="{{asset('images/Logo_ForsendIC.png')}}"
           alt="Logomarca do ForsendIC"
           style="width: 60%; height: 17%"
         />
@@ -43,7 +43,7 @@
       </div>
       <div class="caixa-azul d-flex justify-content-center align-items-center">
         <div class="acesso-admin">
-          <a href="/Inicio/index.html">
+          <a href="{{'/'}}">
             <svg
   
               xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@
             <!-- <button class="botao-acessar btn" type="submit">Entrar</button>
             <a href="/Secretaria/profilesPage.html">.</a> -->
           </form>
-          <a href="/Secretaria/perfis/profilesPage.html"><button class="botao-acessar btn">Entrar</button></a>
+          <a href="{{'/secretaria/perfis'}}"><button class="botao-acessar btn">Entrar</button></a>
           <a class="esquecer" href="#">Esqueci minha senha</a>
         </div>
       </div>

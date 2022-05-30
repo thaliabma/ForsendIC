@@ -20,7 +20,7 @@ function loadUsers() {
     else {
         let displayUsers = users.map(function(user) {
             return `<div class="perfil">
-            <a href="/Secretaria/dashboard/dashboard.html"><div class="circle"></div></a>
+            <a href="/secretaria/dashboard"><div class="circle"></div></a>
             <p>${user}<p>
             </div>`
         });
@@ -40,7 +40,7 @@ addBtn.addEventListener('click', function() {
         console.log(users);
         container.insertAdjacentHTML('afterbegin', `
         <div class="perfil">
-        <a href="/dashboard/dashboard.html"><div class="circle"></div></a>
+        <a href="/secretaria/dashboard}}"><div class="circle"></div></a>
         <p>${userName}<p>
         </div>
         `);

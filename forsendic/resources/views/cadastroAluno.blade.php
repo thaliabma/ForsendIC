@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
-    <link href="/bootstrap5.1.3/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{asset('css/style_cadastroAluno.css')}}" rel="stylesheet" />
     <title>Acesso Aluno</title>
   </head>
   <body>
     <div class="container-css d-flex flex-row">
       <div class="position-absolute m-lg-3">
         <img
-          src="ufal.png"
+          src="{{asset('images/ufal.png')}}"
           alt="Logo da Ufal"
           style="width: 114px; height: 113px"
         />
@@ -22,7 +22,7 @@
         class="caixa-branca justify-content-center d-flex align-items-center flex-column"
       >
         <img
-          src="/assets/Logo_ForsendIC.png"
+          src="{{asset('images/Logo_ForsendIC.png')}}"
           alt="Logomarca do ForsendIC"
           style="width: 60%; height: 17%"
         />
@@ -39,7 +39,7 @@
       </div>
       <div class="caixa-azul d-flex justify-content-center align-items-center">
         <div class="acesso-admin">
-          <a href="/Inicio/index.html">
+          <a href="{{'/'}}">
             <svg
   
               xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@
             <!-- <button class="botao-acessar btn" type="submit">Solicitar chave</button>
             <a href="/Alunos/MenuFormularios.html">.</a> -->
           </form>
-          <a href="/Alunos/MenuFormularios.html"><button class="botao-acessar btn">Solicitar chave</button></a>
+          <a href="{{'/alunos'}}"><button class="botao-acessar btn">Solicitar chave</button></a>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/06c083b33f.js" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS v5.0.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link href="{{asset('css/secretaria/style_dashboard.css')}}" rel="stylesheet" />
   </head>
   <body>
     <!-- modal -->
@@ -50,11 +50,11 @@
 
     <!-- start navbar -->
     <div class="sidebar">
-            <img src="/assets/Logo_ForsendIC.png" width="180">
+            <img src="{{asset('/images/Logo_ForsendIC.png')}}" width="180">
         <div class="perfil-dash">
             <div class="circle"></div>
             <h4>Bem-vindo, usuário!</h4>
-            <a href="/Inicio/index.html"><button class="botao-acessar btn btn-primary">Sair</button></a>
+            <a href="{{'/'}}"><button class="botao-acessar btn btn-primary">Sair</button></a>
         </div>
     </div>
     <!-- end navbar -->
@@ -191,7 +191,7 @@
       </div>
       <!--rodape-->
       <footer>
-        <img class="ufal navbar-brand" src="/assets/ufal.png" width="80" height="80">    
+        <img class="ufal navbar-brand" src="{{asset('/images/ufal.png')}}" width="80" height="80">    
         <strong>Todos os direitos reservados</strong>
       </footer>
     </main>

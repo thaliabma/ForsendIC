@@ -1,22 +1,23 @@
 <html lang="pt-br">
-	
 	<head>
 		<meta charset="utf-8">
 
-		<link rel="stylesheet" type="text/css" href="estiloForms.css">
+		<link rel="stylesheet" type="text/css" href="{{asset('/css/alunos/estiloForms.css')}}">
 
 	</head>
 
 	<body>
-
 		<div id="cabecalho">
-			<img id="forsend" src="/assets/Logo_ForsendIC.png">	
-			<img id="ufal" src="/assets/ufal.png">
+
+			<img id="forsend" src="{{asset('/images/Logo_ForsendIC.png')}}">	
+
+			<img id="ufal" src="{{asset('/images/ufal.png')}}">
+
 		</div> 
 
 		<div id="caixa2">
 			<div>
-				<a id="x" href="MenuFormularios.html">X</a>
+				<a id="x" href="/">X</a>
 
 				<h1 id="titulo">Trancamento de Matrícula de Disciplina</h1>
 

@@ -3,16 +3,16 @@
 		<title>Estilo CSS externo</title>
 		<meta charset="utf-8">
 
-		<link rel="stylesheet" type="text/css" href="estilo2.css">
+		<link rel="stylesheet" type="text/css" href="{{asset('css/alunos/estilo2.css')}}">
 
 	</head>
 
 	<body>
 
 		<div id="cabecalho">
-			<img id="forsend" src="/assets/Logo_ForsendIC.png">	
+			<img id="forsend" src="{{asset('/images/Logo_ForsendIC.png')}}">	
 
-			<img id="ufal" src="/assets/ufal.png">
+			<img id="ufal" src="{{asset('/images/ufal.png')}}">
 		</div>
 
 		<div id="caixa">
@@ -20,11 +20,11 @@
 
 			<p id="subtitulo">Selecione abaixo o formulário que deseja enviar para secretaria:</p>
 
-			<a class="forms" href="desistencia.html">Desistência de Vínculo Total de Curso</a>
-			<a class="forms" href="trancamento.html">Trancamento de Matrícula de Disciplina</a>
-			<a class="forms" href="rematricula.html">Rematrícula</a>
+			<a class="forms" href="/alunos/desistencia">Desistência de Vínculo Total de Curso</a>
+			<a class="forms" href="/alunos/trancamento">Trancamento de Matrícula de Disciplina</a>
+			<a class="forms" href="/alunos/rematricula">Rematrícula</a>
 
-			<a id="sair" href="/Inicio/index.html">⍈ Sair</a> 
+			<a id="sair" href="/">⍈ Sair</a> 
 		</div> 
 
 	</body>
