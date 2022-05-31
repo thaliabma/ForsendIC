@@ -11,6 +11,8 @@ return new class extends Migration
      *
      * @return void
      */
+
+    //  essa migration vai guardar os dados da secretaria
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {

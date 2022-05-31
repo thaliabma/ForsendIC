@@ -60,19 +60,30 @@
           </svg>
           <p class="titulo-entidade">Acesso Administrativo</p>
           <p class="dados">Informe sua senha</p>
-          <form>
+          <form method="POST" action="{{route('secretaria.check')}}">
+            @csrf
             <input
               type="password"
               class="form-senha form-control mb-3"
               id="inputPassword"
-              name="senha"
+              name="password"
               placeholder="senha"
             />
-            <!-- <button class="botao-acessar btn" type="submit">Entrar</button>
-            <a href="/Secretaria/profilesPage.html">.</a> -->
+            <input type="hidden" name="email" value="secretaria@ic.ufal.br">
+            <button class="botao-acessar btn" type="submit">Entrar</button>
+            {{-- <a href="/Secretaria/profilesPage.html">.</a> --}}
           </form>
-          <a href="{{'/secretaria/perfis'}}"><button class="botao-acessar btn">Entrar</button></a>
+          {{-- <a href="{{'/secretaria/perfis'}}"><button class="botao-acessar btn">Entrar</button></a> --}}
           <a class="esquecer" href="#">Esqueci minha senha</a>
+          <div style="background-color: red">
+            @error('email')
+                <p style="color:white">Email inválido</p>
+            @enderror
+
+            @error('password')
+                <p style="color:white">Senha inválida</p>
+            @enderror
+          </div>
         </div>
       </div>
     </div>

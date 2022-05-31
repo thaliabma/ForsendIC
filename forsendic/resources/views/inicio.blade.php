@@ -52,7 +52,7 @@
           </p>
           <a
             class="botao-acessar btn btn-sm"
-            href="{{'/login/secretaria'}}"
+            href="{{route('secretaria.login')}}"
             role="button"
             >Acessar</a
           >

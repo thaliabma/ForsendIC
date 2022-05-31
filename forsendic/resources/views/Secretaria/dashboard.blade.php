@@ -54,7 +54,10 @@
         <div class="perfil-dash">
             <div class="circle"></div>
             <h4>Bem-vindo, usuário!</h4>
-            <a href="{{'/'}}"><button class="botao-acessar btn btn-primary">Sair</button></a>
+            <form method="post" action="{{route('secretaria.logout')}}">
+              @csrf
+              <button class="botao-acessar btn btn-primary" type="submit">Sair</button>
+            </form>
         </div>
     </div>
     <!-- end navbar -->
