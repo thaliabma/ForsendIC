@@ -17,17 +17,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('secretaria')->name('secretaria.')->group(function() {
     Route::middleware(['guest'])->group(function() {
-        // Route::view('/', 'inicio')->name('inicio');
         Route::view('/login', 'cadastroAdmin')->name('login'); //secretaria123
         Route::post('/check', [UserController::class, 'check'])->name('check');
+        
+        // forgot password
+        Route::post('/forgot-password', [UserController::class, 'checkForgotPassword'])->name('checkForgotPassword');
+        
+        Route::view('/reset-password/{token}', function($token) {
+            return view('secretaria.reset-password', ['token' => $token]);
+        })->name('password.reset');
+        Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('password.update');
     });
     
     Route::middleware(['auth'])->group(function() {
+        Route::view('/perfil', 'Secretaria.perfis.profilesPage')->name('perfil');
         Route::view('/dashboard', 'Secretaria.dashboard')->name('dashboard');
-        // Route::get('/login', function() {
-        //     return redirect(route('secretaria.dashboard'));
-        // });
-
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
     });
 

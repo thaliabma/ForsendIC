@@ -69,21 +69,33 @@
               name="password"
               placeholder="senha"
             />
-            <input type="hidden" name="email" value="secretaria@ic.ufal.br">
+            <input type="hidden" name="email" value="orfeowrk@gmail.com">
             <button class="botao-acessar btn" type="submit">Entrar</button>
             {{-- <a href="/Secretaria/profilesPage.html">.</a> --}}
           </form>
           {{-- <a href="{{'/secretaria/perfis'}}"><button class="botao-acessar btn">Entrar</button></a> --}}
-          <a class="esquecer" href="#">Esqueci minha senha</a>
-          <div style="background-color: red">
-            @error('email')
-                <p style="color:white">Email inválido</p>
-            @enderror
+          <span class="text-danger">@error('password') {{$message}} @enderror</span>
+          
+          <form action="{{route('secretaria.checkForgotPassword')}} " method="POST">
+            @csrf
+            <input type="hidden" name="email" value="orfeowrk@gmail.com">
+            <input class="esquecer" type="submit" value="Esqueci minha senha">
+          </form>
+          
+          <div class="card-body">
+            @if (session('status'))
+            <div class="alert alert-success" role="alert">
+              {{session('status')}}
+            </div>
+            @endif
 
-            @error('password')
-                <p style="color:white">Senha inválida</p>
-            @enderror
+            @if ($errors->has('email'))
+              <span class="invalid-feedback" role="alert">
+                <strong>{{$errors->first('email')}}</strong>
+              </span>
+            @endif
           </div>
+        </div>
         </div>
       </div>
     </div>
