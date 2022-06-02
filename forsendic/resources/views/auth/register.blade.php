@@ -61,6 +61,12 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="tipo col-md-4 col-form-label text-md-end"> Tipo </label>></label>
+                            <input type="radio" name="role_id" value="1">1
+                            <input type="radio" name="role_id" value="2">2
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

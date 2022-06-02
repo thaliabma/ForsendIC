@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -15,26 +16,51 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('secretaria')->name('secretaria.')->group(function() {
-    Route::middleware(['guest'])->group(function() {
-        Route::view('/login', 'cadastroAdmin')->name('login'); //secretaria123
-        Route::post('/check', [UserController::class, 'check'])->name('check');
-        
-        // forgot password
-        Route::post('/forgot-password', [UserController::class, 'checkForgotPassword'])->name('checkForgotPassword');
-        
-        Route::view('/reset-password/{token}', function($token) {
-            return view('secretaria.reset-password', ['token' => $token]);
-        })->name('password.reset');
-        Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('password.update');
-    });
-    
-    Route::middleware(['auth'])->group(function() {
-        Route::view('/perfil', 'Secretaria.perfis.profilesPage')->name('perfil');
-        Route::view('/dashboard', 'Secretaria.dashboard')->name('dashboard');
-        Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+Route::post('/create', [UserController::class, 'create'])->name('newUser');
+
+Route::group([
+    'middleware' => 'auth.role',
+    'role' => 'secretaria'
+], function() {
+        Route::prefix('secretaria')->name('secretaria.')->group(function(){
+            Route::view('/perfil', 'Secretaria.perfis.profilesPage')->name('perfil');
+            Route::view('/dashboard', 'Secretaria.dashboard')->name('dashboard');
+        });
     });
 
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::group([
+    'middleware' => 'auth.role',
+    'role' => 'aluno'
+], function(){
+    Route::prefix('aluno')->name('aluno.')->group(function(){
+        Route::get('/forms', [UserController::class, 'showForms'])->name('forms');
+        Route::view('/desistencia', 'alunos.desistencia')->name('.desistencia');
+        Route::view('/rematricula', 'alunos.rematricula')->name('.rematricula');
+        Route::view('/trancamento', 'alunos.trancamento')->name('.trancamento');
+        
+    });
+});
+
+
+Route::prefix('secretaria')->name('secretaria.')->group(function() {
+    Route::view('/login', 'cadastroAdmin')->name('login'); //secretaria123
+    Route::post('/check', [UserController::class, 'check'])->name('check');
+    
+    // forgot password
+    Route::post('/forgot-password', [UserController::class, 'checkForgotPassword'])->name('checkForgotPassword');
+    
+    Route::view('/reset-password/{token}', function($token) {
+        return view('secretaria.reset-password', ['token' => $token]);
+    })->name('password.reset');
+    Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('password.update');
+});
+
+
+Route::prefix('aluno')->name('aluno')->group(function(){
+    Route::view('/login', 'cadastroAluno')->name('.login');
+    Route::post('/check', [UserController::class, 'checkAluno'])->name('.check');
 });
 
 

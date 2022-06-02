@@ -56,18 +56,19 @@
           </svg>
           <p class="titulo-entidade">Acesso Aluno</p>
           <p class="dados">Informe seu e-mail institucional</p>
-          <form>
+          <form method="post" action="/aluno/check">
+            @csrf
             <input
               type="email"
               class="form-senha form-control mb-3"
               id="inputPassword"  
-              name="senha"
+              name="email"
               placeholder="nome@ic.ufal.br"
             />
-            <!-- <button class="botao-acessar btn" type="submit">Solicitar chave</button>
-            <a href="/Alunos/MenuFormularios.html">.</a> -->
+            <input type="password" class="form-senha form-control mb-3" name="password">
+            <button class="botao-acessar btn" type="submit">Solicitar chave</button>
           </form>
-          <a href="{{'/alunos'}}"><button class="botao-acessar btn">Solicitar chave</button></a>
+          {{-- <a href="{{'/alunos'}}"><button class="botao-acessar btn">Solicitar chave</button></a> --}}
         </div>
       </div>
     </div>

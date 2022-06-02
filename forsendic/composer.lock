@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b48e51cf2e3a84d07f63a74dc5cb6852",
+    "content-hash": "159c80e2407f2b35c472e9ce60b491a6",
     "packages": [
+        {
+            "name": "amir/laravel-permission",
+            "version": "v1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amiryousefi/laravel-permission.git",
+                "reference": "4469dfe007d181d45d8a848990097881047a9924"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amiryousefi/laravel-permission/zipball/4469dfe007d181d45d8a848990097881047a9924",
+                "reference": "4469dfe007d181d45d8a848990097881047a9924",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Amir\\Permission\\LaravelPermissionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Amir\\Permission\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amir Yousefi",
+                    "email": "amiryousefi.it@gmail.com"
+                }
+            ],
+            "description": "an easy and flexible way for permissions management",
+            "support": {
+                "issues": "https://github.com/amiryousefi/laravel-permission/issues",
+                "source": "https://github.com/amiryousefi/laravel-permission/tree/v1.4"
+            },
+            "time": "2022-03-26T14:21:37+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.9.3",
@@ -892,6 +936,53 @@
                 }
             ],
             "time": "2022-03-20T21:55:58+00:00"
+        },
+        {
+            "name": "ichtrojan/laravel-otp",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ichtrojan/laravel-otp.git",
+                "reference": "3fe67dfca3837c924bf968c019c7662caaab3740"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ichtrojan/laravel-otp/zipball/3fe67dfca3837c924bf968c019c7662caaab3740",
+                "reference": "3fe67dfca3837c924bf968c019c7662caaab3740",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ichtrojan\\Otp\\OtpServiceProvider"
+                    ],
+                    "aliases": {
+                        "Otp": "Ichtrojan\\Otp\\Otp"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ichtrojan\\Otp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Okoh",
+                    "email": "michael@okoh.co.uk"
+                }
+            ],
+            "description": "A simple package to generate and validate OTPs",
+            "support": {
+                "issues": "https://github.com/ichtrojan/laravel-otp/issues",
+                "source": "https://github.com/ichtrojan/laravel-otp/tree/v1.4.1"
+            },
+            "time": "2021-05-13T09:01:34+00:00"
         },
         {
             "name": "laravel/framework",

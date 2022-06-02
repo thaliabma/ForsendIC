@@ -17,7 +17,7 @@
 
 		<div id="caixa2">
 			<div>
-				<a id="x" href="/">X</a>
+				<a id="x" href="{{route('aluno.forms')}}">X</a>
 
 				<h1 id="titulo">Trancamento de Matrícula de Disciplina</h1>
 

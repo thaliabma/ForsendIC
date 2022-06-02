@@ -17,7 +17,7 @@
 
 		<div id="caixa2">
 			<div>
-				<a id="x" href="/alunos">X</a>
+				<a id="x" href="{{route('aluno.forms')}}">X</a>
 				<h1 id="titulo">Rematrícula</h1>
 				<label id="subtitulo">Preencha todos os campos do formulário</label>
 			</div>
