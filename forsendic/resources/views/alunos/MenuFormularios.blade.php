@@ -17,13 +17,15 @@
 
 		<div id="caixa">
 			<h1 id="titulo">FORMULÁRIOS</h1>
-
+			@auth
+			<p style="background-color: blue; color:white;">{{auth()->user()->role_id}}</p>	
+			@endauth
 			<p id="subtitulo">Selecione abaixo o formulário que deseja enviar para secretaria:</p>
 
 			<a class="forms" href="{{route('aluno.desistencia')}}">Desistência de Vínculo Total de Curso</a>
 			<a class="forms" href="{{route('aluno.trancamento')}}">Trancamento de Matrícula de Disciplina</a>
 			<a class="forms" href="{{route('aluno.rematricula')}}">Rematrícula</a>
-			<form method="post" action="{{route('logout')}}">
+			<form method="post" action="{{route('aluno.logout')}}">
 				@csrf
 				<button id="sair" type="submit">⍈ Sair</a> 			
 			</form>

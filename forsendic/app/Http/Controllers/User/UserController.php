@@ -13,6 +13,26 @@ use Illuminate\Auth\Events\PasswordReset;
 
 class UserController extends Controller
 {
+    function show_desistencia() {
+        return view('alunos.desistencia');
+    }
+    
+    function show_rematricula() {
+        return view('alunos.rematricula');
+    }
+    
+    function show_trancamento() {
+        return view('alunos.trancamento');
+    }
+
+    function show_perfil() {
+        return view('secretaria.perfis.profilesPage');
+    }
+
+    function show_dashboard() {
+        return view('secretaria.dashboard');
+    }
+
     function create(Request $request) {
         $formFields = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -25,7 +45,6 @@ class UserController extends Controller
 
         User::create($formFields);
         redirect('/');
-
     }
 
     function check(Request $request){
@@ -37,6 +56,7 @@ class UserController extends Controller
         ]);
 
         $creds = $request->only('email','password');
+        
         if( Auth::attempt($creds) ){
             return redirect()->route('secretaria.perfil');
         }else{
@@ -60,9 +80,15 @@ class UserController extends Controller
         }
     }
 
-    public function logout() {
+    public function logoutSecretaria() {
         Auth::logout();
         return redirect('/');
+    }
+
+    public function logoutAluno() {
+        Auth::logout();
+        return redirect('/');
+        // ->whith('message', 'Volte sempre :)');
     }
 
     public function checkForgotPassword(Request $request) {

@@ -65,7 +65,17 @@
               name="email"
               placeholder="nome@ic.ufal.br"
             />
+            @error('email')
+            <div class="alert alert-danger" role="alert">
+              {{$message}}
+            </div>
+            @enderror
+
             <input type="password" class="form-senha form-control mb-3" name="password">
+            @error('password')
+              <div class="alert alert-danger">{{$message}}</div>
+            @enderror
+            
             <button class="botao-acessar btn" type="submit">Solicitar chave</button>
           </form>
           {{-- <a href="{{'/alunos'}}"><button class="botao-acessar btn">Solicitar chave</button></a> --}}

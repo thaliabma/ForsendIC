@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/register', function() {
+    return view('auth.register');
+});
+
 Route::post('/create', [UserController::class, 'create'])->name('newUser');
 
 Route::group([
@@ -23,23 +27,25 @@ Route::group([
     'role' => 'secretaria'
 ], function() {
         Route::prefix('secretaria')->name('secretaria.')->group(function(){
-            Route::view('/perfil', 'Secretaria.perfis.profilesPage')->name('perfil');
-            Route::view('/dashboard', 'Secretaria.dashboard')->name('dashboard');
+            
+            Route::get('/perfil', [UserController::class, 'show_perfil'])->name('perfil');
+            Route::get('/dashboard', [UserController::class, 'show_dashboard'])->name('dashboard');
+            Route::post('/logout', [UserController::class, 'logoutSecretaria'])->name('logout');
         });
     });
-
-Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-
-Route::group([
-    'middleware' => 'auth.role',
-    'role' => 'aluno'
-], function(){
-    Route::prefix('aluno')->name('aluno.')->group(function(){
-        Route::get('/forms', [UserController::class, 'showForms'])->name('forms');
-        Route::view('/desistencia', 'alunos.desistencia')->name('.desistencia');
-        Route::view('/rematricula', 'alunos.rematricula')->name('.rematricula');
-        Route::view('/trancamento', 'alunos.trancamento')->name('.trancamento');
+    
+    Route::group([
+        'middleware' => 'auth.role',
+        'role' => 'aluno'
+    ], function(){
         
+        Route::prefix('aluno')->name('aluno.')->group(function(){
+            Route::get('/forms', [UserController::class, 'showForms'])->name('forms');
+            Route::get('/desistencia', [UserController::class, 'show_desistencia'])->name('desistencia');
+            Route::get('/rematricula', [UserController::class, 'show_rematricula'])->name('rematricula');
+            Route::get('/trancamento', [UserController::class, 'show_trancamento'])->name('trancamento');
+            Route::post('/logout', [UserController::class, 'logoutAluno'])->name('logout');
+            
     });
 });
 
@@ -47,10 +53,7 @@ Route::group([
 Route::prefix('secretaria')->name('secretaria.')->group(function() {
     Route::view('/login', 'cadastroAdmin')->name('login'); //secretaria123
     Route::post('/check', [UserController::class, 'check'])->name('check');
-    
-    // forgot password
     Route::post('/forgot-password', [UserController::class, 'checkForgotPassword'])->name('checkForgotPassword');
-    
     Route::view('/reset-password/{token}', function($token) {
         return view('secretaria.reset-password', ['token' => $token]);
     })->name('password.reset');
@@ -102,7 +105,7 @@ Route::get('/', function () {
 // });
 
 
-Auth::routes();
+// Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
