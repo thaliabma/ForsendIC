@@ -12,27 +12,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
 
 class UserController extends Controller
-{
-    function show_desistencia() {
-        return view('alunos.desistencia');
-    }
-    
-    function show_rematricula() {
-        return view('alunos.rematricula');
-    }
-    
-    function show_trancamento() {
-        return view('alunos.trancamento');
-    }
-
-    function show_perfil() {
-        return view('secretaria.perfis.profilesPage');
-    }
-
-    function show_dashboard() {
-        return view('secretaria.dashboard');
-    }
-
+{    
     function create(Request $request) {
         $formFields = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -57,40 +37,16 @@ class UserController extends Controller
 
         $creds = $request->only('email','password');
         
-        if( Auth::attempt($creds) ){
-            return redirect()->route('secretaria.perfil');
+        if(Auth::attempt($creds) ){
+            if (Auth::user()->role_id === 1)
+                return redirect()->route('secretaria.perfil');
+            else
+                return redirect()->route('aluno.forms');
         }else{
             return redirect()->route('secretaria.login')->with('fail','Senha inválida');
         }
     }
-
-    function checkAluno(Request $request){
-        $request->validate([
-           'email'=>'required|email|exists:users,email',
-           'password'=>'required|min:5|max:30'
-        ],[
-            'email.exists'=>'This email is not exists on users table'
-        ]);
-
-        $creds = $request->only('email','password');
-        if( Auth::attempt($creds) ){
-            return redirect()->route('aluno.forms');
-        }else{
-            return redirect()->route('aluno.login')->with('fail','Senha inválida');
-        }
-    }
-
-    public function logoutSecretaria() {
-        Auth::logout();
-        return redirect('/');
-    }
-
-    public function logoutAluno() {
-        Auth::logout();
-        return redirect('/');
-        // ->whith('message', 'Volte sempre :)');
-    }
-
+    
     public function checkForgotPassword(Request $request) {
         $request->validate([
             'email' => 'required|email'
@@ -129,7 +85,8 @@ class UserController extends Controller
         : back()->withErrors(['email' => [__($status)]]);
     }
 
-    public function showForms() {
-        return view('alunos.MenuFormularios');
+    public function logout() {
+        Auth::logout();
+        return redirect('/');
     }
 }

@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\AlunoController;
-use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\SecretariaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,9 @@ Route::group([
 ], function() {
         Route::prefix('secretaria')->name('secretaria.')->group(function(){
             
-            Route::get('/perfil', [UserController::class, 'show_perfil'])->name('perfil');
-            Route::get('/dashboard', [UserController::class, 'show_dashboard'])->name('dashboard');
-            Route::post('/logout', [UserController::class, 'logoutSecretaria'])->name('logout');
+            Route::get('/perfil', [SecretariaController::class, 'show_perfil'])->name('perfil');
+            Route::get('/dashboard', [SecretariaController::class, 'show_dashboard'])->name('dashboard');
+            Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         });
     });
     
@@ -38,17 +39,15 @@ Route::group([
         'middleware' => 'auth.role',
         'role' => 'aluno'
     ], function(){
-        
         Route::prefix('aluno')->name('aluno.')->group(function(){
-            Route::get('/forms', [UserController::class, 'showForms'])->name('forms');
-            Route::get('/desistencia', [UserController::class, 'show_desistencia'])->name('desistencia');
-            Route::get('/rematricula', [UserController::class, 'show_rematricula'])->name('rematricula');
-            Route::get('/trancamento', [UserController::class, 'show_trancamento'])->name('trancamento');
-            Route::post('/logout', [UserController::class, 'logoutAluno'])->name('logout');
+            Route::get('/forms', [AlunoController::class, 'showForms'])->name('forms');
+            Route::get('/desistencia', [AlunoController::class, 'show_desistencia'])->name('desistencia');
+            Route::get('/rematricula', [AlunoController::class, 'show_rematricula'])->name('rematricula');
+            Route::get('/trancamento', [AlunoController::class, 'show_trancamento'])->name('trancamento');
+            Route::post('/logout', [UserController::class, 'logout'])->name('logout');
             
     });
 });
-
 
 Route::prefix('secretaria')->name('secretaria.')->group(function() {
     Route::view('/login', 'cadastroAdmin')->name('login'); //secretaria123
@@ -63,7 +62,7 @@ Route::prefix('secretaria')->name('secretaria.')->group(function() {
 
 Route::prefix('aluno')->name('aluno')->group(function(){
     Route::view('/login', 'cadastroAluno')->name('.login');
-    Route::post('/check', [UserController::class, 'checkAluno'])->name('.check');
+    Route::post('/check', [UserController::class, 'check'])->name('.check');
 });
 
 
