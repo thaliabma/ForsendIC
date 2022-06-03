@@ -30,7 +30,7 @@ class UserController extends Controller
     function check(Request $request){
         $request->validate([
            'email'=>'required|email|exists:users,email',
-           'password'=>'required|min:5|max:30'
+           'password'=>'required|max:30'
         ],[
             'email.exists'=>'This email is not exists on users table'
         ]);

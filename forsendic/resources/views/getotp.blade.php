@@ -1,3 +1,5 @@
+@yield('email')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,31 +58,25 @@
           </svg>
           <p class="titulo-entidade">Acesso Aluno</p>
           <p class="dados">Informe seu e-mail institucional</p>
-          
-          <form method="post" action="{{route('aluno.create')}}">
+          <form method="post" action="{{route('aluno.check')}}">
             @csrf
+            <h3>Insira a sua otp</h3>
             <input
-              type="email"
+              type="password"
               class="form-senha form-control mb-3"
               id="inputPassword"  
-              name="email"
-              placeholder="nome@ic.ufal.br"
+              name="password"
             />
-            @error('email')
-            <div class="alert alert-danger" role="alert">
-              {{$message}}
-            </div>
-            @enderror
+            <input type="hidden" name="email" value="mortadelak@gmail.com">
             <button class="botao-acessar btn" type="submit">Solicitar chave</button>
           </form>
-          
+          <span class="text-danger">@error('password') {{$message}} @enderror</span>
+          <span class="text-danger">@error('email') {{$message}} @enderror</span>
           {{-- @if('status')
             <div style="background-color: black;color:white">
-              {{$status}}
+                {{$status}}
             </div>
-          
           @endif --}}
-          
           {{-- <a href="{{'/alunos'}}"><button class="botao-acessar btn">Solicitar chave</button></a> --}}
         </div>
       </div>

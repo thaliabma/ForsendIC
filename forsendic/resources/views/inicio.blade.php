@@ -68,7 +68,7 @@
           <p class="tipo-acesso">Para alunos do Instituto de Computação</p>
           <a
             class="botao-acessar btn btn-sm"
-            href="{{route('aluno.login')}}"
+            href="{{route('aluno.solicitar')}}"
             role="button"
             >Acessar</a
           >

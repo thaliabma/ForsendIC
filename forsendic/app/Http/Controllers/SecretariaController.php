@@ -15,7 +15,4 @@ class SecretariaController extends Controller
     function show_dashboard() {
         return view('secretaria.dashboard');
     }
-
-    
-
 }
