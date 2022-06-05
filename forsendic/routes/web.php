@@ -17,6 +17,11 @@ use App\Http\Controllers\SecretariaController;
 |
 */
 
+
+Route::get('/', function () {
+    return view('inicio');
+})->name('inicio');
+
 Route::get('/register', function() {
     return view('auth.register');
 });
@@ -59,19 +64,12 @@ Route::prefix('secretaria')->name('secretaria.')->group(function() {
     Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('password.update');
 });
 
-
 Route::prefix('aluno')->name('aluno.')->group(function(){
     Route::view('/solicitar', 'cadastroAluno')->name('solicitar');
     Route::post('/create', [AlunoController::class, 'createTemp'])->name('create');
     Route::get('/login', [AlunoController::class, 'show_otp_form'])->name('otp');
-    Route::post('/check', [UserController::class, 'check'])->name('check');
+    Route::post('/check', [UserController::class, 'check'])->name('check'); //verificar a otp
 });
-
-
-Route::get('/', function () {
-    return view('inicio');
-})->name('inicio');
-
 
 // Route::get('/login/aluno', function() {
 //     return view('cadastroAluno');

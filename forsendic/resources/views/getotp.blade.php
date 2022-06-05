@@ -56,18 +56,19 @@
               />
           </a>
           </svg>
-          <p class="titulo-entidade">Acesso Aluno</p>
-          <p class="dados">Informe seu e-mail institucional</p>
-          <form method="post" action="{{route('aluno.check')}}">
+          <p class="titulo-entidade">Senha enviada</p>
+          <p class="dados">Insira-a abaixo</p>
+          <form method="POST" action="{{route('aluno.check')}}">
             @csrf
-            <h3>Insira a sua otp</h3>
+            {{-- <h3>Insira a sua otp</h3> --}}
             <input
               type="password"
               class="form-senha form-control mb-3"
               id="inputPassword"  
               name="password"
             />
-            <input type="hidden" name="email" value="mortadelak@gmail.com">
+            {{-- <p>Seu email: {{$email}}</p> --}}
+            <input type="hidden" name="email" value="{{$email}}">
             <button class="botao-acessar btn" type="submit">Solicitar chave</button>
           </form>
           <span class="text-danger">@error('password') {{$message}} @enderror</span>

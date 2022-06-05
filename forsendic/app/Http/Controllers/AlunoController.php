@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Mail;
 class AlunoController extends Controller
 {
 
-    public function show_otp_form() {
-        return view('getotp');
+    public function show_otp_form($email) {
+        return view('getotp', [
+            'email'=> $email,
+        ]);
     }
 
     public function showForms() {
@@ -39,7 +41,8 @@ class AlunoController extends Controller
             'email' => ['required', 'email'],
         ]);
 
-        $password = rand(1000, 9999); //otp
+        // $password = rand(1000, 9999); //otp
+        $password = '123456'; //otp
         User::create([
             'name' => 'Aluno',
             'email' => $formFields['email'],
@@ -47,17 +50,14 @@ class AlunoController extends Controller
             'password' => Hash::make($password)
         ]);
 
-        if (Mail::to($formFields['email'])->send(new SendOtp($password))) {
-            return redirect(route('aluno.otp'))->with([
-                '$email' => $formFields['email'],
-                '$status'=> 'A OTP foi enviada ao email. Insira-a abaixo'
-            ]);
-        }
-        else {
-            return redirect()->back()->with([
-                'status' => 'Não conseguimos enviar a mensagem'
-            ]);
-        }
+        // if (Mail::to($formFields['email'])->send(new SendOtp($password))) {
+            return AlunoController::show_otp_form($formFields['email']);
+        // }
+        // else {
+        //     return redirect()->back()->with([
+        //         'status' => 'Não conseguimos enviar a mensagem'
+        //     ]);
+        // }
     }
 
     function checkAluno(Request $request){

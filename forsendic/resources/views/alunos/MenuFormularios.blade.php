@@ -17,9 +17,7 @@
 
 		<div id="caixa">
 			<h1 id="titulo">FORMULÁRIOS</h1>
-			@auth
-			<p style="background-color: blue; color:white;">{{auth()->user()->role_id}}</p>	
-			@endauth
+			
 			<p id="subtitulo">Selecione abaixo o formulário que deseja enviar para secretaria:</p>
 
 			<a class="forms" href="{{route('aluno.desistencia')}}">Desistência de Vínculo Total de Curso</a>

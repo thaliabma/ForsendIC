@@ -69,7 +69,7 @@
               name="password"
               placeholder="senha"
             />
-            <input type="hidden" name="email" value="orfeowrk@gmail.com">
+            <input type="hidden" name="email" value="secretaria@ic.ufal.br">
             <button class="botao-acessar btn" type="submit">Entrar</button>
             {{-- <a href="/Secretaria/profilesPage.html">.</a> --}}
           </form>
@@ -78,7 +78,7 @@
           
           <form action="{{route('secretaria.checkForgotPassword')}} " method="POST">
             @csrf
-            <input type="hidden" name="email" value="orfeowrk@gmail.com">
+            <input type="hidden" name="email" value="secretaria@ic.ufal.br">
             <input class="esquecer" type="submit" value="Esqueci minha senha">
           </form>
           

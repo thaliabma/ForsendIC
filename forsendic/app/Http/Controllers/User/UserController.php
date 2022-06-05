@@ -21,10 +21,13 @@ class UserController extends Controller
             'role_id' => 'required'
         ]);
 
-        $formfields['password'] = Hash::make($formFields['password']);
-
-        User::create($formFields);
-        redirect('/');
+        User::create([
+            'name' => $formFields['name'],
+            'email' => $formFields['email'],
+            'role_id' => $formFields['role_id'],
+            'password' => Hash::make($formFields['password']),
+        ]);
+        return redirect('/');
     }
 
     function check(Request $request){
