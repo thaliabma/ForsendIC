@@ -69,12 +69,11 @@
               name="password"
               placeholder="senha"
             />
-            <input type="hidden" name="email" value="secretaria@ic.ufal.br">
+            <span class="text-danger">@error('password') {{$message}} @enderror</span>
             <button class="botao-acessar btn" type="submit">Entrar</button>
             {{-- <a href="/Secretaria/profilesPage.html">.</a> --}}
           </form>
           {{-- <a href="{{'/secretaria/perfis'}}"><button class="botao-acessar btn">Entrar</button></a> --}}
-          <span class="text-danger">@error('password') {{$message}} @enderror</span>
           
           <form action="{{route('secretaria.checkForgotPassword')}} " method="POST">
             @csrf

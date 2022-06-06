@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -31,16 +32,20 @@ class UserController extends Controller
     }
 
     function check(Request $request){
-        $request->validate([
-           'email'=>'required|email|exists:users,email',
+        $formFields = $request->validate([
+        //    'email'=>'required|email|exists:users,email',
            'password'=>'required|max:30'
         ],[
-            'email.exists'=>'This email is not exists on users table'
+            'email.exists'=>'This email do not exists on users table'
         ]);
 
-        $creds = $request->only('email','password');
+        // $email = DB::table('users') //email da secretaria
+        //             ->select('email')
+        //             ->where('name', 'Secretaria');
+
+        // $creds = ['secretaria@ic.ufal.br', $formFields['password']];
         
-        if(Auth::attempt($creds) ){
+        if(Auth::attempt(['email' => 'secretaria@ic.ufal.br', 'password' => $formFields['password']]) ){
             if (Auth::user()->role_id === 1)
                 return redirect()->route('secretaria.perfil');
             else
