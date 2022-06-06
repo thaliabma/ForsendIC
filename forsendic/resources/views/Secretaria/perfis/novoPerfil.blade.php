@@ -31,41 +31,22 @@
     <!-- END HEADER -->
 
     <main>
-      <!-- PERFIS APARECEM AQUI -->
-      <div
-        class="d-flex justify-content-center flex-wrap w-75 perfis-container"
-        id="flex-container"
-        style="margin: auto">
-        @unless (count($secretarios) == 0)
-        
-        @foreach ($secretarios as $secretario)
-          <div class="perfil">
-          <a href="/secretaria/dashboard/{{$secretario->id}}"><div class="circle"></div></a>
-          <p>{{$secretario->name}}<p>
-          </div>
-        @endforeach
-        
-        @else
-        <div class="perfil" id="noUsers">
-          <div class="circle"></div>
-        <p>Sem usuários</p>
-        </div>
-        @endunless
-      </div>
       
-      <!-- BOTÃO DE ADICIONAR AQUI -->
-        <form action="{{route('secretaria.novoPerfil')}}" method="GET">
+      <!-- FORM DE ADICIONAR AQUI -->
+        <form action="{{route('secretaria.criarPerfil')}}" method="POST">
+          @csrf
           <div class="d-flex justify-content-center">
+            <label for="name">Insira o seu nome: </label>
+            <input type="text" name="name" id="">
             <button
               id="addBtn"
               class="botao-acessar btn"
               data-bs-toggle="modal"
               data-bs-target="#">
-              Adicionar novo perfil
+              Criar
             </button>
           </div>
         </form>
-        {{-- <p>{{$message}}</p> --}}
       </main>
 
     <footer><strong>Todos os direitos reservados</strong></footer>

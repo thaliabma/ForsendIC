@@ -53,7 +53,9 @@
             <img src="{{asset('/images/Logo_ForsendIC.png')}}" width="180">
         <div class="perfil-dash">
             <div class="circle"></div>
-            <h4>Bem-vindo, usuário!</h4>
+            
+            <h4>Bem-vindo, {{$secretario->name}}!</h4>
+            
             <form method="post" action="{{route('secretaria.logout')}}">
               @csrf
               <button class="botao-acessar btn btn-primary" type="submit">Sair</button>

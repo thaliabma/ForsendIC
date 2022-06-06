@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\SecretariaController;
+use App\Http\Controllers\SecretarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,10 @@ Route::group([
     'role' => 'secretaria'
 ], function() {
         Route::prefix('secretaria')->name('secretaria.')->group(function(){
-            
-            Route::get('/perfil', [SecretariaController::class, 'show_perfil'])->name('perfil');
-            Route::get('/dashboard', [SecretariaController::class, 'show_dashboard'])->name('dashboard');
+            Route::get('/perfil', [SecretariaController::class, 'index_perfil'])->name('perfil');
+            Route::get('/perfil/novo', [SecretariaController::class, 'novo_perfil'])->name('novoPerfil');
+            Route::post('/perfil/criar', [SecretarioController::class, 'create'])->name('criarPerfil');            
+            Route::get('/dashboard/{secretario}', [SecretariaController::class, 'show_dashboard'])->name('dashboard');
             Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         });
     });
