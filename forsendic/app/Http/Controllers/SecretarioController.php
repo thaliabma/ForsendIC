@@ -17,7 +17,7 @@ class SecretarioController extends Controller
 
         Secretario::create($formFields);
         
-        redirect(route('secretaria.perfil'))->with('message', 'Perfil criado com sucesso');
+        return redirect(route('secretaria.perfil'))->with('message', 'Perfil criado com sucesso');
 
     }
 }
