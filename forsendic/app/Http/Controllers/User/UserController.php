@@ -19,13 +19,13 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role_id' => 'required'
+            // 'role_id' => 'required'
         ]);
 
         User::create([
             'name' => $formFields['name'],
             'email' => $formFields['email'],
-            'role_id' => $formFields['role_id'],
+            'role_id' => '1',
             'password' => Hash::make($formFields['password']),
         ]);
         return redirect('/');
