@@ -32,7 +32,7 @@
             <input type="password" name="password" id="">
             <label for="password_confirmation">Confirme a nova senha: </label>
             <input type="password" name="password_confirmation" id="">
-            <input type="hidden" name="email" value="orfework@gmail.com">
+            <input type="hidden" name="email" value="secretaria@ic.ufal.br">
             <input type="hidden" name="token" value="{{$token}}">
         </form>
     </div>

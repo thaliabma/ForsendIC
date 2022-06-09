@@ -52,7 +52,8 @@
     <div class="sidebar">
             <img src="{{asset('/images/Logo_ForsendIC.png')}}" width="180">
         <div class="perfil-dash">
-            <div class="circle"></div>
+          <img class="circle" src="{{$secretario->photo ? asset('storage/' . $secretario->photo) : asset('/images/admin.png')}}" alt="" srcset="">
+            {{-- <div class="circle"></div> --}}
             
             <h4>Bem-vindo, {{$secretario->name}}!</h4>
             

@@ -67,6 +67,10 @@
               id="inputPassword"  
               name="password"
             />
+            
+            @error('password')
+              {{$message}}
+            @enderror
             {{-- <p>Seu email: {{$email}}</p> --}}
             <input type="hidden" name="email" value="{{$email}}">
             <button class="botao-acessar btn" type="submit">Entrar</button>

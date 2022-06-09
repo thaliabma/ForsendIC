@@ -13,6 +13,16 @@
     />
 
     <link href="{{asset('css/secretaria/style_perfis.css')}}" rel="stylesheet" />
+    <style>
+      main {
+        background-color: white;
+        padding: 1rem;
+        /* width: 80%; */
+      }
+      input {
+        margin: 15px;
+      }
+    </style>
   </head>
   <body>
 
@@ -25,28 +35,34 @@
         <img src="{{asset('/images/Ufal_white.png')}}" width="100" height="100" />
       </div>
       <div class="header-title">
-        <h2><strong>Quem está acessando?</strong></h2>
+        <h2><strong>Novo perfil</strong></h2>
       </div>
     </div>
     <!-- END HEADER -->
 
+
+
     <main>
-      
       <!-- FORM DE ADICIONAR AQUI -->
-        <form action="{{route('secretaria.criarPerfil')}}" method="POST">
-          @csrf
-          <div class="d-flex justify-content-center">
-            <label for="name">Insira o seu nome: </label>
-            <input type="text" name="name" id="">
-            <button
-              id="addBtn"
-              class="botao-acessar btn"
-              data-bs-toggle="modal"
-              data-bs-target="#">
-              Criar
-            </button>
-          </div>
-        </form>
+          <form action="{{route('secretaria.criarPerfil')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+              <label for="name">Insira o seu nome: </label>
+              <input type="text" name="name" class="form-control"> <br>
+              @error('name')
+                <div class="alert alert-danger" role="alert">
+                  {{$message}}
+                </div>
+              @enderror
+              <label for="photo">Insira a sua foto de perfil: </label>
+              <input type="file" name="photo"> <br>
+              <button
+                id="addBtn"
+                class="botao-acessar btn"
+                data-bs-toggle="modal"
+                data-bs-target="#">
+                Criar
+              </button>
+          </form>
       </main>
 
     <footer><strong>Todos os direitos reservados</strong></footer>

@@ -40,7 +40,9 @@
         
         @foreach ($secretarios as $secretario)
           <div class="perfil">
-          <a href="/secretaria/dashboard/{{$secretario->id}}"><div class="circle"></div></a>
+          <a href="/secretaria/dashboard/{{$secretario->id}}">
+            <img class="circle" src="{{$secretario->photo ? asset('storage/' . $secretario->photo) : asset('/images/admin.png')}}" alt="" srcset="">
+          </a>
           <p>{{$secretario->name}}<p>
           </div>
         @endforeach
