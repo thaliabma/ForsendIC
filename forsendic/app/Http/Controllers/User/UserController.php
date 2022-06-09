@@ -19,7 +19,6 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // 'role_id' => 'required'
         ]);
 
         User::create([
@@ -33,18 +32,11 @@ class UserController extends Controller
 
     function check(Request $request){
         $formFields = $request->validate([
-        //    'email'=>'required|email|exists:users,email',
            'password'=>'required|max:30'
         ],[
             'email.exists'=>'This email do not exists on users table'
         ]);
 
-        // $email = DB::table('users') //email da secretaria
-        //             ->select('email')
-        //             ->where('name', 'Secretaria');
-
-        // $creds = ['secretaria@ic.ufal.br', $formFields['password']];
-        
         if(Auth::attempt(['email' => 'secretaria@ic.ufal.br', 'password' => $formFields['password']]) ){
             if (Auth::user()->role_id === 1)
                 return redirect()->route('secretaria.perfil');
@@ -66,8 +58,9 @@ class UserController extends Controller
 
         return $status === Password::RESET_LINK_SENT
                     ? back()->with(['status'=> __($status)])
-                    : back() ->withErrors(['email' => __($status)]);
+                    : back()->withErrors(['email' => __($status)]);
     }
+
     public function resetPassword(Request $request) {
         $request->validate([
             'token' => 'required',
@@ -89,7 +82,7 @@ class UserController extends Controller
         );
 
         return $status === Password::PASSWORD_RESET
-        ? redirect()->route('Secretaria.dashboard')->with('status', __($status))
+        ? redirect()->route('inicio')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
     }
 

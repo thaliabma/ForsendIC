@@ -27,7 +27,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action=" {{route('secretaria.password.update')}} " method="POST">
+        <form action=" {{route('password.update')}} " method="POST">
             <label for="password">Insira a nova senha: </label>
             <input type="password" name="password" id="">
             <label for="password_confirmation">Confirme a nova senha: </label>

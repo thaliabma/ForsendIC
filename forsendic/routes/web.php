@@ -56,14 +56,9 @@ Route::group([
 });
 
 Route::prefix('secretaria')->name('secretaria.')->group(function() {
-    Route::view('/login', 'cadastroAdmin')->name('login'); //secretaria123
+    Route::view('/login', 'cadastroAdmin')->name('login'); 
     Route::post('/check', [UserController::class, 'check'])->name('check');
     Route::post('/forgot-password', [UserController::class, 'checkForgotPassword'])->name('checkForgotPassword');
-    Route::view('/reset-password/{token}', function($token) {
-        return view('secretaria.reset-password', ['token' => $token]);
-    })->name('password.reset');
-
-    Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('password.update');
 });
 
 Route::prefix('aluno')->name('aluno.')->group(function(){
@@ -73,40 +68,8 @@ Route::prefix('aluno')->name('aluno.')->group(function(){
     Route::post('/check', [AlunoController::class, 'checkAluno'])->name('check'); //verificar a otp
 });
 
-// Route::get('/login/aluno', function() {
-//     return view('cadastroAluno');
-// });
+Route::get('/reset-password/{token}', function($token) {
+    return view('auth.passwords.reset', ['token' => $token]);
+})->name('password.reset');
 
-// Route::get('/login/secretaria', function() {
-//     return view('cadastroAdmin');
-// });
-
-// Route::get('/secretaria/perfis', function() {
-//     return view('Secretaria.perfis.profilesPage');
-// })->name('secretaria.perfis');
-
-// Route::get('/secretaria/dashboard', function() {
-//     return view('Secretaria.dashboard');
-// });
-
-// Route::get('/alunos', function() {
-//     return view('alunos.MenuFormularios');
-// });
-
-// Route::get('/alunos/desistencia', function() {
-//     return view('alunos.desistencia');
-// });
-
-// Route::get('/alunos/rematricula', function() {
-//     return view('alunos.rematricula');
-// });
-
-// Route::get('/alunos/trancamento', function() {
-//     return view('alunos.trancamento');
-// });
-
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('password.update');

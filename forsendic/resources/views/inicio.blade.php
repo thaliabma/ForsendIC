@@ -72,6 +72,9 @@
             role="button"
             >Acessar</a
           >
+          @isset($status)
+              {{$status}}
+          @endisset
           <img
             src="{{asset('images/Aluno.png')}}"
             alt="desenho de um predio"
