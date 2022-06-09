@@ -51,7 +51,7 @@ Route::group([
             Route::get('/desistencia', [AlunoController::class, 'show_desistencia'])->name('desistencia');
             Route::get('/rematricula', [AlunoController::class, 'show_rematricula'])->name('rematricula');
             Route::get('/trancamento', [AlunoController::class, 'show_trancamento'])->name('trancamento');
-            Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+            Route::post('/logout', [AlunoController::class, 'logout'])->name('logout');
             
     });
 });

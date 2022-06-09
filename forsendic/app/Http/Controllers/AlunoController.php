@@ -41,8 +41,8 @@ class AlunoController extends Controller
             'email' => ['required', 'email'],
         ]);
 
-        $password = rand(100000, 999999); //otp
-        
+        // $password = rand(100000, 999999); //otp
+        $password = '123456';
         User::create([
             'name' => 'Aluno',
             'email' => $formFields['email'],
@@ -77,8 +77,9 @@ class AlunoController extends Controller
     }
 
     public function logout() {
+        $user = Auth::id();
         Auth::logout();
-        // delete user logo em seguida
+        User::destroy($user);
         return redirect('/');
     }
 }
