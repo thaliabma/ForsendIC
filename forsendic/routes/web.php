@@ -52,7 +52,6 @@ Route::group([
             Route::get('/rematricula', [AlunoController::class, 'show_rematricula'])->name('rematricula');
             Route::get('/trancamento', [AlunoController::class, 'show_trancamento'])->name('trancamento');
             Route::post('/logout', [AlunoController::class, 'logout'])->name('logout');
-            
     });
 });
 
