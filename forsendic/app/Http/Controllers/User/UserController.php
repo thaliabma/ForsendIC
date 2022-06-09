@@ -51,7 +51,7 @@ class UserController extends Controller
             else
                 return redirect()->route('aluno.forms');
         }else{
-            return redirect()->route('secretaria.login')->with('fail','Senha inválida');
+            return redirect()->back();
         }
     }
     

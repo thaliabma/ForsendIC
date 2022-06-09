@@ -69,7 +69,7 @@
             />
             {{-- <p>Seu email: {{$email}}</p> --}}
             <input type="hidden" name="email" value="{{$email}}">
-            <button class="botao-acessar btn" type="submit">Solicitar chave</button>
+            <button class="botao-acessar btn" type="submit">Entrar</button>
           </form>
           <span class="text-danger">@error('password') {{$message}} @enderror</span>
           <span class="text-danger">@error('email') {{$message}} @enderror</span>

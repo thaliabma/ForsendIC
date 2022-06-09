@@ -41,8 +41,8 @@ class AlunoController extends Controller
             'email' => ['required', 'email'],
         ]);
 
-        // $password = rand(1000, 9999); //otp
-        $password = '123456'; //otp
+        $password = rand(100000, 999999); //otp
+        
         User::create([
             'name' => 'Aluno',
             'email' => $formFields['email'],
@@ -50,14 +50,14 @@ class AlunoController extends Controller
             'password' => Hash::make($password)
         ]);
 
-        // if (Mail::to($formFields['email'])->send(new SendOtp($password))) {
+        if (Mail::to($formFields['email'])->send(new SendOtp($password))) {
             return AlunoController::show_otp_form($formFields['email']);
-        // }
-        // else {
-        //     return redirect()->back()->with([
-        //         'status' => 'Não conseguimos enviar a mensagem'
-        //     ]);
-        // }
+        }
+        else {
+            return redirect()->back()->with([
+                'status' => 'Não conseguimos enviar a mensagem'
+            ]);
+        }
     }
 
     function checkAluno(Request $request){

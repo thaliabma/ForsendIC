@@ -12,12 +12,8 @@ class SecretarioController extends Controller
             'name' => 'required',
         ]);
 
-        // if ($request->hasFile('photo'))
-        //     $formFields['photo'] = $request->file('photo')
-
         Secretario::create($formFields);
         
         return redirect(route('secretaria.perfil'))->with('message', 'Perfil criado com sucesso');
-
     }
 }
