@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\SendOtp;
 use App\Models\User;
 use App\Models\Aluno;
+use App\Rules\OnlyICValidation;
 use Illuminate\Http\Request;
 use Ichtrojan\Otp\Models\Otp;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +39,7 @@ class AlunoController extends Controller
 
     function createTemp(Request $request) {
         $formFields = $request->validate([
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', new OnlyICValidation],
         ]);
 
         $password = rand(100000, 999999); //otp
