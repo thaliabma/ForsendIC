@@ -39,7 +39,7 @@
     
                             <div class="row mb-3">    
                                 <div class="col-md-6">
-                                    <input id="email" type="hidden" @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                    <input id="email" type="hidden" @error('email') is-invalid @enderror" name="email" value="secretaria@ic.ufal.br" required autocomplete="email" autofocus>
     
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
