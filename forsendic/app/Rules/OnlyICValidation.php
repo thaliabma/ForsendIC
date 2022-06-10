@@ -40,6 +40,6 @@ class OnlyICValidation implements Rule
      */
     public function message()
     {
-        return 'Apenas emails do Instituto de Computação da UFAL são aceitos';
+        return 'Apenas emails do Instituto de Computação da UFAL';
     }
 }
