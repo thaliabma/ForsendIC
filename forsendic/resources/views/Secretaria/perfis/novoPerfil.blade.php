@@ -15,7 +15,7 @@
     <link href="{{asset('css/secretaria/style_perfis.css')}}" rel="stylesheet" />
     <style>
       main {
-        background-color: white;
+        background-color:linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);;
         padding: 1rem;
         /* width: 80%; */
       }
@@ -26,6 +26,7 @@
   </head>
   <body>
 
+<div >
   <!-- START HEADER -->
     <div class="page-header text-center">
       <div class="logo-wrapper">
@@ -41,20 +42,27 @@
     <!-- END HEADER -->
 
 
-
+  <div class="caixa">
     <main>
       <!-- FORM DE ADICIONAR AQUI -->
+          <div class="personal-image" >
+              <label for="photo" > 
+                  <input type="file" name="photo" id="photo" />
+                <figure class="personal-figure">
+                  <img src="/images/admin.png" class="personal-avatar" alt="avatar">
+                </figure>
+                </label>
+          </div>
           <form action="{{route('secretaria.criarPerfil')}}" method="POST" enctype="multipart/form-data">
             @csrf
-              <label for="name">Insira o seu nome: </label>
-              <input type="text" name="name" class="form-control"> <br>
+              <label for="name"></label>
+              <input type="text" name="name" class="form-control" placeholder="inserir nome"> <br>
               @error('name')
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" role="alert" >
                   {{$message}}
                 </div>
               @enderror
-              <label for="photo">Insira a sua foto de perfil: </label>
-              <input type="file" name="photo"> <br>
+              
               <button
                 id="addBtn"
                 class="botao-acessar btn"
@@ -64,6 +72,7 @@
               </button>
           </form>
       </main>
+  </div>
 
     <footer><strong>Todos os direitos reservados</strong></footer>
 
@@ -72,5 +81,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+</div>
   </body>
 </html>
