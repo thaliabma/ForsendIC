@@ -1,0 +1,76 @@
+
+
+.container-css{
+  width: 100vw;
+  height: 100vh;
+}
+
+.caixa-branca{
+  width: 55%;
+  height: 100%;
+  background: white url(/images/FundoFolha.png) no-repeat;
+}
+
+.caixa-azul{
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);
+} 
+
+.caixa-cinza{
+  width: 70%;
+  height: 30%;
+  background: radial-gradient(93.61% 726.24% at 6.39% 13.47%, rgba(255, 255, 255, 0.438) 21.72%, rgba(255, 255, 255, 0.024) 100%); 
+  border: 0.2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(45px);
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.titulo-entidade{
+font-weight: 800px;
+font-size: 25px;
+line-height: 39px;
+color: #FFFFFF;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 15px 0px 0px 15px;
+}
+
+.tipo-acesso{
+  font-weight: 600px;
+line-height: 18px;
+
+color: #13161fcd;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 55%;
+  margin-left: 15px;
+
+}
+
+a:hover{
+  color: #fff;  
+  background: #dd2518bd;
+}
+
+
+.botao-acessar{
+  width: 30%;
+  margin-top: 2vw;
+  margin-left: 3%;
+  background: #EEEBEB;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.33);
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+  color: #31508B;
+}
+
+.imgAcesso{
+  width: 35%;
+  position: absolute;
+  bottom: 0.1vw;
+  left: 19vw;
+}
