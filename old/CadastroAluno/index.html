@@ -58,14 +58,56 @@
               name="senha"
               placeholder="nome@ic.ufal.br"
             />
-            <!-- <button class="botao-acessar btn" type="submit">Solicitar chave</button>
-            <a href="/Alunos/MenuFormularios.html">.</a> -->
+            <div onclick= "abrir()" class="btn" type="submit">Solicitar Chave</div>
+
           </form>
-          <a href="/Alunos/MenuFormularios.html"><button class="botao-acessar btn">Solicitar chave</button></a>
+          
+          <div class="modal">
+
+              <div onclick="fechar()" class="fechar">X</div>
+              
+              <img
+                src="/assets/ChaveEnviada.png"
+                alt="Foto chave enviada"
+                style="width: 70px; 
+                      height: 70px;
+                      position: absolute;
+                      top: 20%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      "
+              />
+
+              <div class="texto-modal">
+                  <h3 style="font-size: 40px; font-weight: bolder;">Chave enviada</h3>
+
+                  
+                  <p style="font-size: 20px; color: #7B7B7B;">Uma chave de confimação foi enviada para endereço de e-mail: <br>nome@ic.ufal.br</p>
+              </div>
+
+              <div>
+                  <form>
+                    <input 
+                      type="tel" 
+                      class="chave"
+                      name="chave" 
+                      placeholder="Insira sua chave" 
+                      
+                    />
+
+                    <a class="ok" 
+                    href="/Alunos/MenuFormularios.html"
+                    >OK</a
+                    >
+                    <!-- <button class="ok" type="submit">OK</button>-->
+                  </form>
+              
+          </div>
         </div>
       </div>
     </div>
 
-    <script src="/bootstrap5.1.3/js/bootstrap.min.js"></script>
+    <!-- <script src="/bootstrap5.1.3/js/bootstrap.min.js"></script> -->
+    <script src="script.js"></script>
   </body>
 </html>
