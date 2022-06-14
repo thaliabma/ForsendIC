@@ -44,8 +44,10 @@
         
         @else
         <div class="perfil" id="noUsers">
-          <div class="circle"></div>
-        <p>Sem usuários</p>
+          <img src="{{asset('images/admin.png')}}" alt="">
+            <div class="circle"></div>
+          </img>
+        <p>Não há usuários</p>
         </div>
         @endunless
       </div>
