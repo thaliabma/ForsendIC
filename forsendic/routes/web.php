@@ -29,6 +29,25 @@ Route::get('/register', function() {
 
 Route::post('/create', [UserController::class, 'create'])->name('newUser');
 
+Route::prefix('secretaria')->name('secretaria.')->group(function() {
+    Route::get('/login', [SecretariaController::class, 'login'])->name('login'); 
+    Route::post('/check', [UserController::class, 'check'])->name('check');
+    Route::post('/forgot-password', [UserController::class, 'checkForgotPassword'])->name('checkForgotPassword');
+});
+
+Route::prefix('aluno')->name('aluno.')->group(function(){
+    Route::view('/solicitar', 'cadastroAluno')->name('solicitar');
+    Route::post('/create', [AlunoController::class, 'createTemp'])->name('create');
+    Route::get('/login', [AlunoController::class, 'show_otp_form'])->name('otp');
+    Route::post('/check', [AlunoController::class, 'checkAluno'])->name('check'); //verificar a otp
+});
+
+Route::get('/reset-password/{token}', function($token) {
+    return view('auth.passwords.reset', ['token' => $token]);
+})->name('password.reset');
+
+Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('password.update');
+
 Route::group([
     'middleware' => 'auth.role',
     'role' => 'secretaria'
@@ -38,6 +57,9 @@ Route::group([
             Route::get('/perfil/novo', [SecretariaController::class, 'novo_perfil'])->name('novoPerfil');
             Route::post('/perfil/criar', [SecretarioController::class, 'create'])->name('criarPerfil');            
             Route::get('/dashboard/{secretario}', [SecretariaController::class, 'show_dashboard'])->name('dashboard');
+            Route::get('/perfil/{secretario}', [SecretariaController::class, 'show_editar'])->name('edit');
+            Route::put('/perfil/{secretario}', [SecretarioController::class, 'update']);
+            Route::delete('/perfil/{secretario}', [SecretarioController::class, 'destroy']);
             Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         });
     });
@@ -55,21 +77,3 @@ Route::group([
     });
 });
 
-Route::prefix('secretaria')->name('secretaria.')->group(function() {
-    Route::view('/login', 'cadastroAdmin')->name('login'); 
-    Route::post('/check', [UserController::class, 'check'])->name('check');
-    Route::post('/forgot-password', [UserController::class, 'checkForgotPassword'])->name('checkForgotPassword');
-});
-
-Route::prefix('aluno')->name('aluno.')->group(function(){
-    Route::view('/solicitar', 'cadastroAluno')->name('solicitar');
-    Route::post('/create', [AlunoController::class, 'createTemp'])->name('create');
-    Route::get('/login', [AlunoController::class, 'show_otp_form'])->name('otp');
-    Route::post('/check', [AlunoController::class, 'checkAluno'])->name('check'); //verificar a otp
-});
-
-Route::get('/reset-password/{token}', function($token) {
-    return view('auth.passwords.reset', ['token' => $token]);
-})->name('password.reset');
-
-Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('password.update');

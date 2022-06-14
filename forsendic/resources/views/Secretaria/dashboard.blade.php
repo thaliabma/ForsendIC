@@ -5,11 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Font awsome -->
-    <script src="https://kit.fontawesome.com/06c083b33f.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap CSS v5.0.2 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <x-imports></x-imports>    
     <link href="{{asset('css/secretaria/style_dashboard.css')}}" rel="stylesheet" />
   </head>
   <body>
@@ -53,15 +49,25 @@
             <img src="{{asset('/images/Logo_ForsendIC.png')}}" width="180">
         <div class="perfil-dash">
           <img class="circle" src="{{$secretario->photo ? asset('storage/' . $secretario->photo) : asset('/images/admin.png')}}" alt="" srcset="">
-            {{-- <div class="circle"></div> --}}
-            
-            <h4>Bem-vindo, {{$secretario->name}}!</h4>
-            
-            <form method="post" action="{{route('secretaria.logout')}}">
-              @csrf
-              <button class="botao-acessar btn btn-primary" type="submit">Sair</button>
-            </form>
+          <h4>Bem-vindo, {{$secretario->name}}!</h4>
         </div>
+
+        <div class="grid-cell d-flex flex-row justify-content-between align-items-center">
+          <a class="icon-link" href="/secretaria/perfil/{{$secretario->id}}">
+            <i class="fa-solid fa-pencil"></i> Editar
+          </a>
+          
+          <form action="/secretaria/perfil/{{$secretario->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="icon-link"><i class="fa-solid fa-trash"></i> Excluir</button>
+          </form>
+        </div>
+        
+        <form method="post" action="{{route('secretaria.logout')}}">
+          @csrf
+          <button class="botao-acessar btn btn-secondary" type="submit"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</button>
+        </form>
     </div>
     <!-- end navbar -->
 

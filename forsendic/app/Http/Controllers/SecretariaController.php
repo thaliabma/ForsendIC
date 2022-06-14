@@ -9,20 +9,28 @@ use App\Models\Secretario;
 
 class SecretariaController extends Controller
 {
-    function index_perfil() {
+    public function login() {
+        return view('cadastroAdmin');
+    }
+
+    public function index_perfil() {
         return view('secretaria.perfis.profilesPage', [
             'secretarios' => Secretario::all()
         ]);
     }
     
-    function show_dashboard(Secretario $secretario) {
+    public function show_dashboard(Secretario $secretario) {
         return view('secretaria.dashboard',[
             'secretario' => $secretario
         ]);
     }
 
-    function novo_perfil() {
+    public function novo_perfil() {
         return view('secretaria.perfis.novoPerfil');
+    }
+
+    public function show_editar(Secretario $secretario) {
+        return view('secretaria.perfis.editar', ['secretario' => $secretario]);
     }
 
     // function show_dashboard() {

@@ -21,7 +21,7 @@ class deleteAlunos extends Command
      *
      * @var string
      */
-    protected $description = 'Deleta todos os alunos na tabela users';
+    protected $description = 'Apaga os alunos na tabela "users" que tenham sido criados há pelo menos 20 minutos';
 
     /**
      * Execute the console command.
@@ -32,11 +32,8 @@ class deleteAlunos extends Command
     {
         foreach(User::all() as $user) {
             $now = Carbon::now();
-            if ($user->role_id === 2) {
-                $aluno = User::find($user->id);
-                if ($now->diffInMinutes($aluno->created_at) >= 20)
-                    $aluno->delete();
-            }
+            if ($user->role_id === 2 && $now->diffInMinutes($user->created_at) >= 20)
+                $user->delete();
         }
     }
 }

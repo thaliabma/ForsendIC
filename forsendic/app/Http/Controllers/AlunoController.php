@@ -62,18 +62,17 @@ class AlunoController extends Controller
     }
 
     function checkAluno(Request $request){
-        $request->validate([
+        $formFields = $request->validate([
            'email'=>'required|email|exists:users,email',
            'password'=>'required|max:30'
         ],[
             'email.exists'=>'This email is not exists on users table'
         ]);
 
-        $creds = $request->only('email','password');
-        if( Auth::attempt($creds) ){
+        if( Auth::attempt(['email' => $formFields['email'], 'password' => $formFields['password']]) ){
             return redirect()->route('aluno.forms');
         }else{
-            return redirect()->route('aluno.login')->with('fail','Senha inválida');
+            return $this->show_otp_form($formFields['email']);
         }
     }
 
