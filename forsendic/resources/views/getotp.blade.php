@@ -56,33 +56,62 @@
               />
           </a>
           </svg>
-          <p class="titulo-entidade">Senha enviada</p>
-          <p class="dados">Insira-a abaixo</p>
-          <form method="POST" action="{{route('aluno.check')}}">
-            @csrf
-            {{-- <h3>Insira a sua otp</h3> --}}
-            <input
-              type="password"
-              class="form-senha form-control mb-3"
-              id="inputPassword"  
-              name="password"
-            />
+          
+
+          <div class="modal-id">
+
+              <a href="{{'/'}}"><div class="fechar">X</div></a>
+
+              <img
+                src="{{asset('images/ChaveEnviada.png')}}"
+                alt="Foto chave enviada"
+                style="width: 70px; 
+                      height: 70px;
+                      position: absolute;
+                      top: 20%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      "
+              />
+
+              <div class="texto-modal">
+                  <h3 style="font-size: 40px; font-weight: bolder;">Chave enviada</h3>
+
+                  
+                  <p style="font-size: 20px; color: #7B7B7B;">Uma chave de confimação foi enviada para endereço de e-mail: <i><br>{{$email}}</i></p>
+              </div>
             
-            @error('password')
-              {{$message}}
-            @enderror
-            {{-- <p>Seu email: {{$email}}</p> --}}
-            <input type="hidden" name="email" value="{{$email}}">
-            <button class="botao-acessar btn" type="submit">Entrar</button>
-          </form>
-          <span class="text-danger">@error('password') {{$message}} @enderror</span>
-          <span class="text-danger">@error('email') {{$message}} @enderror</span>
-          {{-- @if('status')
-            <div style="background-color: black;color:white">
-                {{$status}}
-            </div>
-          @endif --}}
-          {{-- <a href="{{'/alunos'}}"><button class="botao-acessar btn">Solicitar chave</button></a> --}}
+              <form method="post" action="{{route('aluno.check')}}">
+              @csrf
+              {{-- <h3>Insira a sua otp</h3> --}}
+              <input
+                type="password"
+                class="chave"
+                id="inputPassword"  
+                name="password"
+              />
+              
+              @error('password')
+                {{$message}}
+              @enderror
+              {{-- <p>Seu email: {{$email}}</p> --}}
+              <input type="hidden" name="email" value="{{$email}}">
+              <button class="ok" type="submit">OK</button>
+            </form>
+
+
+            <span class="text-danger">@error('password') {{$message}} @enderror</span>
+            <span class="text-danger">@error('email') {{$message}} @enderror</span>
+            {{-- @if('status')
+              <div style="background-color: black;color:white">
+                  {{$status}}
+              </div>
+            @endif --}}
+            {{-- <a href="{{'/alunos'}}"><button class="botao-acessar btn">Solicitar chave</button></a> --}}
+
+          </div><!-- Fim do modal-->
+
+          
         </div>
       </div>
     </div>
