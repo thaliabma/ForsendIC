@@ -7,19 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendOtp extends Mailable
+class CustomResetPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
-    protected $otp;
+    protected $url, $count;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($otp)
+    public function __construct($url, $count)
     {
-        $this->otp = $otp;
+        $this->url = $url;
+        $this->count = $count;
     }
 
     /**
@@ -29,8 +30,7 @@ class SendOtp extends Mailable
      */
     public function build()
     {
-        return $this->subject('ForsendIC - Senha de acesso')->view('otp')->with([
-            'otp' => $this->otp
-        ]);
+        return $this->subject("ForsendIC - Redefinir senha da Secretaria")
+                    ->view('Secretaria.redefinirSenha', ['url' => $this->url, 'count'=> $this->count]);
     }
 }
