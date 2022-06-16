@@ -55,7 +55,7 @@
                 <input type="file" name="photo" id="photo"/>
               <figure class="personal-figure">
                 <img src="/images/admin.png" class="personal-avatar" alt="avatar">
-                <p id="legenda">Foto</p>
+                <p id="legenda">Alterar imagem</p>
               </figure>
               </label>
         </div>
