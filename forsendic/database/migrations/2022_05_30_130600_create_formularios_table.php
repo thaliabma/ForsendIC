@@ -18,9 +18,17 @@ return new class extends Migration
             $table->timestamps();
             $table->string('aluno_nome');
             $table->string('aluno_matricula');
+            $table->string('aluno_email');
             $table->string('demanda');
-            $table->string('status');
-            $table->foreignId('editado_por')->constrained('secretarios');
+            $table->string('status')->nullable();
+            $table->foreignId('editado_por')
+                ->nullable()
+                ->references('id')
+                ->on('secretarios');
+                // ->constrained();
+
+            $table->string('file');
+
         });
     }
 

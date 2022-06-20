@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\SecretariaController;
 use App\Http\Controllers\SecretarioController;
@@ -74,6 +75,8 @@ Route::group([
             Route::get('/rematricula', [AlunoController::class, 'show_rematricula'])->name('rematricula');
             Route::get('/trancamento', [AlunoController::class, 'show_trancamento'])->name('trancamento');
             Route::post('/logout', [AlunoController::class, 'logout'])->name('logout');
+            Route::post('/formulario/postar', [FormularioController::class, 'store'])->name('postar');
+
     });
 });
 

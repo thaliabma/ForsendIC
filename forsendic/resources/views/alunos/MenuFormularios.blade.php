@@ -17,7 +17,9 @@
 
 		<div id="caixa">
 			<h1 id="titulo">FORMULÁRIOS</h1>
-			
+			@if (isset($message))
+			<h2>{{$message}}</h2>
+			@endif
 			<p id="subtitulo">Selecione abaixo o formulário que deseja enviar para secretaria:</p>
 
 			<a class="forms" href="{{route('aluno.desistencia')}}">Desistência de Vínculo Total de Curso</a>

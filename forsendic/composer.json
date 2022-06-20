@@ -8,7 +8,6 @@
         "php": "^8.0.2",
         "amir/laravel-permission": "^1.4",
         "guzzlehttp/guzzle": "^7.2",
-        "ichtrojan/laravel-otp": "^1.4",
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
