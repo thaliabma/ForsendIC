@@ -45,7 +45,7 @@
         <div class="acesso-admin">
           <a href="{{'/'}}">
             <svg
-  
+
               xmlns="http://www.w3.org/2000/svg"
               width="25"
               height="25"
@@ -74,13 +74,15 @@
             {{-- <a href="/Secretaria/profilesPage.html">.</a> --}}
           </form>
           {{-- <a href="{{'/secretaria/perfis'}}"><button class="botao-acessar btn">Entrar</button></a> --}}
-          
-          <form action="{{route('secretaria.checkForgotPassword')}} " method="POST">
+
+          <form  action="{{route('secretaria.checkForgotPassword')}} " method="POST">
             @csrf
-            <input type="hidden" name="email" value="secretaria@ic.ufal.br">
-            <input class="esquecer" type="submit" value="Esqueci minha senha">
+            <div class="formAdmin">
+                <input type="hidden" name="email" value="secretaria@ic.ufal.br">
+                <input class="esquecer" type="submit" value="Esqueci minha senha">
+            </div>
           </form>
-          
+
           <div class="card-body">
             @if (session('status'))
             <div class="alert alert-success" role="alert">
