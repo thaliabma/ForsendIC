@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="pt-br">
   <head>
     <title>Dashboard</title>
@@ -33,4 +33,4 @@
         </form>
     </div>
 </body>
-</html>
+</html> -->
