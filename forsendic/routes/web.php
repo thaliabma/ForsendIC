@@ -58,7 +58,7 @@ Route::group([
             Route::post('/perfil/criar', [SecretarioController::class, 'create'])->name('criarPerfil');            
             Route::get('/dashboard/{secretario}', [SecretariaController::class, 'show_dashboard'])->name('dashboard');
             Route::get('/perfil/{secretario}', [SecretariaController::class, 'show_editar'])->name('edit');
-            Route::put('/perfil/{secretario}', [SecretarioController::class, 'update']);
+            Route::put('/editar/{secretario}', [SecretarioController::class, 'update'])->name('update');
             Route::delete('/perfil/{secretario}', [SecretarioController::class, 'destroy']);
             Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         });

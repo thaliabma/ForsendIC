@@ -50,7 +50,7 @@
   <div class="caixa">
     <main>
       <!-- FORM DE ADICIONAR AQUI -->
-      <form action="/secretaria/perfil/{{$secretario->id}}" method="POST" enctype="multipart/form-data">
+      <form action="/secretaria/editar/{{$secretario->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="personal-image" >
@@ -78,6 +78,28 @@
           Editar
         </button>
       </form>
+
+      <!-- AQUI EH POSSIVEL VER UM PREVIEW DA IMAGEM NA PARTE DE CRIAR PERFIL -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script>
+        function previewImagem(){
+          var imagem = document.querySelector('input[name = photo').files[0];
+          var preview = document.querySelector(".personal-avatar");
+          var reader = new FileReader();
+          reader.onloadend = function(){
+              preview.src = reader.result;
+          }
+
+          if(imagem){
+            reader.readAsDataURL(imagem);
+          }
+          else{
+            preview.src = "";
+          }
+          
+        }
+      </script>
+
 
       <div class="d-flex justify-content-center">
         <a href="/secretaria/dashboard/{{$secretario->id}}">
