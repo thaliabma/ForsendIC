@@ -46,7 +46,7 @@
 
     <!-- start navbar -->
     <div class="sidebar">
-            <img src="{{asset('/images/Logo_ForsendIC.png')}}" width="180">
+            <a href="/secretaria/perfil"><img src="{{asset('/images/Logo_ForsendIC.png')}}" width="180"></a>
         <div class="perfil-dash">
           <img class="circle" src="{{$secretario->photo ? asset('storage/' . $secretario->photo) : asset('/images/admin.png')}}" alt="" srcset="">
           <h4>Bem-vindo, {{$secretario->name}}!</h4>
@@ -117,90 +117,51 @@
     </div>
 
     <!-- END FILTROS -->
+    @unless (count($forms) === 0)
         <div class="grid-wrapper">
+          @foreach ($forms as $form)
           <div class="grid-cell">
             <ul>
               <li>
-                <h5>Hélder Silva Ferreira Lima</h5>
+                <h5>{{$form->aluno_nome}}</h5>
               </li>
               <li>
-                <h6>123456789</h6>
+                <h6><strong>Matrícula</strong>: {{$form->aluno_matricula}}</h6>
               </li>
               <li>
-                <strong>Data de envio: </strong> 24/05/2022
+                <strong>Data de envio</strong>: {{date('d-m-Y', strtotime($form->created_at))}}
               </li>
               <li>
-                <strong>Demanda</strong>: Desitência de Vínculo Total de Curso
+                <strong>Demanda</strong>: 
+                @if ($form->demanda === 'desistencia') 
+                  Desistência de Vínculo Total de Curso
+                @elseif($form->demanda === 'rematricula')
+                  Rematrícula
+                @elseif($form->demanda === 'trancamento')
+                  Trancamento de Matrícula da Disciplina
+                @endif 
               </li>
               <li>
-                <span class="status status-recebido">Recebido</span>
+                @if ($form->status === 'Recebido')
+                  <span class="status status-recebido">Recebido</span>
+                @elseif($form->status=== 'Enviado')
+                  <span class="status status-enviado">Enviado</span>
+                @elseif($form->status === 'Concluído')
+                  <span class="status status-concluido">Concluido</span>
+                @endif
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="open-form-button">Visualizar</button>
               </li>
             </ul>
           </div>
-          <div class="grid-cell">
-            <ul>
-              <li>
-                <h5>Hélder Silva Ferreira Lima</h5>
-              </li>
-              <li>
-                <h6>123456789</h6>
-              </li>
-              <li>
-                <strong>Data de envio: </strong> 24/05/2022
-              </li>
-              <li>
-                <strong>Demanda</strong>: Desitência de Vínculo total de Curso
-              </li>
-              <li>
-                <span class="status status-enviado">Enviado</span>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="open-form-button">Visualizar</button>
-              </li>
-            </ul>
-          </div>
-          <div class="grid-cell">
-            <ul>
-              <li>
-                <h5>Hélder Silva Ferreira Lima</h5>
-              </li>
-              <li>
-                <h6>123456789</h6>
-              </li>
-              <li>
-                <strong>Data de envio: </strong> 24/05/2022
-              </li>
-              <li>
-                <strong>Demanda</strong>: Desitência de Vínculo total de curso
-              </li>
-              <li>
-                <span class="status status-enviado">Enviado</span>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="open-form-button">Visualizar</button>
-              </li>
-            </ul>
-          </div>
-          <div class="grid-cell">
-            <ul>
-              <li>
-                <h5>Hélder Silva Ferreira Lima</h5>
-              </li>
-              <li>
-                <h6>123456789</h6>
-              </li>
-              <li>
-                <strong>Data de envio: </strong> 24/05/2022
-              </li>
-              <li>
-                <strong>Demanda</strong>: Desitência de Vínculo total de curso
-              </li>
-              <li>
-                <span class="status status-concluido">Concluido</span>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="open-form-button">Visualizar</button>
-              </li>
-            </ul>
-          </div>
-          
+          @endforeach
         </div>
-      </div>
+          @else 
+          <div class="no-forms">
+            <p><strong>Não recebemos nenhum formulário. Continue o bom trabalho!</strong></p>
+          </div>
+    @endunless
+          
+          
       <!--rodape-->
       <footer>
         <img class="ufal navbar-brand" src="{{asset('/images/ufal.png')}}" width="80" height="80">    

@@ -11,7 +11,7 @@
   </head>
   <body>
 
-  <!-- START HEADER -->    
+  <!-- START HEADER -->
   <div class="page-header text-center">
       <div class="logo-wrapper">
         <img src="{{asset('/images/Logo_clara.png')}}" width="180" />

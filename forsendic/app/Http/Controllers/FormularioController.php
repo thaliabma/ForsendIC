@@ -27,6 +27,7 @@ class FormularioController extends Controller
             'aluno_matricula' => $formFields['aluno_matricula'],
             'aluno_email' => $formFields['aluno_email'],
             'demanda' => $formFields['demanda'],
+            'status' => 'Recebido',
             'file' => $arquivo,
         ]);
 

@@ -25,20 +25,25 @@
 			<form method="post" enctype="multipart/form-data" action="{{route('aluno.postar')}}">
 				@csrf
 				<label class="labelCampos">Nome:</label><br>
-				<input class="campoF" type="text" name="aluno_nome" placeholder="Nome Completo"><br>
+				<input class="campoF" type="text" name="aluno_nome" placeholder="Nome Completo" value="{{old('aluno_nome')}}"><br>
+				
 				@error('aluno_nome')
 					{{$message}}
 				@enderror
+				
 				<label class="labelCampos">Matricula:</label><br>
-				<input class="campoF" type="number" name="aluno_matricula" placeholder="Número da Matrícula"><br>
+				<input class="campoF" type="number" name="aluno_matricula" placeholder="Número da Matrícula" value="{{old('aluno_matricula')}}"><br>
+				
 				@error('aluno_matricula')
 					{{$message}}
 				@enderror
 				<input type="hidden" name="aluno_email" value="{{Auth::user()->email}}">
+				
 				@error('aluno_email')
 					{{$message}}
 				@enderror
 				<input type="hidden" name="demanda" value="desistencia">
+				
 				@error('demanda')
 					{{$message}}
 				@enderror

@@ -54,13 +54,30 @@ Route::group([
     'role' => 'secretaria'
 ], function() {
         Route::prefix('secretaria')->name('secretaria.')->group(function(){
-            Route::get('/perfil', [SecretariaController::class, 'index_perfil'])->name('perfil');
-            Route::get('/perfil/novo', [SecretariaController::class, 'novo_perfil'])->name('novoPerfil');
+            //acessar perfil
+            Route::get('/perfil', [SecretariaController::class, 'index_perfil'])->name('perfil'); 
+            
+            // view de criar perfil
+            Route::get('/perfil/novo', [SecretariaController::class, 'novo_perfil'])->name('novoPerfil'); 
+            
+            // criar perfil 
             Route::post('/perfil/criar', [SecretarioController::class, 'create'])->name('criarPerfil');            
+            
+            // entrar no dashboard com o perfil
             Route::get('/dashboard/{secretario}', [SecretariaController::class, 'show_dashboard'])->name('dashboard');
+            // ver editar perfil
             Route::get('/perfil/{secretario}', [SecretariaController::class, 'show_editar'])->name('edit');
+            
+            // editar perfil
             Route::put('/perfil/{secretario}', [SecretarioController::class, 'update']);
+            
+            // excluir perfil
             Route::delete('/perfil/{secretario}', [SecretarioController::class, 'destroy']);
+            
+            // baixar formulario
+            Route::get('/form/{formulario}/download', [FormularioController::class, 'download']);
+            
+            // sair
             Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         });
     });
@@ -79,4 +96,3 @@ Route::group([
 
     });
 });
-
