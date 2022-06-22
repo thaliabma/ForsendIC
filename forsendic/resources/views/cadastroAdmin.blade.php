@@ -80,19 +80,6 @@
             <input type="hidden" name="email" value="secretaria@ic.ufal.br">
             <input class="esquecer" type="submit" value="Esqueci minha senha">
           </form>
-          
-          <div class="card-body">
-            @if (session('status'))
-            <div class="alert alert-success" role="alert">
-              {{session('status')}}
-            </div>
-            @endif
-
-            @if ($errors->has('email'))
-              <span class="invalid-feedback" role="alert">
-                <strong>{{$errors->first('email')}}</strong>
-              </span>
-            @endif
           </div>
         </div>
         </div>

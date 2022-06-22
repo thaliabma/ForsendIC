@@ -42,7 +42,7 @@ class UserController extends Controller
             else
                 return redirect()->route('aluno.forms');
         }else{
-            return redirect()->back();
+            return redirect()->back()->with('message', 'A senha inserida é inválida');
         }
     }
     
@@ -81,7 +81,7 @@ class UserController extends Controller
         );
 
         return $status === Password::PASSWORD_RESET
-        ? redirect()->route('inicio')->with('status', __($status))
+        ? redirect()->route('inicio')->with('message', __($status))
         : back()->withErrors(['email' => [__($status)]]);
     }
 

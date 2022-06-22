@@ -69,7 +69,7 @@ Route::group([
             Route::get('/perfil/{secretario}', [SecretariaController::class, 'show_editar'])->name('edit');
             
             // editar perfil
-            Route::put('/perfil/{secretario}', [SecretarioController::class, 'update']);
+            Route::put('/editar/{secretario}', [SecretarioController::class, 'update'])->name('update');
             
             // excluir perfil
             Route::delete('/perfil/{secretario}', [SecretarioController::class, 'destroy']);

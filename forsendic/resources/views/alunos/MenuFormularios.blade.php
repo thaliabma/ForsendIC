@@ -8,7 +8,7 @@
 	</head>
 
 	<body>
-
+		<x-flash-message />
 		<div id="cabecalho">
 			<img id="forsend" src="{{asset('/images/Logo_ForsendIC.png')}}">	
 

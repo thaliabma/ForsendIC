@@ -18,10 +18,12 @@ class FormularioController extends Controller
             'demanda' => 'required',
             'file' => 'required|mimes:pdf|max:2048'
         ]);
+
         $arquivo = $request->file('file')->storeAs(
             'formularios', 
             $formFields['aluno_matricula'] . '_' . $request->file->getClientOriginalName()
         );
+        
         Formulario::create([
             'aluno_nome' => $formFields['aluno_nome'],
             'aluno_matricula' => $formFields['aluno_matricula'],
@@ -31,7 +33,7 @@ class FormularioController extends Controller
             'file' => $arquivo,
         ]);
 
-        return redirect(route('aluno.forms'));
+        return redirect(route('aluno.forms'))->with('message', 'Formulário enviado com sucesso');
     }
 
     public function download($form) {

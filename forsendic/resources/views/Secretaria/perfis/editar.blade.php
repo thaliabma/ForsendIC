@@ -50,7 +50,7 @@
   <div class="caixa">
     <main>
       <!-- FORM DE ADICIONAR AQUI -->
-      <form action="/secretaria/perfil/{{$secretario->id}}" method="POST" enctype="multipart/form-data">
+      <form action="/secretaria/editar/{{$secretario->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="personal-image" >
@@ -81,7 +81,7 @@
 
       <div class="d-flex justify-content-center">
         <a href="/secretaria/dashboard/{{$secretario->id}}">
-          <i class="fa-solid fa-house"></i> Voltar dashboard
+          <i class="fa-solid fa-house"></i> Voltar para o dashboard
         </a>
       </div>
       </main>

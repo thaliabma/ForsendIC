@@ -74,9 +74,9 @@ class AlunoController extends Controller
         ]);
 
         if(Auth::attempt(['email' => $formFields['email'], 'password' => $formFields['password']]) ){
-            return redirect()->route('aluno.forms');
+            return redirect()->route('aluno.forms')->with('message', 'Bem vindo!');
         }else{
-            return $this->show_otp_form($formFields['email']);
+            return $this->show_otp_form($formFields['email'], with('message', 'Credenciais inválidas'));
         }
     }
 
@@ -84,6 +84,6 @@ class AlunoController extends Controller
         $user = Auth::id();
         Auth::logout();
         User::destroy($user);
-        return redirect('/');
+        return redirect('/')->with('message', 'Volte sempre!');
     }
 }

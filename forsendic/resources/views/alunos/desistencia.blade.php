@@ -49,8 +49,13 @@
 				@enderror
 				{{-- <label class="labelCampos">Email:</label><br>
 				<input class="campoF" type="email" name="email" placeholder="Email Institucional"><br><br> --}}
-
-				<label class="labelCampos">Anexar (somente em pdf):</label><br>
+				<p>Você vai precisar de: </p>
+				<ul>
+					<li>Formulário disponível no site da UFAL</li>
+					<li>Cópia do RG</li>
+					<li>Declaração de Quitação</li>
+				</ul>
+				<label class="labelCampos">Anexar (somente em pdf) :</label><br>
 				
 				{{-- <label class="labelFile" for="arquivo1" id="arq1"> ⇩ Cópia do RG ou CNH</label> --}}
 				<input type="file" name="file" id="arquivo1"><br>
@@ -63,7 +68,7 @@
 				<label class="labelFile" for="arquivo3" id="arq3"> ⇩ Declaração de Quitação</label>
 				<input type="file" name="arquivo3" id="arquivo3"><br> --}}
 
-				<input id="enviar" type="submit" name="Enviar">
+				<input id="enviar" type="submit" value="Enviar">
 
 			</form> 
 
