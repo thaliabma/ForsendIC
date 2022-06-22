@@ -55,10 +55,10 @@
         @method('PUT')
         <div class="personal-image" >
             <label for="photo" > 
-                <input type="file" name="photo" id="photo"/>
+                <input type="file" name="photo" id="photo" onchange="previewImagem()"/>
               <figure class="personal-figure">
-                <img src="/images/admin.png" class="personal-avatar" alt="avatar">
-                <p id="legenda">Foto</p>
+                <img src="{{$secretario->photo ? asset('storage/' . $secretario->photo) : asset('/images/admin.png')}}" class="personal-avatar" alt="avatar">
+                <p id="legenda">Alterar imagem</p>
               </figure>
               </label>
         </div>
