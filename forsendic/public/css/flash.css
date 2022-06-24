@@ -2,9 +2,8 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    height: 1rem;
     position:fixed;
-    top: 1rem;
+    top: 0;
     color: white;
     background-color: #31508B;
 }

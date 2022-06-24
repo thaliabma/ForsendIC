@@ -36,14 +36,10 @@ class UserController extends Controller
             'email.exists'=>'This email do not exists on users table'
         ]);
 
-        if(Auth::attempt(['email' => 'secretaria@ic.ufal.br', 'password' => $formFields['password']]) ){
-            if (Auth::user()->role_id === 1)
-                return redirect()->route('secretaria.perfil');
-            else
-                return redirect()->route('aluno.forms');
-        }else{
+        if(Auth::attempt(['email' => 'secretaria@ic.ufal.br', 'password' => $formFields['password']]) )
+            return redirect()->route('secretaria.perfil');
+        else
             return redirect()->back()->with('message', 'A senha inserida é inválida');
-        }
     }
     
     public function checkForgotPassword(Request $request) {
@@ -56,7 +52,7 @@ class UserController extends Controller
         );
 
         return $status === Password::RESET_LINK_SENT
-                    ? back()->with(['status'=> __($status)])
+                    ? back()->with(['message'=> __($status)])
                     : back()->withErrors(['email' => __($status)]);
     }
 

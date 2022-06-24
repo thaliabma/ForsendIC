@@ -9,6 +9,8 @@
     <link href="{{asset('css/secretaria/style_dashboard.css')}}" rel="stylesheet" />
   </head>
   <body>
+    <x-flash-message />
+
     <!-- modal -->
     <div class="modal fade" id="modal-form" tabindex="-1" aria-labelledby="Modal forms" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -60,7 +62,7 @@
           <form action="/secretaria/excluir/{{$secretario->id}}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="icon-link"><i class="fa-solid fa-trash"></i> Excluir</button>
+            <button type="submit" class="icon-link" data-toggle="modal" data-target="#confirmar-exclusao"><i class="fa-solid fa-trash"></i> Excluir</button>
           </form>
         </div>
         
@@ -122,39 +124,7 @@
     @unless (count($forms) === 0)
         <div class="grid-wrapper">
           @foreach ($forms as $form)
-          <div class="grid-cell">
-            <ul>
-              <li>
-                <h5>{{$form->aluno_nome}}</h5>
-              </li>
-              <li>
-                <h6><strong>Matrícula</strong>: {{$form->aluno_matricula}}</h6>
-              </li>
-              <li>
-                <strong>Data de envio</strong>: {{date('d-m-Y', strtotime($form->created_at))}}
-              </li>
-              <li>
-                <strong>Demanda</strong>: 
-                @if ($form->demanda === 'desistencia') 
-                  Desistência de Vínculo Total de Curso
-                @elseif($form->demanda === 'rematricula')
-                  Rematrícula
-                @elseif($form->demanda === 'trancamento')
-                  Trancamento de Matrícula da Disciplina
-                @endif
-              </li>
-              <li>
-                @if ($form->status === 'Recebido')
-                  <span class="status status-recebido">Recebido</span>
-                @elseif($form->status=== 'Enviado')
-                  <span class="status status-enviado">Enviado</span>
-                @elseif($form->status === 'Concluído')
-                  <span class="status status-concluido">Concluido</span>
-                @endif
-                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="open-form-button">Visualizar</button>
-              </li>
-            </ul>
-          </div>
+            <x-card-form :form="$form" />
           @endforeach
         </div>
           @else 
@@ -162,7 +132,6 @@
             <p><strong>Não recebemos nenhum formulário. Continue o bom trabalho!</strong></p>
           </div>
     @endunless
-          
           
       <!--rodape-->
       <footer>

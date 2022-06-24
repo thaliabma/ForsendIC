@@ -14,6 +14,7 @@
     <title>Acesso Administrativo</title>
   </head>
   <body>
+    <x-flash-message />
     <div class="container-css d-flex flex-row">
       <div class="position-absolute m-lg-3">
         <img

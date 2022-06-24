@@ -12,6 +12,8 @@
     <title>Acesso Aluno</title>
   </head>
   <body>
+
+    <x-flash-message />
     <div class="container-css d-flex flex-row">
       <div class="position-absolute m-lg-3">
         <img
@@ -82,32 +84,23 @@
               </div>
             
               <form method="post" action="{{route('aluno.check')}}">
-              @csrf
-              {{-- <h3>Insira a sua otp</h3> --}}
-              <input
-                type="password"
-                class="chave"
-                id="inputPassword"  
-                name="password"
-              />
-              
-              @error('password')
-                {{$message}}
-              @enderror
-              {{-- <p>Seu email: {{$email}}</p> --}}
-              <input type="hidden" name="email" value="{{$email}}">
-              <button class="ok" type="submit">OK</button>
-            </form>
-
-
-            <span class="text-danger">@error('password') {{$message}} @enderror</span>
-            <span class="text-danger">@error('email') {{$message}} @enderror</span>
-            {{-- @if('status')
-              <div style="background-color: black;color:white">
-                  {{$status}}
-              </div>
-            @endif --}}
-            {{-- <a href="{{'/alunos'}}"><button class="botao-acessar btn">Solicitar chave</button></a> --}}
+                @csrf
+                <input
+                  type="password"
+                  class="chave"
+                  id="inputPassword"  
+                  name="password"
+                />
+                @if (session()->has('erro'))
+                    {{$erro}}
+                @endif
+                
+                @error('password')
+                  {{$message}}
+                @enderror
+                <input type="hidden" name="email" value="{{$email}}">
+                <button class="ok" type="submit">OK</button>
+              </form>
 
           </div><!-- Fim do modal-->
 

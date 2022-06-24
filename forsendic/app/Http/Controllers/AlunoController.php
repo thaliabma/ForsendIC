@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\Mail;
 
 class AlunoController extends Controller
 {
-    public function show_otp_form($email) {
+    public function show_otp_form($email, $wrong) {
+        if ($wrong === true) {
+            return view('getotp', [
+                'email' => $email,
+                'erro' => 'A senha está incorreta! Verifique o seu email.'
+            ]);
+            // ->with('erro', 'A senha está incorreta! Verifique o seu email.');
+        }
+
         return view('getotp', [
             'email'=> $email,
         ]);
@@ -44,7 +52,7 @@ class AlunoController extends Controller
         
         $existente = User::where('email', $formFields['email'])->first();
         if ($existente) {
-            return $this->show_otp_form($existente['email']);
+            return $this->show_otp_form($existente['email'], false);
         }
 
         // $password = '123456';
@@ -56,11 +64,11 @@ class AlunoController extends Controller
         ]);
 
         if (Mail::to($formFields['email'])->send(new SendOtp($password))) {
-            return $this->show_otp_form($formFields['email']);
+            return $this->show_otp_form($formFields['email'], false);
         }
         else {
             return redirect()->back()->with([
-                'status' => 'Não conseguimos enviar a mensagem'
+                'message' => 'Não conseguimos enviar o email'
             ]);
         }
     }
@@ -76,7 +84,7 @@ class AlunoController extends Controller
         if(Auth::attempt(['email' => $formFields['email'], 'password' => $formFields['password']]) ){
             return redirect()->route('aluno.forms')->with('message', 'Bem vindo!');
         }else{
-            return $this->show_otp_form($formFields['email'], with('message', 'Credenciais inválidas'));
+            return $this->show_otp_form($formFields['email'], true);
         }
     }
 
