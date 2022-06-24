@@ -57,7 +57,7 @@
             <i class="fa-solid fa-pencil"></i> Editar
           </a>
           
-          <form action="/secretaria/perfil/{{$secretario->id}}" method="POST">
+          <form action="/secretaria/excluir/{{$secretario->id}}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" class="icon-link"><i class="fa-solid fa-trash"></i> Excluir</button>
@@ -79,13 +79,15 @@
     <div class="content">
         
       <!-- SEARCH BAR  -->
-        <div class="form-wrapper">
-          <div class="input-group mb-3">
-            <input type="text" name="search" class="form-control" placeholder="Nome, tipo, status..." aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="submit" id="submit-search"><i class="fa fa-search"></i></button>
+        <form action="">
+          <div class="form-wrapper">
+            <div class="input-group mb-3">
+              <input type="text" name="search" class="form-control" placeholder="Nome, tipo, status..." aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit" id="submit-search"><i class="fa fa-search"></i></button>
+              </div>
             </div>
-          </div>
+        </form>
       <!-- END SEARCH BAR -->
           
       <!-- FILTROS -->
@@ -94,10 +96,10 @@
           Demandas
         </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Tudo</a></li>
-            <li><a class="dropdown-item" href="#">Desistência de Vínculo Total</a></li>
-            <li><a class="dropdown-item" href="#">Trancamento da matrícula</a></li>
-            <li><a class="dropdown-item" href="#">Rematrícula</a></li>
+            <li><a class="dropdown-item" href="/secretaria/dashboard/{{$secretario->id}}">Tudo</a></li>
+            <li><a class="dropdown-item" href="?demanda=desistencia">Desistência de Vínculo Total</a></li>
+            <li><a class="dropdown-item" href="?demanda=trancamento">Trancamento da matrícula</a></li>
+            <li><a class="dropdown-item" href="?demanda=rematricula">Rematrícula</a></li>
           </ul>
         </div>
         <div class="dropdown">
@@ -105,10 +107,10 @@
             Status
           </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Tudo</a></li>
-              <li><a class="dropdown-item" href="#">Recebidos</a></li>
-              <li><a class="dropdown-item" href="#">Enviados</a></li>
-              <li><a class="dropdown-item" href="#">Concluídos</a></li>
+              <li><a class="dropdown-item" href="/secretaria/dashboard/{{$secretario->id}}">Tudo</a></li>
+              <li><a class="dropdown-item" href="?status=Recebido">Recebidos</a></li>
+              <li><a class="dropdown-item" href="?status=Enviado">Enviados</a></li>
+              <li><a class="dropdown-item" href="?status=Concluído">Concluídos</a></li>
             </ul>
           </div>
         </div>
@@ -139,7 +141,7 @@
                   Rematrícula
                 @elseif($form->demanda === 'trancamento')
                   Trancamento de Matrícula da Disciplina
-                @endif 11
+                @endif
               </li>
               <li>
                 @if ($form->status === 'Recebido')

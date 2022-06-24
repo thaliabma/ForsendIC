@@ -81,7 +81,7 @@ class UserController extends Controller
         );
 
         return $status === Password::PASSWORD_RESET
-        ? redirect()->route('inicio')->with('message', __($status))
+        ? redirect()->route('inicio')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
     }
 

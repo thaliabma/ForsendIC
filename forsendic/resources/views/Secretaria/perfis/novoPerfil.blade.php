@@ -52,7 +52,7 @@
         @csrf
         <div class="personal-image" >
             <label for="photo" > 
-                <input type="file" name="photo" id="photo"/>
+                <input type="file" name="photo" id="photo" onchange="previewImagem()"/>
               <figure class="personal-figure">
                 <img src="/images/admin.png" class="personal-avatar" alt="avatar">
                 <p id="legenda">Alterar imagem</p>
@@ -60,6 +60,7 @@
               </label>
         </div>
         <label for="name"></label>
+
         <input type="text" name="name" class="form-control" placeholder="inserir nome"> <br>
         @error('name')
           <div class="alert alert-danger" role="alert" >
@@ -75,6 +76,7 @@
           Criar
         </button>
       </form>
+
       </main>
   </div>
 

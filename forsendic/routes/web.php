@@ -72,8 +72,7 @@ Route::group([
             Route::put('/editar/{secretario}', [SecretarioController::class, 'update'])->name('update');
             
             // excluir perfil
-            Route::delete('/perfil/{secretario}', [SecretarioController::class, 'destroy']);
-            
+            Route::delete('/excluir/{secretario}', [SecretarioController::class, 'destroy'])->name('excluir');
             // baixar formulario
             Route::get('/form/{formulario}/download', [FormularioController::class, 'download']);
             
@@ -87,12 +86,22 @@ Route::group([
         'role' => 'aluno'
     ], function(){
         Route::prefix('aluno')->name('aluno.')->group(function(){
+            // menu de formulários
             Route::get('/forms', [AlunoController::class, 'showForms'])->name('forms');
+            
+            // formulario de desistencia
             Route::get('/desistencia', [AlunoController::class, 'show_desistencia'])->name('desistencia');
+            
+            // formulario de rematricula
             Route::get('/rematricula', [AlunoController::class, 'show_rematricula'])->name('rematricula');
+            
+            // formulario de trancamento
             Route::get('/trancamento', [AlunoController::class, 'show_trancamento'])->name('trancamento');
+            
+            // logout aluno
             Route::post('/logout', [AlunoController::class, 'logout'])->name('logout');
+            
+            // enviar formulário
             Route::post('/formulario/postar', [FormularioController::class, 'store'])->name('postar');
-
     });
 });

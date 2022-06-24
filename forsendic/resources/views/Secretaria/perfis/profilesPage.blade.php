@@ -14,7 +14,10 @@
   <!-- START HEADER -->
   <div class="page-header text-center">
       <div class="logo-wrapper">
-        <img src="{{asset('/images/Logo_clara.png')}}" width="180" />
+        <form method="post" action="{{route('secretaria.logout')}}">
+          @csrf
+          <button class="sem-decoracao" type="submit"><img src="{{asset('/images/Logo_clara.png')}}" width="180" /></button>
+        </form>
       </div>
       <div class="ufal-logo">
         <img src="{{asset('/images/Ufal_white.png')}}" width="100" height="100" />
@@ -24,7 +27,7 @@
       </div>
     </div>
     <!-- END HEADER -->
-
+    <x-flash-message/>
     <main>
       <!-- PERFIS APARECEM AQUI -->
       <div

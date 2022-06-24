@@ -23,7 +23,7 @@ class SecretariaController extends Controller
     public function show_dashboard(Secretario $secretario) {
         return view('secretaria.dashboard',[
             'secretario' => $secretario,
-            'forms' => Formulario::latest()->get(),
+            'forms' => Formulario::latest()->filter(request(['demanda', 'status', 'search']))->get(),
         ]);
     }
 

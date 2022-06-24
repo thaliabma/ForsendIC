@@ -32,8 +32,11 @@ class deleteAlunos extends Command
     {
         foreach(User::all() as $user) {
             $now = Carbon::now();
-            if ($user->role_id === 2 && $now->diffInMinutes($user->created_at) >= 20)
+            if ($user->role_id === 2 && $now->diffInMinutes($user->created_at) >= 20) {
                 $user->delete();
+                echo "Usuário excluído";
+
+            }
         }
     }
 }

@@ -40,14 +40,14 @@ class AlunoController extends Controller
             'email' => ['required', 'email', new OnlyICValidation],
         ]);
 
-        // $password = rand(100000, 999999); //otp
+        $password = rand(100000, 999999); //otp
         
         $existente = User::where('email', $formFields['email'])->first();
         if ($existente) {
             return $this->show_otp_form($existente['email']);
         }
 
-        $password = '123456';
+        // $password = '123456';
         User::create([
             'name' => 'Aluno',
             'email' => $formFields['email'],
@@ -55,14 +55,14 @@ class AlunoController extends Controller
             'password' => Hash::make($password)
         ]);
 
-        // if (Mail::to($formFields['email'])->send(new SendOtp($password))) {
+        if (Mail::to($formFields['email'])->send(new SendOtp($password))) {
             return $this->show_otp_form($formFields['email']);
-        // }
-        // else {
-        //     return redirect()->back()->with([
-        //         'status' => 'Não conseguimos enviar a mensagem'
-        //     ]);
-        // }
+        }
+        else {
+            return redirect()->back()->with([
+                'status' => 'Não conseguimos enviar a mensagem'
+            ]);
+        }
     }
 
     function checkAluno(Request $request){

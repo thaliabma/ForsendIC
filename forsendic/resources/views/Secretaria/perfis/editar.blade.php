@@ -30,7 +30,7 @@
     </style>
   </head>
   <body>
-
+    <x-flash-message />
 <div >
   <!-- START HEADER -->
     <div class="page-header text-center">
@@ -81,7 +81,7 @@
 
       <div class="d-flex justify-content-center">
         <a href="/secretaria/dashboard/{{$secretario->id}}">
-          <i class="fa-solid fa-house"></i> Voltar para o dashboard
+          <i class="fa-solid fa-house"></i> Voltar dashboard
         </a>
       </div>
       </main>
