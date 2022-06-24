@@ -23,31 +23,50 @@
 
 				<label id="subtitulo">Preencha todos os campos do formulário</label>
 			</div>
-			<form id="caixa3">	
+			<form method="post" action="{{route('aluno.postar')}}" enctype="multipart/form-data">
+				@csrf
+				
 				<label class="labelCampos">Nome:</label><br>
-				<input class="campoF" type="text" name="nome" placeholder="Nome Completo"><br>
-
+				<input class="campoF" type="text" name="aluno_nome" placeholder="Nome Completo" value="{{old('aluno_nome')}}"><br>
+				
+				@error('aluno_nome')
+					{{$message}}
+				@enderror
+				
 				<label class="labelCampos">Matricula:</label><br>
-				<input class="campoF" type="number" name="matricula" placeholder="Número da Matrícula"><br>
+				<input class="campoF" type="number" name="aluno_matricula" placeholder="Número da Matrícula" value="{{old('aluno_matricula')}}"><br>
+				
+				@error('aluno_matricula')
+					{{$message}}
+				@enderror
+				<input type="hidden" name="aluno_email" value="{{Auth::user()->email}}">
+				
+				@error('aluno_email')
+					{{$message}}
+				@enderror
+				<input type="hidden" name="demanda" value="trancamento">
+				
+				@error('demanda')
+					{{$message}}
+				@enderror
 
-				<label class="labelCampos">Email:</label><br>
-				<input class="campoF" type="email" name="email" placeholder="Email Institucional"><br><br>
+				<p>Você vai precisar de: </p>
+				<ul>
+					<li>Formulário de Trancamento de Matrícula, disponível no site da UFAL</li>
+					<li>Cópia do RG ou da CNH</li>
+					<li>Declaração de Quitação</li>
+					<li>Histórico Acadêmico</li>
+				</ul>
 
 				<label class="labelCampos">Anexar (somente em pdf):</label><br>
-				<label class="labelFile" for="arquivo1" id="arq1"> ⇩ Cópia do RG ou CNH</label>
-				<input type="file" name="arquivo1" id="arquivo1"><br>
-					
-				<label class="labelFile" for="arquivo2" id="arq2"> ⇩ Trancamento de Matrícula</label>
-				<input type="file" name="arquivo2" id="arquivo2"><br>
-				
-				<label class="labelFile" for="arquivo3" id="arq3"> ⇩ Declaração de Quitação</label>
-				<input type="file" name="arquivo3" id="arquivo3"><br>
+				<input type="file" name="file" id="arquivo3"><br>
+				@error('file')
+					{{$message}}
+				@enderror
 
-				<label class="labelFile" for="arquivo4" id="arq4"> ⇩ Histórico Acadêmico</label>
-				<input type="file" name="arquivo4" id="arquivo4"><br>
+				<input id="enviar" type="submit" value="Enviar">
 
-				<input id="enviar" type="submit" name="Enviar">
-			</form> 
+			</form>  
 
 			<div id="agradecimento">
 				Volte sempre, ForsendIC agradece!

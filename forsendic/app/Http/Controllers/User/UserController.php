@@ -42,7 +42,7 @@ class UserController extends Controller
             else
                 return redirect()->route('aluno.forms');
         }else{
-            return redirect()->back();
+            return redirect()->back()->with('message', 'A senha inserida é inválida');
         }
     }
     

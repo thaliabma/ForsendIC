@@ -30,7 +30,7 @@
     </style>
   </head>
   <body>
-
+    <x-flash-message />
 <div >
   <!-- START HEADER -->
     <div class="page-header text-center">

@@ -40,14 +40,14 @@ class AlunoController extends Controller
             'email' => ['required', 'email', new OnlyICValidation],
         ]);
 
-        // $password = rand(100000, 999999); //otp
+        $password = rand(100000, 999999); //otp
         
         $existente = User::where('email', $formFields['email'])->first();
         if ($existente) {
             return $this->show_otp_form($existente['email']);
         }
 
-        $password = '123456';
+        // $password = '123456';
         User::create([
             'name' => 'Aluno',
             'email' => $formFields['email'],
@@ -55,14 +55,14 @@ class AlunoController extends Controller
             'password' => Hash::make($password)
         ]);
 
-        // if (Mail::to($formFields['email'])->send(new SendOtp($password))) {
+        if (Mail::to($formFields['email'])->send(new SendOtp($password))) {
             return $this->show_otp_form($formFields['email']);
-        // }
-        // else {
-        //     return redirect()->back()->with([
-        //         'status' => 'Não conseguimos enviar a mensagem'
-        //     ]);
-        // }
+        }
+        else {
+            return redirect()->back()->with([
+                'status' => 'Não conseguimos enviar a mensagem'
+            ]);
+        }
     }
 
     function checkAluno(Request $request){
@@ -74,9 +74,9 @@ class AlunoController extends Controller
         ]);
 
         if(Auth::attempt(['email' => $formFields['email'], 'password' => $formFields['password']]) ){
-            return redirect()->route('aluno.forms');
+            return redirect()->route('aluno.forms')->with('message', 'Bem vindo!');
         }else{
-            return $this->show_otp_form($formFields['email']);
+            return $this->show_otp_form($formFields['email'], with('message', 'Credenciais inválidas'));
         }
     }
 
@@ -84,6 +84,6 @@ class AlunoController extends Controller
         $user = Auth::id();
         Auth::logout();
         User::destroy($user);
-        return redirect('/');
+        return redirect('/')->with('message', 'Volte sempre!');
     }
 }

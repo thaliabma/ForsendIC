@@ -270,3 +270,11 @@ button.icon-link {
     text-decoration: underline;
     color: inherit;
 }
+
+.no-forms {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 30%;
+}
