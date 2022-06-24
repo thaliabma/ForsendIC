@@ -7,27 +7,6 @@
     <title>Editar perfil</title>
     <x-imports></x-imports>
     <link href="{{asset('css/secretaria/style_perfis.css')}}" rel="stylesheet" />
-    <style>
-      main {
-        background-color:linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);;
-        padding: 1rem;
-        /* width: 80%; */
-      }
-      input {
-        margin: 15px;
-      }
-      #legenda {
-        color: white;
-      }
-      a {
-        color:white;
-        text-decoration:none;
-      }
-      a:hover {
-        color: white;
-        text-decoration: underline;
-      }
-    </style>
   </head>
   <body>
     <x-flash-message />
@@ -70,13 +49,18 @@
           </div>
         @enderror
         
-        <button
+        <div class="d-flex flex-row-reverse">
+          <button
           id="addBtn"
-          class="botao-acessar btn"
+          class="botao-acessar btn ms-2 me-2"
           data-bs-toggle="modal"
           data-bs-target="#">
-          Editar
+          Criar
         </button>
+        <button type="reset" class="botao-acessar btn ms-2 me-2">
+          Apagar
+        </button>
+        </div>
       </form>
 
       <!-- AQUI EH POSSIVEL VER UM PREVIEW DA IMAGEM NA PARTE DE CRIAR PERFIL -->
@@ -101,9 +85,9 @@
       </script>
 
 
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center m-2">
         <a href="/secretaria/dashboard/{{$secretario->id}}">
-          <i class="fa-solid fa-house"></i> Voltar dashboard
+          <i class="fa-solid fa-house"></i> Voltar para o dashboard
         </a>
       </div>
       </main>

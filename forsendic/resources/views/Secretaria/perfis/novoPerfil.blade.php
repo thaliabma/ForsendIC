@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Selecionar Perfil</title>
+    <x-imports />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -68,13 +69,24 @@
           </div>
         @enderror
         
-        <button
+        <div class="d-flex flex-row-reverse">
+          <button
           id="addBtn"
-          class="botao-acessar btn"
+          class="botao-acessar btn ms-2 me-2"
           data-bs-toggle="modal"
           data-bs-target="#">
           Criar
         </button>
+        <button type="reset" class="botao-acessar btn ms-2 me-2">
+          Apagar
+        </button>
+        </div>
+        
+      <div class="d-flex justify-content-center m-2">
+        <a href="{{route('secretaria.perfil')}}"">
+          <i class="fa-solid fa-user"></i> Retornar para a página de perfis
+        </a>
+
       </form>
 
       <!-- AQUI EH POSSIVEL VER UM PREVIEW DA IMAGEM NA PARTE DE CRIAR PERFIL -->

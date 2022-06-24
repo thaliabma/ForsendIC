@@ -143,3 +143,23 @@ footer {
     border:none;
     background: none;
   }
+
+  main {
+    background-color:linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);;
+    padding: 1rem;
+    /* width: 80%; */
+  }
+  input {
+    margin: 15px;
+  }
+  #legenda {
+    color: white;
+  }
+  a {
+    color:white;
+    text-decoration:none;
+  }
+  a:hover {
+    color: white;
+    text-decoration: underline;
+  }
