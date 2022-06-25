@@ -4,6 +4,12 @@
     align-items: center;
     position:fixed;
     top: 0;
+    /*color: #155724;*/
     color: white;
-    background-color: #31508B;
+    /*background-color: #D4EDDA;*/
+    background-color: #f45044bd;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #C3E6CB;
+    margin-bottom: 0;
 }
