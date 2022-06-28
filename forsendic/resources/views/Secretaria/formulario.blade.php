@@ -83,7 +83,7 @@
             <form action="{{route('secretaria.erroEmail')}}" method="post">
             @csrf
             <label for="texto">Descreva os erros encontrados na documentação: </label>
-            input type="text" name="texto" autofocus>
+            <input type="text" name="texto" autofocus>
             <input type="hidden" name="aluno_email" value="{{$formulario->aluno_email}}">
             <button type="submit">Enviar</button>
         </form>`);
