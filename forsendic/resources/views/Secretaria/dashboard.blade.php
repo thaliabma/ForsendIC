@@ -124,7 +124,7 @@
     @unless (count($forms) === 0)
         <div class="grid-wrapper">
           @foreach ($forms as $form)
-            <x-card-form :form="$form" />
+            <x-card-form :form="$form" :secretario="$secretario" />
           @endforeach
         </div>
           @else 

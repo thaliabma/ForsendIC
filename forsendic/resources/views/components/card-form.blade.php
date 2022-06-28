@@ -1,4 +1,4 @@
-@props(['form'])
+@props(['form', 'secretario'])
 
 <div class="grid-cell">
     <ul>
@@ -29,7 +29,7 @@
         @elseif($form->status === 'Concluído')
           <span class="status status-concluido">Concluido</span>
         @endif
-        <a type="button" class="open-form-button" href="/secretaria/formulario/{{$form->id}}">Visualizar</a>
+        <a type="button" class="open-form-button" href="/secretaria/{{$secretario->id}}/formulario/{{$form->id}}">Visualizar</a>
       </li>
     </ul>
   </div>

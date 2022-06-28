@@ -74,11 +74,17 @@ Route::group([
             // excluir perfil
             Route::delete('/excluir/{secretario}', [SecretarioController::class, 'destroy'])->name('excluir');
             
-            Route::get('/formulario/{formulario}', [SecretariaController::class, 'get_form'])->name('getForm');
+            // formulario individual
+            Route::get('/{secretario}/formulario/{formulario}', [SecretariaController::class, 'get_form'])->name('getForm');
 
             // baixar formulario
             Route::get('/formulario/download/{formulario}', [FormularioController::class, 'download'])->name('downloadForm');
             
+            // email de documentação com erro
+            Route::post('/formulario/email/erro', [SecretariaController::class, 'erro_na_documentacao_email'])->name('erroEmail');
+            
+            Route::put('/formulario/{formulario}/status', [SecretariaController::class, 'mudar_status'])->name('mudarStatus');
+
             // sair
             Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         });

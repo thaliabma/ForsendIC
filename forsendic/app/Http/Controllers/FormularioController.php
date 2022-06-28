@@ -40,7 +40,6 @@ class FormularioController extends Controller
 
     public function download(Formulario $formulario) {
         $file_name = explode('/', $formulario['file']);
-
         $path = storage_path('app\\formularios').'\\' .$file_name[1];
         return Response::download($path, $file_name[1]);
     }
