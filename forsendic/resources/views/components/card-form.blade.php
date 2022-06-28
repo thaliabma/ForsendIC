@@ -29,7 +29,7 @@
         @elseif($form->status === 'Concluído')
           <span class="status status-concluido">Concluido</span>
         @endif
-        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="open-form-button">Visualizar</button>
+        <a type="button" class="open-form-button" href="/secretaria/formulario/{{$form->id}}">Visualizar</a>
       </li>
     </ul>
   </div>

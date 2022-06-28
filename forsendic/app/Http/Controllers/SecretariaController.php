@@ -34,4 +34,16 @@ class SecretariaController extends Controller
     public function show_editar(Secretario $secretario) {
         return view('secretaria.perfis.editar', ['secretario' => $secretario]);
     }
+
+    public function get_form(Formulario $formulario) {
+        if (is_null($formulario['editado_por']))
+            $editor = null;
+        else
+            $editor = Secretario::find($formulario['editado_por']);
+        return view('secretaria.formulario', [
+            'formulario' => $formulario,
+            'secretario' => $editor
+        ]);
+        
+    }
 }

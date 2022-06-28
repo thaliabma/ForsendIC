@@ -92,6 +92,6 @@ class AlunoController extends Controller
         $user = Auth::id();
         Auth::logout();
         User::destroy($user);
-        return redirect('/')->with('message', 'Volte sempre!');
+        return redirect('/');
     }
 }

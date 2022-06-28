@@ -73,8 +73,11 @@ Route::group([
             
             // excluir perfil
             Route::delete('/excluir/{secretario}', [SecretarioController::class, 'destroy'])->name('excluir');
+            
+            Route::get('/formulario/{formulario}', [SecretariaController::class, 'get_form'])->name('getForm');
+
             // baixar formulario
-            Route::get('/form/{formulario}/download', [FormularioController::class, 'download']);
+            Route::get('/formulario/download/{formulario}', [FormularioController::class, 'download'])->name('downloadForm');
             
             // sair
             Route::post('/logout', [UserController::class, 'logout'])->name('logout');

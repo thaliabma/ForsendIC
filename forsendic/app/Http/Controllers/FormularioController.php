@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Formulario;
 use Faker\Core\File;
+use App\Models\Formulario;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 
 class FormularioController extends Controller
 {
@@ -36,8 +38,10 @@ class FormularioController extends Controller
         return redirect(route('aluno.forms'))->with('message', 'Formulário enviado com sucesso');
     }
 
-    public function download($form) {
-        $file = Formulario::first($form);
-        return response()->download(storage_path('app/formularios/'.$file['name']));
+    public function download(Formulario $formulario) {
+        $file_name = explode('/', $formulario['file']);
+
+        $path = storage_path('app\\formularios').'\\' .$file_name[1];
+        return Response::download($path, $file_name[1]);
     }
 }
