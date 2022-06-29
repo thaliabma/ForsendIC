@@ -7,15 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <x-imports></x-imports>    
     <link href="{{asset('css/secretaria/style_dashboard.css')}}" rel="stylesheet" />
-    <style>
-        
-    </style>
   </head>
   <body>
-    <x-flash-message />
-    <x-sidebar :secretario="$secretario" :return="true"/>
-    <main>
-        <header id="dash-header">
+      <x-sidebar :secretario="$secretario" :return="true"/>
+      <main>
+          <x-flash-message />
+          <header id="dash-header">
             <h2 class="branco">Formulário recebido</h2>
         </header>
         <div class="content grid-cell" id="main-form">
@@ -28,7 +25,7 @@
                 @if (is_null($formulario->editado_por))
                     <li>Ainda não editado</li>
                 @else
-                    <li>Último Editor: {{$editor->name}}</li>
+                    <li><strong>Último Editor</strong>: {{$editor->name}}</li>
                 @endif
             </ul>
             <div class="d-flex flex-direction-column align-items-center">

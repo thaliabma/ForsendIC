@@ -9,12 +9,12 @@
     <link href="{{asset('css/secretaria/style_dashboard.css')}}" rel="stylesheet" />
   </head>
   <body>
-    <x-flash-message />
     <!-- start navbar -->
-      <x-sidebar :secretario="$secretario" :return="false" />
+    <x-sidebar :secretario="$secretario" :return="false" />
     <!-- end navbar -->
-
-  <main>
+    
+    <main>
+    <x-flash-message />
     <header id="dash-header">
         <h2 class="branco">Situação de formulários</h2>
     </header>
