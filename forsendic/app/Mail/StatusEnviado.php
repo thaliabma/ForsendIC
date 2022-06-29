@@ -31,7 +31,7 @@ class StatusEnviado extends Mailable
         return $this->subject('ForsendIC - Mudança de Status')
         ->view('updateStatusEmail', [
             'status' => 'Enviado',
-            'msg' => 'Isso significa que a sua documentação está correta e já foi enviada à Diretoria da UFAL. Basta aguardar a resposta.'
+            'msg' => 'Isso significa que a sua documentação está correta e já foi enviada ao DRCA. Basta aguardar a resposta.'
         ]);
     }
 }
