@@ -235,6 +235,10 @@ li {
     background-color: #4CAF50;
 }
 
+.status-indeferido {
+    background-color: #dd2518bd;
+}
+
 .lista-modal {
     font-size: larger;
 }

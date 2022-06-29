@@ -13,22 +13,10 @@
       </li>
       <li>
         <strong>Demanda</strong>: 
-        @if ($form->demanda === 'desistencia') 
-          Desistência de Vínculo Total de Curso
-        @elseif($form->demanda === 'rematricula')
-          Rematrícula
-        @elseif($form->demanda === 'trancamento')
-          Trancamento de Matrícula da Disciplina
-        @endif
+        <x-status-wrapper :status="$form->status" />
       </li>
       <li>
-        @if ($form->status === 'Recebido')
-          <span class="status status-recebido">Recebido</span>
-        @elseif($form->status=== 'Enviado')
-          <span class="status status-enviado">Enviado</span>
-        @elseif($form->status === 'Concluído')
-          <span class="status status-concluido">Concluido</span>
-        @endif
+        
         <a type="button" class="open-form-button" href="/secretaria/{{$secretario->id}}/formulario/{{$form->id}}">Visualizar</a>
       </li>
     </ul>
