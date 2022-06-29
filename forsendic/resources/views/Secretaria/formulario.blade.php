@@ -8,56 +8,12 @@
     <x-imports></x-imports>    
     <link href="{{asset('css/secretaria/style_dashboard.css')}}" rel="stylesheet" />
     <style>
-        .lista-form {
-            text-align: center;
-            font-size: 1.1rem;
-            padding: 1rem;
-        }
-
-        .email-container {
-            text-align: center;
-        }
-
-        .status-wrapper {
-            padding:1rem;
-        }
-
-        .full-link {
-            display:block;
-            border-radius: 10px;
-            line-height: 90%;
-            width: 100%;
-            text-align: center;
-            margin: 1rem;
-        }
         
-        .hidden-form {
-            background-color: white;
-            text-align: justify;
-            border: solid 2px; 
-            border-color: rgb(243 244 246);
-            border-radius: 5px;
-            padding: 1rem;
-            width: 70%;
-        }
-        .form-group {
-            padding: 1rem;
-        }
-
-        #hidden-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        main {
-            text-align:center;
-        }
     </style>
   </head>
   <body>
     <x-flash-message />
-    <x-sidebar :secretario="$secretario" />
+    <x-sidebar :secretario="$secretario" :return="true"/>
     <main>
         <header id="dash-header">
             <h2 class="branco">Formulário recebido</h2>
@@ -94,7 +50,10 @@
             <div id="divEmail"></div>
         </div> --}}
     </div>
-        
+    <footer>
+        <img class="ufal navbar-brand" src="{{asset('/images/ufal.png')}}" width="80" height="80">    
+        <strong>Todos os direitos reservados</strong>
+      </footer>
     </main>
     
     <script>

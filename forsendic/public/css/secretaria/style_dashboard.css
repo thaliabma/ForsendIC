@@ -282,3 +282,55 @@ button.icon-link {
     background-color: white;
     height: 30%;
 }
+
+.lista-form {
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+
+.email-container {
+    text-align: center;
+}
+
+.status-wrapper {
+    padding:1rem;
+}
+
+.full-link {
+    display:block;
+    border-radius: 10px;
+    line-height: 90%;
+    width: 100%;
+    text-align: center;
+    margin: 1rem;
+}
+
+.hidden-form {
+    background-color: white;
+    text-align: justify;
+    border: solid 2px; 
+    border-color: rgb(243 244 246);
+    border-radius: 5px;
+    padding: 1rem;
+    width: 70%;
+}
+.form-group {
+    padding: 1rem;
+}
+
+#hidden-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blank-link {
+    color:black;
+    text-decoration:none;
+}
+
+.blank-link:hover {
+    color: black;
+    text-decoration: underline;
+}

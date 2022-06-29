@@ -1,4 +1,4 @@
-@props(['secretario'])
+@props(['secretario', 'return'])
 
 <div class="sidebar">
     <a href="/secretaria/perfil"><img src="{{asset('/images/Logo_ForsendIC.png')}}" width="180"></a>
@@ -18,6 +18,13 @@
     <button type="submit" class="icon-link" data-toggle="modal" data-target="#confirmar-exclusao"><i class="fa-solid fa-trash"></i> Excluir</button>
   </form>
 </div>
+@if ($return)
+<div class="d-flex justify-content-center m-2">
+    <a class="blank-link" href="/secretaria/dashboard/{{$secretario->id}}">
+      <i class="fa-solid fa-house"></i> Dashboard
+    </a>
+</div>
+@endif
 
 <form method="post" action="{{route('secretaria.logout')}}">
   @csrf

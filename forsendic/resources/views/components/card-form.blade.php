@@ -16,8 +16,7 @@
         <x-status-wrapper :status="$form->status" />
       </li>
       <li>
-        
-        <a type="button" class="open-form-button" href="/secretaria/{{$secretario->id}}/formulario/{{$form->id}}">Visualizar</a>
+        <a type="button" class="blank-link" href="/secretaria/{{$secretario->id}}/formulario/{{$form->id}}"><i class="fa-solid fa-file"></i> Visualizar</a>
       </li>
     </ul>
   </div>

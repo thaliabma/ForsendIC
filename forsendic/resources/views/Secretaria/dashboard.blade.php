@@ -10,44 +10,8 @@
   </head>
   <body>
     <x-flash-message />
-
-    <!-- modal -->
-    <div class="modal fade" id="modal-form" tabindex="-1" aria-labelledby="Modal forms" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Desitência de Vínculo Total de Curso</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <ul class="list-group lista-modal">
-              <li><strong>Aluno</strong>: Hélder Silva Ferreira Lima</li>
-              <li><strong>Email</strong>: helder@ic.ufal.br</li>
-              <li><strong>Matricula</strong>: 123456789</li>
-              <li><strong>Data de Envio</strong>: 25/05/2022</li>
-              <li><strong>Status</strong>: Recebido</li> 
-              <li>
-                <button class="upload btn botao-acessar"><i class="fa-solid fa-download"></i> Arquivos</button>
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle botao-acessar" id="botao-drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Alterar Status
-                  </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <li><a class="dropdown-item" href="#">Recebido</a></li>
-                      <li><a class="dropdown-item" href="#">Enviado</a></li>
-                      <li><a class="dropdown-item" href="#">Concluído</a></li>
-                    </ul>
-                  </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-
     <!-- start navbar -->
-      <x-sidebar :secretario="$secretario" />
+      <x-sidebar :secretario="$secretario" :return="false" />
     <!-- end navbar -->
 
   <main>
