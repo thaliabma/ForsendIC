@@ -14,71 +14,65 @@
             <div class="grow"></div>
 			<img id="ufal" src="{{asset('/images/ufal.png')}}">
 		</div>
-        <div id="container">
-            <div id="caixa">
-                <h6 id="titulo">Desistência de Vínculo Total de Curso</h6>
+        <form method="post" enctype="multipart/form-data" action="{{route('aluno.postar')}}">
+            <div id="container">
+                <div id="caixa">
+                    <h6 id="titulo">Desistência de Vínculo Total de Curso</h6>
 
-                <p id="subtitulo">Preencha todos os campos do formulário</p>
-                <div class="form">
+                    <p id="subtitulo">Preencha todos os campos do formulário</p>
+                    <div class="form">
+                        @csrf
+                        <label class="labelCampos">Nome:</label><br>
+                        <input class="campoF" type="text" name="aluno_nome" placeholder="Nome Completo" value="{{old('aluno_nome')}}"><br>
 
-                    <form method="post" enctype="multipart/form-data" action="{{route('aluno.postar')}}">
-                    @csrf
-                    <label class="labelCampos">Nome:</label><br>
-                    <input class="campoF" type="text" name="aluno_nome" placeholder="Nome Completo" value="{{old('aluno_nome')}}"><br>
+                        @error('aluno_nome')
+                            {{$message}}
+                        @enderror
 
-                    @error('aluno_nome')
-                        {{$message}}
-                    @enderror
+                        <label class="labelCampos">Matrícula:</label><br>
+                        <input class="campoF" type="number" name="aluno_matricula" placeholder="Número da Matrícula" value="{{old('aluno_matricula')}}"><br>
 
-                    <label class="labelCampos">Matrícula:</label><br>
-                    <input class="campoF" type="number" name="aluno_matricula" placeholder="Número da Matrícula" value="{{old('aluno_matricula')}}"><br>
+                        @error('aluno_matricula')
+                            {{$message}}
+                        @enderror
+                        <input type="hidden" name="aluno_email" value="{{Auth::user()->email}}">
 
-                    @error('aluno_matricula')
-                        {{$message}}
-                    @enderror
-                    <input type="hidden" name="aluno_email" value="{{Auth::user()->email}}">
+                        @error('aluno_email')
+                            {{$message}}
+                        @enderror
+                        <input type="hidden" name="demanda" value="desistencia">
 
-                    @error('aluno_email')
-                        {{$message}}
-                    @enderror
-                    <input type="hidden" name="demanda" value="desistencia">
+                        @error('demanda')
+                            {{$message}}
+                        @enderror
+                        {{-- <label class="labelCampos">Email:</label><br>
+                        <input class="campoF" type="email" name="email" placeholder="Email Institucional"><br><br> --}}
+                        <p style="margin-top: 2%;">Você vai precisar de: </p>
+                        <ul >
+                            <li>Formulário disponível no site da UFAL</li>
+                            <li>Cópia do RG</li>
+                            <li>Declaração de Quitação</li>
+                        </ul>
+                        <label class="labelCampos">Anexar (somente em pdf) :</label><br>
 
-                    @error('demanda')
-                        {{$message}}
-                    @enderror
-                    {{-- <label class="labelCampos">Email:</label><br>
-                    <input class="campoF" type="email" name="email" placeholder="Email Institucional"><br><br> --}}
-                    <p style="margin-top: 2%;">Você vai precisar de: </p>
-                    <ul >
-                        <li>Formulário disponível no site da UFAL</li>
-                        <li>Cópia do RG</li>
-                        <li>Declaração de Quitação</li>
-                    </ul>
-                    <label class="labelCampos">Anexar (somente em pdf) :</label><br>
+                        {{-- <label class="labelFile" for="arquivo1" id="arq1"> ⇩ Cópia do RG ou CNH</label> --}}
+                        <input type="file" name="file" id="arquivo1"><br>
+                        @error('file')
+                            {{$message}}
+                        @enderror
+                        {{-- <label class="labelFile" for="arquivo2" id="arq2"> ⇩ Desistência de Vínculo</label>
+                        <input type="file" name="arquivo2" id="arquivo2"><br>
 
-                    {{-- <label class="labelFile" for="arquivo1" id="arq1"> ⇩ Cópia do RG ou CNH</label> --}}
-                    <input type="file" name="file" id="arquivo1"><br>
-                    @error('file')
-                        {{$message}}
-                    @enderror
-                    {{-- <label class="labelFile" for="arquivo2" id="arq2"> ⇩ Desistência de Vínculo</label>
-                    <input type="file" name="arquivo2" id="arquivo2"><br>
-
-                    <label class="labelFile" for="arquivo3" id="arq3"> ⇩ Declaração de Quitação</label>
-                    <input type="file" name="arquivo3" id="arquivo3"><br> --}}
-
-
-                </form>
+                        <label class="labelFile" for="arquivo3" id="arq3"> ⇩ Declaração de Quitação</label>
+                        <input type="file" name="arquivo3" id="arquivo3"><br> --}}
+                    </div>
                 </div>
-
+                <div class="botoes">
+                    <a  class="butao1 btn d-inline" style="background: #355592; color: #fff;" href="{{route('aluno.forms')}}" role="button">Voltar</a>
+                    <input class="butao2 btn d-inline" style="background: #355592; color: #fff;" id="enviar" type="submit" value="Enviar">
+                </div>
             </div>
-        </div >
-        <div class="footer">
-            <a  class="butao1 btn d-inline" style="background: #355592; color: #fff;" href="{{route('aluno.forms')}}" role="button">Voltar</a>
-            <form method="post" enctype="multipart/form-data" action="{{route('aluno.postar')}}">
-                <input class="butao2 btn d-inline" style="background: #355592; color: #fff;" id="enviar" type="submit" value="Enviar">
-            </form>
-        </div>
+        </form>
 	</body>
 	<!-- <body>
 		<div id="cabecalho">

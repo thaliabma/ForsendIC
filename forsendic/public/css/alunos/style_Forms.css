@@ -59,27 +59,34 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 15px;
 }
 
-.footer{
+.botoes{
     position: relative;
+    bottom: 20%;
     display: flex;
-    flex-direction: row;
-    top: 65vh;
-    align-items: flex-end;
+    /* justify-content: space-between; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+
 }
 
 .butao1{
+    position: relative;
+    right: 400%;
     border: 1px solid rgba(0, 0, 0, 0.24);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    margin-left: 2%;
-    margin-right: 80%;
+    /* z-index: 1000; */
+    /* margin-left: 2%; */
+    /* margin-right: 80%; */
 }
 
 .butao2{
+    position: relative;
+    left: 400%;
     border: 1px solid rgba(0, 0, 0, 0.24);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    margin-left: 100%;
+    /* margin-left: 200%; */
 }
 
 #titulo{
