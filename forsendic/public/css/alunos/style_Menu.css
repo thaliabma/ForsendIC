@@ -3,7 +3,6 @@ html { font-family: 'Inter', sans-serif; }
 @supports (font-variation-settings: normal) {
   html { font-family: 'Inter var', sans-serif; }
 }
-
 body{
     background: white url(/images/FundoFolha.png) no-repeat;
     width: 100%;
