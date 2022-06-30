@@ -29,6 +29,6 @@ class DocumentacaoErrada extends Mailable
      */
     public function build()
     {
-        return $this->subject('ForsendIC - Erro na documentação')->view('Secretaria.documentacaoErrada', ['msg' => $this->msg]);
+        return $this->subject('ForsendIC - Pendência na documentação')->view('Secretaria.documentacaoErrada', ['msg' => $this->msg]);
     }
 }

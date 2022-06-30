@@ -77,14 +77,12 @@
           data-bs-target="#">
           Criar
         </button>
-        <button type="reset" class="botao-acessar btn ms-2 me-2">
-          Apagar
-        </button>
+
         </div>
         
       <div class="d-flex justify-content-center m-2">
         <a href="{{route('secretaria.perfil')}}"">
-          <i class="fa-solid fa-user"></i> Retornar para a página de perfis
+          <i class="fa-solid fa-user"></i> Página de perfis
         </a>
 
       </form>

@@ -1,7 +1,5 @@
 @if(session()->has('message'))
     <div class="flash-wrapper">
-        <p>
-            {{session('message')}}
-        </p>
+        {{session('message')}}
     </div>
 @endif

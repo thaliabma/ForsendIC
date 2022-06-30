@@ -57,9 +57,6 @@
           data-bs-target="#">
           Criar
         </button>
-        <button type="reset" class="botao-acessar btn ms-2 me-2">
-          Apagar
-        </button>
         </div>
       </form>
 
@@ -87,7 +84,7 @@
 
       <div class="d-flex justify-content-center m-2">
         <a href="/secretaria/dashboard/{{$secretario->id}}">
-          <i class="fa-solid fa-house"></i> Voltar para o dashboard
+          <i class="fa-solid fa-house"></i> Dashboard
         </a>
       </div>
       </main>

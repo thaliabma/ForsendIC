@@ -45,7 +45,7 @@
 
     <div id="tela">
         <h2 style="color:black">Prezado discente,</h2>
-        <p style="color:grey31">A documentação enviada ao nosso sistema apresenta o(s) seguinte(s) erro(s): </p>
+        <p style="color:grey31">A documentação enviada ao nosso sistema apresenta a(s) seguinte(s) pendência(s): </p>
         <h3 style="color:Navy" background-color="color:grey31" >{{$msg}}</h3>
         <p style="color:grey31">Por favor, reenvie a documentação com as correções adequadas.</p>
         <p style="color:grey31">Atenciosamente, <br>Equipe do ForsendIC</p> 

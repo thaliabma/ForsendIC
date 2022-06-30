@@ -31,7 +31,7 @@
             <div class="d-flex flex-direction-column align-items-center">
                 <a href="/secretaria/formulario/download/{{$formulario->id}}" class="full-link upload btn botao-acessar"><i class="fa-solid fa-download"></i> Baixar formulário</a>
                 <button id="statusBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-arrows-spin"></i> Atualizar status</button>
-                <button id="emailBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-envelope"></i> Erro no envio</button>
+                <button id="emailBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-envelope"></i> Reportar pendência</button>
             </div>
 
             <hr id="horizontal-line"/>
