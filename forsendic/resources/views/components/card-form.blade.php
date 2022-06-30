@@ -12,11 +12,13 @@
         <strong>Data de envio</strong>: {{date('d-m-Y', strtotime($form->created_at))}}
       </li>
       <li>
-        <strong>Demanda</strong>: 
-        <x-status-wrapper :status="$form->status" />
+        <strong>Demanda</strong>: <x-demanda-wrapper :demanda="$form->demanda" />
       </li>
       <li>
-        <a type="button" class="blank-link" href="/secretaria/{{$secretario->id}}/formulario/{{$form->id}}"><i class="fa-solid fa-file"></i> Visualizar</a>
+        <x-status-wrapper :status="$form->status" />  <a type="button" class="blank-link" href="/secretaria/{{$secretario->id}}/formulario/{{$form->id}}"><i class="fa-solid fa-file"></i> Visualizar</a>
+      </li>
+      <li>
+        
       </li>
     </ul>
   </div>

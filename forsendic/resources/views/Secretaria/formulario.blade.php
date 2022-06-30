@@ -20,7 +20,7 @@
                 <li><h1>{{$formulario->aluno_nome}}</h1></li>
                 <li><strong>Matrícula</strong>: {{$formulario->aluno_matricula}}</li>
                 <li><strong>Email</strong>: {{$formulario->aluno_email}}</li>
-                <li><strong>Demanda</strong>: {{$formulario->demanda}}</li>
+                <li><strong>Demanda</strong>: <x-demanda-wrapper :demanda="$formulario->demanda" /></li>
                 <li><strong>Status</strong>: <x-status-wrapper :status="$formulario->status" /></li>
                 @if (is_null($formulario->editado_por))
                     <li>Ainda não editado</li>
