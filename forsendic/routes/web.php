@@ -81,10 +81,11 @@ Route::group([
             Route::get('/formulario/download/{formulario}', [FormularioController::class, 'download'])->name('downloadForm');
             
             // email de documentação com erro
-            Route::post('/formulario/email/erro', [SecretariaController::class, 'erro_na_documentacao_email'])->name('erroEmail');
+            Route::delete('/{secretario}/formulario/{formulario}/invalido', [SecretariaController::class, 'erro_na_documentacao_email'])->name('erroEmail');
             
+            // mudar o status do formulário
             Route::put('/formulario/{formulario}/status', [SecretariaController::class, 'mudar_status'])->name('mudarStatus');
-
+            
             // sair
             Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         });

@@ -1,93 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ForsendIC - Secretaria</title>
-    <x-imports />
-</head>
-<body>
-    <x-flash-message />
-    @error('texto')
-        <x-flash-message :message="$message" />
-    @enderror
-    <h1>Formulario recebido</h1>
-    <ul>
-        <li>Nome: {{$formulario->aluno_nome}}</li>
-        <li>Matrícula: {{$formulario->aluno_matricula}}</li>
-        <li>Email: {{$formulario->aluno_email}}</li>
-        <li>Demanda: {{$formulario->demanda}}</li>
-        <li>Status: {{$formulario->status}}</li>
-        @if (is_null($formulario->editado_por))
-            <li>O formulario não foi editado ainda</li>
-        @else
-            <li>Última edição feita por: {{$editor->name}}</li>
-        @endif
-    </ul>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <x-imports></x-imports>    
+    <link href="{{asset('css/secretaria/style_dashboard.css')}}" rel="stylesheet" />
+  </head>
+  <body>
+      <x-sidebar :secretario="$secretario" :return="true"/>
+      <main>
+          <x-flash-message />
+          <header id="dash-header">
+            <h2 class="branco">Formulário recebido</h2>
+        </header>
+        <div class="content grid-cell" id="main-form">
+            <ul class="lista-form">
+                <li><h1>{{$formulario->aluno_nome}}</h1></li>
+                <li><strong>Matrícula</strong>: {{$formulario->aluno_matricula}}</li>
+                <li><strong>Email</strong>: {{$formulario->aluno_email}}</li>
+                <li><strong>Demanda</strong>: {{$formulario->demanda}}</li>
+                <li><strong>Status</strong>: <x-status-wrapper :status="$formulario->status" /></li>
+                @if (is_null($formulario->editado_por))
+                    <li>Ainda não editado</li>
+                @else
+                    <li><strong>Último Editor</strong>: {{$editor->name}}</li>
+                @endif
+            </ul>
+            <div class="d-flex flex-direction-column align-items-center">
+                <a href="/secretaria/formulario/download/{{$formulario->id}}" class="full-link upload btn botao-acessar"><i class="fa-solid fa-download"></i> Baixar formulário</a>
+                <button id="statusBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-arrows-spin"></i> Atualizar status</button>
+                <button id="emailBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-envelope"></i> Erro no envio</button>
+            </div>
 
-    <a href="/secretaria/formulario/download/{{$formulario->id}}">Clique aqui para baixar o formulário</a>
-    <h2>Caso haja algum erro na solicitação do discente{{_(' (documento em falta, assinatura etc)')}}, clique <button id="emailBtn">aqui</button> para enviar-lhe um email</h2>
-    
-    <div id="divEmail"></div>
-
-    <h2>Caso esteja na hora de mudar o status do formulário, clique aqui</h2>
-    <div id="divStatus">
-        <form method="post" action="/secretaria/formulario/{{$formulario->id}}/status">
-            @csrf
-            @method('PUT')
-            <fieldset>
-                <legend>Selecione o status:</legend>
+            <hr id="horizontal-line"/>
+            <div id="hidden-content">
+                
+            </div>            
             
-                <div>
-                  <input type="radio" name="status" value="Recebido"
-                         @if ($formulario->status === 'Recebido')
-                             checked   
-                         @endif>
-                  <label>Recebido</label>
-                </div>
-            
-                <div>
-                  <input type="radio" name="status" value="Enviado"
-                    @if ($formulario->status === 'Enviado')
-                        checked   
-                    @endif>
-                  <label>Enviado</label>
-                </div>
-            
-                <div>
-                  <input type="radio" id="louie" name="status" value="Concluido"
-                    @if ($formulario->status === 'Concluído')
-                        checked   
-                    @endif>
-                  <label>Concluído</label>
-                </div>
-            </fieldset>
-            @error('status')
-                {{$message}}
-            @enderror
-            <input type="hidden" name="editado_por" value="{{$secretario->id}}">
-            @error('editado_por')
-                {{$message}}
-            @enderror
-            <input type="submit" value="Enviar">
-        </form>
-    </div>
-
-    <script>
-        const emailBtn = document.getElementById('emailBtn');
-        const divEmail = document.getElementById('divEmail');
+             
         
+        {{-- <div class="">
+            <h2 class="email-container"><strong>Erro nos arquivos</strong></h2>
+            <p>Caso haja algum erro na solicitação do discente{{_(' (documento em falta, assinatura etc)')}}, clique <button id="emailBtn">aqui</button> para enviar-lhe um email</p>
+            <div id="divEmail"></div>
+        </div> --}}
+    </div>
+    <footer>
+        <img class="ufal navbar-brand" src="{{asset('/images/ufal.png')}}" width="80" height="80">    
+        <strong>Todos os direitos reservados</strong>
+      </footer>
+    </main>
+    
+    <script>
+
+        function clear(div) {
+            while(div.firstChild) {
+                div.removeChild(div.firstChild);
+            }
+        }
+
+        const emailBtn = document.getElementById('emailBtn');
+        const container = document.getElementById('hidden-content');
+        const statusBtn = document.getElementById('statusBtn')
+        
+        statusBtn.addEventListener('click', function showStatusForm() {
+            clear(container);
+            container.insertAdjacentHTML('afterbegin', `
+                <div class="hidden-form">   
+                    <form method="post" action="/secretaria/formulario/{{$formulario->id}}/status">
+                        @csrf
+                        @method('PUT')
+                        
+                        <fieldset>
+                            <legend style="text-align: center">Escolha o atual estado do formulário</legend>
+                            <div>
+                                <input class="form-check-input" type="radio" name="status" value="Enviado"
+                                @if ($formulario->status === 'Enviado')
+                                    checked
+                                @endif>
+                                <label class="form-check-label">Enviado</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="radio" id="louie" name="status" value="Deferido"
+                                @if ($formulario->status === 'Deferido')
+                                    checked
+                                @endif>
+                                <label class="form-check-label">Deferido</label>
+                            </div>
+                            
+                            <div>
+                                <input class="form-check-input" type="radio" id="louie" name="status" value="Indeferido"
+                                @if ($formulario->status === 'Indeferido')
+                                    checked
+                                @endif>
+                                <label class="form-check-label">Indeferido</label>
+                            </div>
+                        </fieldset>
+
+                        @error('status')
+                            {{$message}}
+                        @enderror
+                        <input type="hidden" name="editado_por" value="{{$secretario->id}}">
+                        @error('editado_por')
+                            {{$message}}
+                        @enderror
+                        <div class="d-flex flex-row-reverse">
+                            <button class="btn botao-acessar" type="submit"><i class="fa-solid fa-arrow-up-from-bracket"></i> Mudar status</button>
+                        </div>
+                    </form>
+                </div>
+            `);
+            // statusBtn.removeEventListener('click', showStatusForm);
+        })
+
         emailBtn.addEventListener('click', function showEmailForm() {
-            divEmail.insertAdjacentHTML('afterbegin',`
-            <form action="{{route('secretaria.erroEmail')}}" method="post">
-            @csrf
-            <label for="texto">Descreva os erros encontrados na documentação: </label>
-            <input type="text" name="texto" autofocus>
-            <input type="hidden" name="aluno_email" value="{{$formulario->aluno_email}}">
-            <button type="submit">Enviar</button>
-        </form>`);
-        emailBtn.removeEventListener('click', showEmailForm);
+            clear(container);
+
+            container.insertAdjacentHTML('afterbegin',`
+                <div class="hidden-form">
+                    <form action="/secretaria/{{$secretario->id}}/formulario/{{$formulario->id}}/invalido" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <div class="form-group">
+                        <label for="texto">Descreva abaixo o(s) erro(s) encontrado(s) no envio do discente [o envio deletará este formulário do sistema]: </label>
+                        <textarea class="form-control" name="texto" rows="3"></textarea>
+                    </div>
+                    <div class="d-flex flex-row-reverse">
+                        <button class="btn botao-acessar" type="submit"><i class="fa-solid fa-arrow-up-from-bracket"></i> Enviar</button>
+                    </div>
+                    </form>
+                </div>`
+            );
+
+            // emailBtn.removeEventListener('click', showEmailForm);
         });
     </script>
 </body>
