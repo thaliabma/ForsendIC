@@ -24,10 +24,6 @@ Route::get('/', function () {
     return view('inicio');
 })->name('inicio');
 
-Route::get('/register', function() {
-    return view('auth.register');
-});
-
 Route::post('/create', [UserController::class, 'create'])->name('newUser');
 
 Route::prefix('secretaria')->name('secretaria.')->group(function() {
@@ -65,6 +61,10 @@ Route::group([
             
             // entrar no dashboard com o perfil
             Route::get('/dashboard/{secretario}', [SecretariaController::class, 'show_dashboard'])->name('dashboard');
+            
+            // entrar no histórico
+            Route::get('/historico/{secretario}', [SecretariaController::class, 'show_historico'])->name('historico');
+            
             // ver editar perfil
             Route::get('/perfil/{secretario}', [SecretariaController::class, 'show_editar'])->name('edit');
             
@@ -77,6 +77,9 @@ Route::group([
             // formulario individual
             Route::get('/{secretario}/formulario/{formulario}', [SecretariaController::class, 'get_form'])->name('getForm');
 
+            // ecluir formulario
+            Route::delete('/{secretario}/formulario/excluir/{formulario}', [FormularioController::class, 'destroy'])->name('deleteForm');
+
             // baixar formulario
             Route::get('/formulario/download/{formulario}', [FormularioController::class, 'download'])->name('downloadForm');
             
@@ -86,6 +89,7 @@ Route::group([
             // mudar o status do formulário
             Route::put('/formulario/{formulario}/status', [SecretariaController::class, 'mudar_status'])->name('mudarStatus');
             
+
             // sair
             Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         });

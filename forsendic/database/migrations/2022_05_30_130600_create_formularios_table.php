@@ -21,14 +21,9 @@ return new class extends Migration
             $table->string('aluno_email');
             $table->string('demanda');
             $table->string('status')->nullable();
-            $table->foreignId('editado_por')
-                ->nullable()
-                ->references('id')
-                ->on('secretarios');
-                // ->constrained();
-
+            $table->string('editado_por')->nullable();
+            $table->boolean('historico');
             $table->string('file');
-
         });
     }
 

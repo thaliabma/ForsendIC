@@ -15,14 +15,21 @@
   <form action="/secretaria/excluir/{{$secretario->id}}" method="POST">
     @csrf
     @method('DELETE')
-    <button type="submit" class="icon-link" data-toggle="modal" data-target="#confirmar-exclusao"><i class="fa-solid fa-trash"></i> Excluir</button>
+    <button type="submit" class="icon-link" onclick="return confirm('Excluir o perfil?')"><i class="fa-solid fa-trash"></i> Excluir</button>
   </form>
 </div>
+
 @if ($return)
 <div class="d-flex justify-content-center m-2">
     <a class="blank-link" href="/secretaria/dashboard/{{$secretario->id}}">
       <i class="fa-solid fa-house"></i> Dashboard
     </a>
+</div>
+@else 
+<div class="d-flex justify-content-center m-2">
+  <a class="blank-link" href="/secretaria/historico/{{$secretario->id}}">
+    <i class="fa-solid fa-folder-closed"></i></i> Histórico
+  </a>
 </div>
 @endif
 

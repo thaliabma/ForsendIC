@@ -9,12 +9,13 @@
     <link href="{{asset('css/secretaria/style_dashboard.css')}}" rel="stylesheet" />
   </head>
   <body>
-      <x-sidebar :secretario="$secretario" :return="true"/>
+    <x-sidebar :secretario="$secretario" :return="!$formulario->historico"/>
+    
       <main>
-          <x-flash-message />
           <header id="dash-header">
-            <h2 class="branco">Formulário recebido</h2>
+              <h2 class="branco">Formulário recebido</h2>
         </header>
+            <x-flash-message />
         <div class="content grid-cell" id="main-form">
             <ul class="lista-form">
                 <li><h1>{{$formulario->aluno_nome}}</h1></li>
@@ -25,27 +26,69 @@
                 @if (is_null($formulario->editado_por))
                     <li>Ainda não editado</li>
                 @else
-                    <li><strong>Último Editor</strong>: {{$editor->name}}</li>
+                    <li><strong>Último Editor</strong>: {{$formulario->editado_por}}</li>
                 @endif
             </ul>
-            <div class="d-flex flex-direction-column align-items-center">
-                <a href="/secretaria/formulario/download/{{$formulario->id}}" class="full-link upload btn botao-acessar"><i class="fa-solid fa-download"></i> Baixar formulário</a>
-                <button id="statusBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-arrows-spin"></i> Atualizar status</button>
-                <button id="emailBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-envelope"></i> Reportar pendência</button>
+
+            <div class="container">
+                <div class="row">
+                    @if ($formulario->historico == true)
+                    <div class="col">
+                        <a href="/secretaria/formulario/download/{{$formulario->id}}" class="btn botao-acessar">
+                            <i class="fa-solid fa-download"></i> Baixar formulário
+                        </a>
+                    </div>
+                    <div class="col">
+                        <form action="/secretaria/{{$secretario->id}}/formulario/excluir/{{$formulario->id}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn botao-acessar" onclick="return confirm('Excluir o formulário?')">
+                                <i class="fa-solid fa-trash"></i> Excluir dos registros
+                            </button>
+                        </form>
+                    </div>
+                    @else
+                    <div class="col">
+                        <a href="/secretaria/formulario/download/{{$formulario->id}}" class="full-link upload btn botao-acessar"><i class="fa-solid fa-download">
+                            </i> Baixar formulário</a>
+                        </div>
+                    <div class="col">
+                        <button id="statusBtn" class="full-link upload btn botao-acessar">
+                            <i class="fa-solid fa-arrows-spin"></i> Atualizar status
+                        </button>
+                    </div>
+
+                    <div class="col">
+                        <button id="emailBtn" class="full-link upload btn botao-acessar">
+                            <i class="fa-solid fa-envelope"></i> Reportar pendência
+                        </button>
+                    </div>
+
+                    @endif
+                </div>
+
             </div>
 
+            {{-- <div class="d-flex flex-row justify-content-around flex-wrap">
+                @if ($formulario->historico == true)
+                    <a href="/secretaria/formulario/download/{{$formulario->id}}" class="btn botao-acessar"><i class="fa-solid fa-download"></i> Baixar formulário</a>
+                    <form action="/secretaria/{{$secretario->id}}/formulario/excluir/{{$formulario->id}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn botao-acessar" onclick="return confirm('Excluir o formulário?')">
+                            <i class="fa-solid fa-trash"></i> Excluir dos registros
+                        </button>
+                    </form>
+                @else
+                    <a href="/secretaria/formulario/download/{{$formulario->id}}" class="full-link upload btn botao-acessar"><i class="fa-solid fa-download"></i> Baixar formulário</a>
+                    <button id="statusBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-arrows-spin"></i> Atualizar status</button>
+                    <button id="emailBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-envelope"></i> Reportar pendência</button>
+                @endif
+            </div>     --}}
             <hr id="horizontal-line"/>
             <div id="hidden-content">
                 
-            </div>            
-            
-             
-        
-        {{-- <div class="">
-            <h2 class="email-container"><strong>Erro nos arquivos</strong></h2>
-            <p>Caso haja algum erro na solicitação do discente{{_(' (documento em falta, assinatura etc)')}}, clique <button id="emailBtn">aqui</button> para enviar-lhe um email</p>
-            <div id="divEmail"></div>
-        </div> --}}
+            </div>
     </div>
     <footer>
         <img class="ufal navbar-brand" src="{{asset('/images/ufal.png')}}" width="80" height="80">    
@@ -102,7 +145,7 @@
                         @error('status')
                             {{$message}}
                         @enderror
-                        <input type="hidden" name="editado_por" value="{{$secretario->id}}">
+                        <input type="hidden" name="editado_por" value="{{$secretario->name}}">
                         @error('editado_por')
                             {{$message}}
                         @enderror

@@ -10,16 +10,16 @@
   </head>
   <body>
     <!-- start navbar -->
-    <x-sidebar :secretario="$secretario" :return="false" />
+    <x-sidebar :secretario="$secretario" :return="true" />
     <!-- end navbar -->
     
     <main>
       <header id="dash-header">
+        <x-flash-message />
         <h2 class="branco">Situação de formulários</h2>
     </header>
-      <!-- table -->
+    <!-- table -->
     <div class="content">
-      <x-flash-message />
         
       <!-- SEARCH BAR  -->
         <form action="">
@@ -45,18 +45,6 @@
             <li><a class="dropdown-item" href="?demanda=rematricula">Rematrícula</a></li>
           </ul>
         </div>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Status
-          </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="/secretaria/dashboard/{{$secretario->id}}">Tudo</a></li>
-              <li><a class="dropdown-item" href="?status=Recebido">Recebidos</a></li>
-              <li><a class="dropdown-item" href="?status=Enviado">Enviados</a></li>
-              <li><a class="dropdown-item" href="?status=Concluído">Concluídos</a></li>
-            </ul>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -65,6 +53,7 @@
     @unless (count($forms) === 0)
         <div class="grid-wrapper">
           @foreach ($forms as $form)
+
             <x-card-form :form="$form" :secretario="$secretario" />
           @endforeach
         </div>

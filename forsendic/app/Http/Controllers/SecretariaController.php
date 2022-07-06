@@ -28,7 +28,14 @@ class SecretariaController extends Controller
     public function show_dashboard(Secretario $secretario) {
         return view('secretaria.dashboard',[
             'secretario' => $secretario,
-            'forms' => Formulario::latest()->filter(request(['demanda', 'status', 'search']))->get(),
+            'forms' => Formulario::where('historico', false)->latest()->filter(request(['demanda', 'status', 'search']))->get(),
+        ]);
+    }
+
+    public function show_historico(Secretario $secretario) {
+        return view('secretaria.historico', [
+            'secretario' => $secretario,
+            'forms' => Formulario::where('historico', true)->latest()->filter(request(['demanda', 'search']))->get(),
         ]);
     }
 
@@ -41,13 +48,8 @@ class SecretariaController extends Controller
     }
 
     public function get_form(Secretario $secretario, Formulario $formulario) {
-        if (is_null($formulario['editado_por']))
-            $editor = null;
-        else
-            $editor = Secretario::find($formulario['editado_por']);
         return view('secretaria.formulario', [
             'formulario' => $formulario,
-            'editor' => $editor,
             'secretario' => $secretario
         ]);   
     }
@@ -78,10 +80,18 @@ class SecretariaController extends Controller
 
         if ($formFields['status'] === 'Enviado')
             $mail = new StatusEnviado();
-        else if($formFields['status'] === 'Deferido')
+        else if($formFields['status'] === 'Deferido') {
             $mail = new StatusDeferido();
-        else if ($formFields['status'] === 'Indeferido')
+            $formulario->update([
+                'historico' => true,
+            ]);
+        }
+        else if ($formFields['status'] === 'Indeferido') {
             $mail = new StatusIndeferido();
+            $formulario->update([
+                'historico' => true,
+            ]);
+        }
 
         $formulario->update($formFields);
         $aluno_email = $formulario['aluno_email'];
@@ -92,6 +102,5 @@ class SecretariaController extends Controller
         else
             return redirect()->back()
                 ->with('message', 'Um erro ocorreu no envio do email ao discente');
-
     }
 }

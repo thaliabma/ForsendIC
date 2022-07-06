@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Faker\Core\File;
 use App\Models\Formulario;
+use App\Models\Secretario;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 
 class FormularioController extends Controller
@@ -18,7 +17,7 @@ class FormularioController extends Controller
             'aluno_matricula' => 'required|numeric',
             'aluno_email' => ['required','email'],
             'demanda' => 'required',
-            'file' => 'required|mimes:pdf|max:2048'
+            'file' => 'required|mimes:pdf|max:2048',
         ]);
 
         $arquivo = $request->file('file')->storeAs(
@@ -26,21 +25,36 @@ class FormularioController extends Controller
             $formFields['aluno_matricula'] . '_' . $request->file->getClientOriginalName()
         );
         
-        Formulario::create([
+        if (Formulario::create([
             'aluno_nome' => $formFields['aluno_nome'],
             'aluno_matricula' => $formFields['aluno_matricula'],
             'aluno_email' => $formFields['aluno_email'],
             'demanda' => $formFields['demanda'],
             'status' => 'Recebido',
             'file' => $arquivo,
-        ]);
-
-        return redirect(route('aluno.forms'))->with('message', 'Formulário enviado com sucesso');
+            'historico' => false,
+        ]))
+            return redirect(route('aluno.forms'))->with('message', 'Formulário enviado com sucesso');
+        else
+            return redirect(route('aluno.forms'))->with('message', 'Ocorreu um erro no envio do formulário. Tente novamente.');
+            
     }
 
     public function download(Formulario $formulario) {
         $file_name = explode('/', $formulario['file']);
         $path = storage_path('app\\formularios').'\\' .$file_name[1];
         return Response::download($path, $file_name[1]);
+    }
+
+    public function destroy(Secretario $secretario, Formulario $formulario) {
+        if ($formulario['status'] != 'Deferido' && $formulario['status'] != 'Indeferido')
+            return redirect()->back()->with('message', 'O formulário ainda não pode ser excluído');
+
+        if ($formulario->delete()) {
+            return redirect()->route('secretaria.dashboard', ['secretario' => $secretario])
+                    ->with('message', 'Formulário excluído dos registros');
+        }
+        else
+            return redirect()->back()->with('message', 'Um erro ocorreu na exclusão do formulário');
     }
 }
