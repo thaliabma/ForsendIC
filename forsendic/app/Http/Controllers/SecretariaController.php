@@ -35,7 +35,7 @@ class SecretariaController extends Controller
     public function show_historico(Secretario $secretario) {
         return view('secretaria.historico', [
             'secretario' => $secretario,
-            'forms' => Formulario::where('historico', true)->latest()->filter(request(['demanda', 'search']))->get(),
+            'forms' => Formulario::where('historico', true)->latest()->filter(request(['demanda', 'status', 'search']))->get(),
         ]);
     }
 

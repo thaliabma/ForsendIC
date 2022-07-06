@@ -15,7 +15,7 @@ class Formulario extends Model
         }
         
         if ($filters['status'] ?? false) {
-            $query->where('status', 'like', '%' . request('status') . '%');
+            $query->where('status', 'like', request('status'));
         }
 
         if ($filters['search'] ?? false) {

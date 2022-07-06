@@ -53,7 +53,8 @@
               <li><a class="dropdown-item" href="/secretaria/dashboard/{{$secretario->id}}">Tudo</a></li>
               <li><a class="dropdown-item" href="?status=Recebido">Recebidos</a></li>
               <li><a class="dropdown-item" href="?status=Enviado">Enviados</a></li>
-              <li><a class="dropdown-item" href="?status=Concluído">Concluídos</a></li>
+              <li><a class="dropdown-item" href="?status=Deferido">Deferidos</a></li>
+              <li><a class="dropdown-item" href="?status=Indeferido">Indeferidos</a></li>
             </ul>
           </div>
         </div>

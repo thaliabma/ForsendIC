@@ -68,23 +68,7 @@
                 </div>
 
             </div>
-
-            {{-- <div class="d-flex flex-row justify-content-around flex-wrap">
-                @if ($formulario->historico == true)
-                    <a href="/secretaria/formulario/download/{{$formulario->id}}" class="btn botao-acessar"><i class="fa-solid fa-download"></i> Baixar formulário</a>
-                    <form action="/secretaria/{{$secretario->id}}/formulario/excluir/{{$formulario->id}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn botao-acessar" onclick="return confirm('Excluir o formulário?')">
-                            <i class="fa-solid fa-trash"></i> Excluir dos registros
-                        </button>
-                    </form>
-                @else
-                    <a href="/secretaria/formulario/download/{{$formulario->id}}" class="full-link upload btn botao-acessar"><i class="fa-solid fa-download"></i> Baixar formulário</a>
-                    <button id="statusBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-arrows-spin"></i> Atualizar status</button>
-                    <button id="emailBtn" class="full-link upload btn botao-acessar"><i class="fa-solid fa-envelope"></i> Reportar pendência</button>
-                @endif
-            </div>     --}}
+            
             <hr id="horizontal-line"/>
             <div id="hidden-content">
                 
