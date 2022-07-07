@@ -197,7 +197,7 @@ border-radius: 15px;
 }
 
 .area-upload label.label-upload.highlight{
-    background-color: #fffdaa;
+    background-color: #355692cb;
 }
 
 .area-upload label.label-upload *{
@@ -227,7 +227,7 @@ border-radius: 15px;
 }
 
 .area-upload .lista-uploads .barra .fill{
-	background-color: #a1f7ff;
+	background-color: #355692cb;
 	position: absolute;
 	top: 0;
 	left: 0;
