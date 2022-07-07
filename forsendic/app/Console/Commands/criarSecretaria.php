@@ -30,8 +30,8 @@ class criarSecretaria extends Command
     {
         $secretaria = User::where('email', 'secretaria@ic.ufal.br')->first();
         if ($secretaria == null) {
-            $senha = readline('Defina a senha da Secretaria (min: 6): ');
-            while (strlen($senha) < 6) {
+            $senha = readline('Defina a senha da Secretaria (min: 8): ');
+            while (strlen($senha) < 8) {
                 $senha = readline('Defina a senha da Secretaria: ');
             }
     

@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Response;
 class FormularioController extends Controller
 {
     public function store(Request $request) {
-        // dd($request);
-
         $formFields = $request->validate([
             'aluno_nome' => ['required', 'min:3', 'max:120'],
             'aluno_matricula' => 'required|numeric',
