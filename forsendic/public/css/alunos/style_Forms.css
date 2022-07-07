@@ -45,6 +45,7 @@ body{
 }
 
 #caixa{
+    overflow: scroll;
     width: 60%;
     height: 90%;
    position: relative;
@@ -57,9 +58,16 @@ body{
    border: 1px solid #00000073;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
    border-radius: 15px;
-   overflow: auto;
 }
-
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 25%;
+    width: 95%;
+}
 .botoes{
     position: relative;
     bottom: 20%;
@@ -144,7 +152,9 @@ body{
         bottom: 1em;
         font-size: 80%;
     }
-
+    .content{
+        top: 5%;
+    }
     #caixa{
         position: relative;
         display: flex;
@@ -184,13 +194,13 @@ body{
     min-height: 200px;
     text-align: center;
     width: 100%;
-    
+
     display: flex;
     justify-content: center;
     flex-direction: column;
     color: #355592;
     position: relative;
-    
+
     -webkit-transition: .3s all;
     -moz-transition: .3s all;
     -o-transition: .3s all;
@@ -217,7 +227,7 @@ body{
 }
 
 .area-upload .lista-uploads{
-	
+
 }
 
 .area-upload .lista-uploads .barra{
@@ -234,7 +244,7 @@ body{
 	left: 0;
 	bottom: 0;
 	min-width: 0;
-	
+
 	-webkit-transition: .2s all;
 	-moz-transition: .2s all;
 	-o-transition: .2s all;
@@ -260,7 +270,7 @@ body{
 	font-weight: bold;
 }
 
-.area-upload .lista-uploads .barra.error .fill{	
+.area-upload .lista-uploads .barra.error .fill{
 	background-color: #c02929;
 	color: white;
 	min-width: 100%;

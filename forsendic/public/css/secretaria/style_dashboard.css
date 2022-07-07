@@ -3,7 +3,8 @@
 /*CONFIGURAÇÕES GLOBAIS*/
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%);
+    /* background: linear-gradient(164.92deg, #31508B 31.08%, rgba(72, 88, 210, 0.69) 119.53%); */
+    background: white url(/images/FundoFolha.png) no-repeat;
     background-attachment: fixed;
     min-height: 100%;
     margin: 0;
@@ -21,8 +22,8 @@ body {
 }
 
 .botao-acessar:hover{
-    color: #fff;  
-    background: #dd2518bd;  
+    color: #fff;
+    background: #dd2518bd;
   }
 
 /*START HEADER*/
@@ -35,8 +36,8 @@ body {
     margin-bottom: 4rem;
 }
 
-#dash-header h2{ 
-    color: white;
+#dash-header h2{
+    color: black;
     font-size: 3rem;
 }
 
@@ -46,7 +47,7 @@ body {
 footer {
     margin-top: 2rem;
     text-align: center;
-    color: white;
+    color: black;
 }
 /*END FOOTER*/
 
@@ -107,18 +108,18 @@ footer {
 /* TABELA IPSA START */
 .outer {
     text-align: center;
-    display: table; 
-    table-layout: fixed; 
+    display: table;
+    table-layout: fixed;
     width: 100%;
 }
 
 .outer div {
-    display: table-cell; 
+    display: table-cell;
     padding: 5px;
 }
 
 .outer :first-child, .outer :last-child {
-    width: 10rem; 
+    width: 10rem;
     background: #f7f7f7;
 }
 
@@ -154,6 +155,12 @@ main  {
 .content {
     background-color: white;
     padding: 1rem;
+    width: 95%;
+    margin: auto;
+
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    -webkit-box-shadow: -1px -1px 10px -5px #000000;
+box-shadow: -1px -1px 10px -5px #000000;
 }
 
 .form-wrapper {
@@ -177,20 +184,35 @@ main  {
     width: 100%;
 }
 
-.grid-wrapper {
+.centralizar{
     width: 100%;
+    height: 100%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-wrapper {
+    /* width: 100%; */
+    width: 95%;
+    height: 50vh;
+    overflow: auto;
+    margin: auto;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 1rem;
     /* grid-template-rows: auto; */
     background-color: white;
+    -webkit-box-shadow: -1px 4px 10px -5px #000000;
+    box-shadow: -1px 4px 10px -5px #000000;
     padding: 0.5rem;
-    
+
 }
 
 .grid-cell {
-    border: solid 2px; 
+    border: solid 2px;
     border-color: rgb(243 244 246);
     border-radius: 5px;
     background-color: rgb(249, 250, 251);
@@ -248,7 +270,7 @@ li {
 }
 
 #botao-drop {
-    float: inline-end;    
+    float: inline-end;
     background-color: #31508B;
     font-size: 1rem;
     color: white;
@@ -309,7 +331,7 @@ button.icon-link {
 .hidden-form {
     background-color: white;
     text-align: justify;
-    border: solid 2px; 
+    border: solid 2px;
     border-color: rgb(243 244 246);
     border-radius: 5px;
     padding: 1rem;

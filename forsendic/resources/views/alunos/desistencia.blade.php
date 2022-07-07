@@ -17,66 +17,69 @@
         <form method="post" enctype="multipart/form-data" action="{{route('aluno.postar')}}">
             <div id="container">
                 <div id="caixa">
-                    <h6 id="titulo">Desistência de Vínculo Total de Curso</h6>
+                    <div class="content">
 
-                    <p id="subtitulo">Preencha todos os campos do formulário</p>
-                    <div class="form">
-                        @csrf
-                        <label class="labelCampos">Nome:</label><br>
-                        <input class="campoF" type="text" name="aluno_nome" placeholder="Nome Completo" value="{{old('aluno_nome')}}"><br>
+                        <h6 id="titulo">Desistência de Vínculo Total de Curso</h6>
 
-                        @error('aluno_nome')
-                            {{$message}}
-                        @enderror
+                        <p id="subtitulo">Preencha todos os campos do formulário</p>
+                        <div class="form">
+                            @csrf
+                            <label class="labelCampos">Nome:</label><br>
+                            <input class="campoF" type="text" name="aluno_nome" placeholder="Nome Completo" value="{{old('aluno_nome')}}"><br>
 
-                        <label class="labelCampos">Matrícula:</label><br>
-                        <input class="campoF" type="number" name="aluno_matricula" placeholder="Número da Matrícula" value="{{old('aluno_matricula')}}"><br>
+                            @error('aluno_nome')
+                                {{$message}}
+                            @enderror
 
-                        @error('aluno_matricula')
-                            {{$message}}
-                        @enderror
-                        <input type="hidden" name="aluno_email" value="{{Auth::user()->email}}">
+                            <label class="labelCampos">Matrícula:</label><br>
+                            <input class="campoF" type="number" name="aluno_matricula" placeholder="Número da Matrícula" value="{{old('aluno_matricula')}}"><br>
 
-                        @error('aluno_email')
-                            {{$message}}
-                        @enderror
-                        <input type="hidden" name="demanda" value="desistencia">
+                            @error('aluno_matricula')
+                                {{$message}}
+                            @enderror
+                            <input type="hidden" name="aluno_email" value="{{Auth::user()->email}}">
 
-                        @error('demanda')
-                            {{$message}}
-                        @enderror
-                        {{-- <label class="labelCampos">Email:</label><br>
-                        <input class="campoF" type="email" name="email" placeholder="Email Institucional"><br><br> --}}
-                        <p style="margin-top: 2%;">Você vai precisar de: </p>
-                        <ul >
-                            <li>Formulário disponível no site da UFAL</li>
-                            <li>Cópia do RG</li>
-                            <li>Declaração de Quitação</li>
-                        </ul>
-                        <label class="labelCampos">Anexar (somente em pdf) :</label><br>
+                            @error('aluno_email')
+                                {{$message}}
+                            @enderror
+                            <input type="hidden" name="demanda" value="desistencia">
 
-                        {{-- <label class="labelFile" for="arquivo1" id="arq1"> ⇩ Cópia do RG ou CNH</label> --}}
+                            @error('demanda')
+                                {{$message}}
+                            @enderror
+                            {{-- <label class="labelCampos">Email:</label><br>
+                            <input class="campoF" type="email" name="email" placeholder="Email Institucional"><br><br> --}}
+                            <p style="margin-top: 2%;">Você vai precisar de: </p>
+                            <ul >
+                                <li>Formulário disponível no site da UFAL</li>
+                                <li>Cópia do RG</li>
+                                <li>Declaração de Quitação</li>
+                            </ul>
+                            <label class="labelCampos">Anexar (somente em pdf) :</label><br>
 
-						<!-- ÁREA DO "CLIQUE OU ARRASTE AQUI -->
-							<div class="area-upload">
-								<label for="arquivo1" class="label-upload">
-									<i class="fas fa-cloud-upload-alt"></i>
-							<div class="texto">Clique ou arraste o arquivo</div>
-							</label>
-								<input type="file" name="file" id="arquivo1" multiple/>
-						
-								<div class="lista-uploads">
-								</div>
-							</div>
-						<!-- FIM DA ÁREA DO "CLIQUE OU ARRASTE AQUI -->
-                        @error('file')
-                            {{$message}}
-                        @enderror
-                        {{-- <label class="labelFile" for="arquivo2" id="arq2"> ⇩ Desistência de Vínculo</label>
-                        <input type="file" name="arquivo2" id="arquivo2"><br>
+                            {{-- <label class="labelFile" for="arquivo1" id="arq1"> ⇩ Cópia do RG ou CNH</label> --}}
 
-                        <label class="labelFile" for="arquivo3" id="arq3"> ⇩ Declaração de Quitação</label>
-                        <input type="file" name="arquivo3" id="arquivo3"><br> --}}
+                            <!-- ÁREA DO "CLIQUE OU ARRASTE AQUI -->
+                                <div class="area-upload">
+                                    <label for="arquivo1" class="label-upload">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                <div class="texto">Clique ou arraste o arquivo</div>
+                                </label>
+                                    <input type="file" name="file" id="arquivo1" multiple/>
+
+                                    <div class="lista-uploads">
+                                    </div>
+                                </div>
+                            <!-- FIM DA ÁREA DO "CLIQUE OU ARRASTE AQUI -->
+                            @error('file')
+                                {{$message}}
+                            @enderror
+                            {{-- <label class="labelFile" for="arquivo2" id="arq2"> ⇩ Desistência de Vínculo</label>
+                            <input type="file" name="arquivo2" id="arquivo2"><br>
+
+                            <label class="labelFile" for="arquivo3" id="arq3"> ⇩ Declaração de Quitação</label>
+                            <input type="file" name="arquivo3" id="arquivo3"><br> --}}
+                        </div>
                     </div>
                 </div>
 				<script>
@@ -95,18 +98,18 @@
 						var files = this.files;
 						for(var i = 0; i < files.length; i++){
 							var info = validarArquivo(files[i]);
-							
+
 							//Criar barra
 							var barra = document.createElement("div");
 							var fill = document.createElement("div");
 							var text = document.createElement("div");
 							barra.appendChild(fill);
 							barra.appendChild(text);
-							
+
 							barra.classList.add("barra");
 							fill.classList.add("fill");
 							text.classList.add("text");
-							
+
 							if(info.error == undefined){
 								text.innerHTML = info.success;
 								enviarArquivo(i, barra); //Enviar
@@ -114,7 +117,7 @@
 								text.innerHTML = info.error;
 								barra.classList.add("error");
 							}
-							
+
 							//Adicionar barra
 							document.querySelector('.lista-uploads').appendChild(barra);
 						};
@@ -124,7 +127,7 @@
 					console.log(file);
 					// Tipos permitidos
 					var mime_types = [ 'application/pdf'];
-					
+
 					// Validar os tipos
 					if(mime_types.indexOf(file.type) == -1) {
 						return {"error" : "O arquivo " + file.name + " não permitido"};
@@ -142,10 +145,10 @@
 					function enviarArquivo(indice, barra){
 					var data = new FormData();
 					var request = new XMLHttpRequest();
-					
+
 					//Adicionar arquivo
 					data.append('file', document.querySelector('#arquivo1').files[indice]);
-					
+
 					// AJAX request finished
 					request.addEventListener('load', function(e) {
 						// Resposta
@@ -157,19 +160,19 @@
 							barra.classList.add("error");
 						}
 					});
-					
+
 					// Calcular e mostrar o progresso
 					request.upload.addEventListener('progress', function(e) {
 						var percent_complete = (e.loaded / e.total)*100;
-						
-						barra.querySelector(".fill").style.minWidth = percent_complete + "%"; 
+
+						barra.querySelector(".fill").style.minWidth = percent_complete + "%";
 					});
 
 					//Resposta em JSON
 					request.responseType = 'json';
-					
+
 					// Caminho
-					request.open('post', 'upload.php'); 
+					request.open('post', 'upload.php');
 					request.send(data);
 				}
 

@@ -5,14 +5,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <x-imports></x-imports>    
+    <x-imports></x-imports>
     <link href="{{asset('css/secretaria/style_dashboard.css')}}" rel="stylesheet" />
   </head>
   <body>
     <!-- start navbar -->
     <x-sidebar :secretario="$secretario" :return="false" />
     <!-- end navbar -->
-    
+    <div class="centraliz">
+
+    </div>
     <main>
       <header id="dash-header">
         <h2 class="branco">Situação de formulários</h2>
@@ -20,7 +22,7 @@
       <!-- table -->
     <div class="content">
       <x-flash-message />
-        
+
       <!-- SEARCH BAR  -->
         <form action="">
           <div class="form-wrapper">
@@ -32,7 +34,7 @@
             </div>
         </form>
       <!-- END SEARCH BAR -->
-          
+
       <!-- FILTROS -->
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,20 +71,20 @@
             <x-card-form :form="$form" :secretario="$secretario" />
           @endforeach
         </div>
-          @else 
+          @else
           <div class="no-forms">
             <p><strong>Não recebemos nenhum formulário. Continue o bom trabalho!</strong></p>
           </div>
     @endunless
-          
+
       <!--rodape-->
       <footer>
-        <img class="ufal navbar-brand" src="{{asset('/images/ufal.png')}}" width="80" height="80">    
+        <img class="ufal navbar-brand" src="{{asset('/images/ufal.png')}}" width="80" height="80">
         <strong>Todos os direitos reservados</strong>
       </footer>
     </main>
     <!-- end table -->
-    
+
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
