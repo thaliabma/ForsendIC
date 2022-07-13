@@ -60,22 +60,22 @@
             </ul>
           </div>
         </div>
-      </div>
-
-    </div>
-
-    <!-- END FILTROS -->
-    @unless (count($forms) === 0)
+        @unless (count($forms) === 0)
         <div class="grid-wrapper">
-          @foreach ($forms as $form)
-            <x-card-form :form="$form" :secretario="$secretario" />
-          @endforeach
-        </div>
-          @else
-          <div class="no-forms">
-            <p><strong>Não recebemos nenhum formulário. Continue o bom trabalho!</strong></p>
-          </div>
-    @endunless
+              @foreach ($forms as $form)
+                <x-card-form :form="$form" :secretario="$secretario" />
+              @endforeach
+            </div>
+              @else
+              <div class="no-forms">
+                <p><strong>Não recebemos nenhum formulário. Continue o bom trabalho!</strong></p>
+              </div>
+        @endunless
+      </div>  
+    </div>
+    <!-- END FILTROS -->
+
+      
 
       <!--rodape-->
       <footer>
