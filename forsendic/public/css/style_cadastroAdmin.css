@@ -97,7 +97,8 @@ a:hover{
 }
 
 .formAdmin{
-    width: 80%;
+    width: 30%;
+    margin-left: 48%;
     display: flex;
     position: relative;
     bottom: 2.5rem;

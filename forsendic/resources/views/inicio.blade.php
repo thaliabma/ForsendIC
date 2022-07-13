@@ -10,7 +10,7 @@
 
     <x-imports></x-imports>
     <link href="{{asset('css/style_inicio.css')}}" rel="stylesheet" />
-    <title>Inicio</title>
+    <title>Início</title>
   </head>
   <body>
     <x-flash-message />
@@ -57,7 +57,7 @@
             >Acessar</a
           >
           <img
-            
+
             src="{{asset('images/Admin.png')}}"
             alt="desenho de um predio"
             class="imgAcesso"
