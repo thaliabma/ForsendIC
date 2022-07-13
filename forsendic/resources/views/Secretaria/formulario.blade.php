@@ -21,6 +21,7 @@
                 <li><h1>{{$formulario->aluno_nome}}</h1></li>
                 <li><strong>Matrícula</strong>: {{$formulario->aluno_matricula}}</li>
                 <li><strong>Email</strong>: {{$formulario->aluno_email}}</li>
+                <li><strong>Data de envio</strong>: {{date('d/m/Y, h:i:s A', strtotime($formulario->created_at))}}</li>
                 <li><strong>Demanda</strong>: <x-demanda-wrapper :demanda="$formulario->demanda" /></li>
                 <li><strong>Status</strong>: <x-status-wrapper :status="$formulario->status" /></li>
                 @if (is_null($formulario->editado_por))

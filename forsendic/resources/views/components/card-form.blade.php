@@ -9,7 +9,7 @@
         <h6><strong>Matrícula</strong>: {{$form->aluno_matricula}}</h6>
       </li>
       <li>
-        <strong>Data de envio</strong>: {{date('d-m-Y', strtotime($form->created_at))}}
+        <strong>Data de envio</strong>: {{date('d/m/Y', strtotime($form->created_at))}}
       </li>
       <li>
         <strong>Demanda</strong>: <x-demanda-wrapper :demanda="$form->demanda" />
